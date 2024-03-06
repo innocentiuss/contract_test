@@ -1,0 +1,13 @@
+syntax = "proto3";
+
+message Certificate {
+  string version = 1;
+  int32 serial_number = 2;
+  string signature_algo = 3;
+  string issuer = 4;
+  int32 valid_not_after = 5;
+  string holder = 6;
+  string holder_algo = 7;
+  int32 block_height = 8;
+  int32 block_pre_height = 9;
+}
