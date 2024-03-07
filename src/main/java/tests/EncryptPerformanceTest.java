@@ -1,6 +1,8 @@
-package encryptor;
+package tests;
 
 
+import utils.EncryptService;
+import utils.EncryptUtils;
 import lombok.extern.slf4j.Slf4j;
 import org.bouncycastle.jce.provider.BouncyCastleProvider;
 

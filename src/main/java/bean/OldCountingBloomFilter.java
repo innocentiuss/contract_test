@@ -2,7 +2,8 @@ package bean;
 
 import java.util.BitSet;
 
-public class CountingBloomFilter<T> {
+@Deprecated
+public class OldCountingBloomFilter<T> {
 
     private final int size;
     private final int[] counts;
@@ -11,7 +12,7 @@ public class CountingBloomFilter<T> {
     private final BitSet bits;
     private final int numHashFunctions;
 
-    public CountingBloomFilter(int size, int numHashFunctions) {
+    public OldCountingBloomFilter(int size, int numHashFunctions) {
 //        设置布隆过滤器的大小
         this.size = size;
 //        哈希函数的个数

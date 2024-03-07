@@ -1,9 +1,10 @@
-package structure;
+package tests;
 
 import lombok.extern.slf4j.Slf4j;
+import structure.CountingBloomFilter;
 
 @Slf4j
-public class Test {
+public class BloomTest {
     public static void main(String[] args) {
         CountingBloomFilter bloomFilter = new CountingBloomFilter(10000, 10);
         bloomFilter.add("1");

@@ -1,4 +1,4 @@
-package encryptor;
+package utils;
 
 import org.bouncycastle.jce.provider.BouncyCastleProvider;
 
