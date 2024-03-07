@@ -1,16 +1,35 @@
 package bean;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
+import utils.RandomUtils;
 
 @Data
+@NoArgsConstructor
+@AllArgsConstructor
 public class Certificate {
     private String version;
     private int serialNumber;
     private String signatureAlgo;
     private String issuer;
-    private Integer validNotAfter;
+    private int validNotAfter;
     private String holder;
     private String holderAlgo;
-    private Integer blockHeight;
-    private Integer blockPreHeight;
+    private int blockHeight;
+    private int blockPreHeight;
+
+    public static Certificate getRandomCertificate() {
+        return new Certificate(
+                "Version" + RandomUtils.generateRandomString(5),
+                RandomUtils.randomInt(),
+                "Algorithm" + RandomUtils.generateRandomString(5),
+                "Issuer" + RandomUtils.generateRandomString(10),
+                RandomUtils.randomInt(),
+                "Holder" + RandomUtils.generateRandomString(5),
+                "HolderAlgo" + RandomUtils.generateRandomString(5),
+                RandomUtils.randomInt(10000),
+                RandomUtils.randomInt(10000)
+        );
+    }
 }
