@@ -20,8 +20,9 @@ public class Certificate {
     private String holderAlgo;
     private int blockHeight;
     private int blockPreHeight;
+    private String publicKey;
 
-    public static Certificate getRandomCertificate() {
+    public static Certificate getRandomCertificate(String publicKey) {
         return new Certificate(
                 "Version" + RandomUtils.generateRandomString(5),
                 RandomUtils.randomInt(),
@@ -31,7 +32,8 @@ public class Certificate {
                 "Holder" + RandomUtils.generateRandomString(5),
                 "HolderAlgo" + RandomUtils.generateRandomString(5),
                 RandomUtils.randomInt(10000),
-                RandomUtils.randomInt(10000)
+                RandomUtils.randomInt(10000),
+                publicKey
         );
     }
 }
