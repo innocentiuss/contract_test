@@ -6,7 +6,7 @@ import structure.CountingBloomFilter;
 @Slf4j
 public class BloomTest {
     public static void main(String[] args) {
-        CountingBloomFilter bloomFilter = new CountingBloomFilter(10000, 10);
+        CountingBloomFilter<String> bloomFilter = new CountingBloomFilter<>(10000, 10);
         bloomFilter.add("1");
         System.out.println(bloomFilter.contains("1"));
         bloomFilter.add("2");
