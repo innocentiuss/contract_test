@@ -1,6 +1,6 @@
 syntax = "proto3";
 
-message Certificate {
+message ProtoCertificate {
   string version = 1;
   int32 serial_number = 2;
   string signature_algo = 3;

@@ -1,0 +1,11 @@
+table FlatCertificate {
+    version: string;
+    serial_number: int;
+    signature_algo: string;
+    issuer: string;
+    valid_not_after: int;
+    holder: string;
+    holder_algo: string;
+    block_height: int;
+    block_pre_height: int;
+}
