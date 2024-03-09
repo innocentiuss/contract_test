@@ -44,7 +44,7 @@ public class EncryptPerformanceTest {
                 encryptService.generateRSAKeyPair();
             }
             end = System.currentTimeMillis();
-            log.info("generating {} rsa pair from static method at {} milliseconds", generatingCountTarget, end - start);
+            log.info("generating {} rsa pair from service method at {} milliseconds", generatingCountTarget, end - start);
 
             // static invoke
             start = System.currentTimeMillis();
@@ -60,7 +60,7 @@ public class EncryptPerformanceTest {
                 encryptService.generateECDSAPair();
             }
             end = System.currentTimeMillis();
-            log.info("generating {} ecdsa pair from static method at {} milliseconds", generatingCountTarget, end - start);
+            log.info("generating {} ecdsa pair from service method at {} milliseconds", generatingCountTarget, end - start);
 
             // static invoke
             start = System.currentTimeMillis();
