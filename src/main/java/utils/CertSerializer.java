@@ -12,25 +12,25 @@ import java.util.Date;
 public class CertSerializer {
     public static byte[] serializeFlatCert(Certificate certificate) {
         FlatBufferBuilder builder = new FlatBufferBuilder();
-        int version = builder.createString(certificate.getVersion());
-        int signatureAlgo = builder.createString(certificate.getSignatureAlgo());
-        int signatureValue = builder.createString(certificate.getSignatureValue());
-        int issuer = builder.createString(certificate.getIssuer());
-        int holder = builder.createString(certificate.getHolder());
-        int publicKey = builder.createString(certificate.getPublicKey());
-        int url = builder.createString(certificate.getContractUrl());
+        int version = builder.createString(certificate.getCertificateVersion());
+        int signatureAlgo = builder.createString(certificate.getCertificateSignatureAlgorithm());
+        int signatureValue = builder.createString(certificate.getThisCertificateSignatureValueFromSHA256_MURMUR32());
+        int issuer = builder.createString(certificate.getCertificateIssuerName());
+        int holder = builder.createString(certificate.getThisCertificateHolderName());
+        int publicKey = builder.createString(certificate.getPublicKeyForThisCertificate());
+        int url = builder.createString(certificate.getSmartContractUrl());
         int cert = FlatCertificate.createFlatCertificate(
                 builder,
                 version,
-                certificate.getSerialNumber(),
+                certificate.getCertificateSerialNumber(),
                 signatureAlgo,
                 signatureValue,
                 issuer,
-                certificate.getValidNotAfter().getTime(),
+                certificate.getThisCertificateWillBeInvalidAfterTimestamps().getTime(),
                 holder,
                 publicKey,
-                certificate.getHistoryHeight(),
-                certificate.getOpType(),
+                certificate.getLastTimeOperationFromBlockChainAndGetThisChainHistoryHeight(),
+                certificate.getCertificateOperationType(),
                 url
         );
         builder.finish(cert);
@@ -62,17 +62,17 @@ public class CertSerializer {
 
     public static byte[] serializeProtoCert(Certificate certificate) {
         OpCertificate.ProtoCertificate protoCertificate = OpCertificate.ProtoCertificate.newBuilder()
-                .setVersion(certificate.getVersion())
-                .setSerialNumber(certificate.getSerialNumber())
-                .setSignatureAlgo(certificate.getSignatureAlgo())
-                .setSignatureValue(certificate.getSignatureValue())
-                .setIssuer(certificate.getIssuer())
-                .setValidNotAfter(certificate.getValidNotAfter().getTime())
-                .setHolder(certificate.getHolder())
-                .setPublicKey(certificate.getPublicKey())
-                .setHistoryHeight(certificate.getHistoryHeight())
-                .setBlockPreHeight(certificate.getOpType())
-                .setContractUrl(certificate.getContractUrl())
+                .setVersion(certificate.getCertificateVersion())
+                .setSerialNumber(certificate.getCertificateSerialNumber())
+                .setSignatureAlgo(certificate.getCertificateSignatureAlgorithm())
+                .setSignatureValue(certificate.getThisCertificateSignatureValueFromSHA256_MURMUR32())
+                .setIssuer(certificate.getCertificateIssuerName())
+                .setValidNotAfter(certificate.getThisCertificateWillBeInvalidAfterTimestamps().getTime())
+                .setHolder(certificate.getThisCertificateHolderName())
+                .setPublicKey(certificate.getPublicKeyForThisCertificate())
+                .setHistoryHeight(certificate.getLastTimeOperationFromBlockChainAndGetThisChainHistoryHeight())
+                .setBlockPreHeight(certificate.getCertificateOperationType())
+                .setContractUrl(certificate.getSmartContractUrl())
                 .build();
         return protoCertificate.toByteArray();
     }

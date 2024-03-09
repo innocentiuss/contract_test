@@ -39,8 +39,8 @@ public abstract class CertificateValidator {
                 return null;
             }
             Integer oldHeight = certHeight.get(oldHash);
-            certificate.setHistoryHeight(oldHeight);
-            certificate.setOpType(CertificateOpType.REVOKE.getCode());
+            certificate.setLastTimeOperationFromBlockChainAndGetThisChainHistoryHeight(oldHeight);
+            certificate.setCertificateOperationType(CertificateOpType.REVOKE.getCode());
 
             String newHash = hashingCertificate(certificate);
             invalidBloom.add(newHash);

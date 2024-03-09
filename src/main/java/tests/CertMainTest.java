@@ -2,7 +2,6 @@ package tests;
 
 
 import bean.Certificate;
-import bean.CertificateFormatType;
 import lombok.extern.slf4j.Slf4j;
 import structure.CertificateValidator;
 import structure.FlatCertificateValidator;
@@ -29,52 +28,24 @@ public class CertMainTest {
         long end;
 
         for (Integer sum : CERT_SUM) {
-            List<Certificate> plainCertList = new ArrayList<>(sum);
-            List<Certificate> protoCertList = new ArrayList<>(sum);
-            List<Certificate> flatCertList = new ArrayList<>(sum);
-            List<Certificate> invalidPlainCertList = new ArrayList<>(sum / 2);
-            List<Certificate> invalidProtoCertList = new ArrayList<>(sum / 2);
-            List<Certificate> invalidFlatCertList = new ArrayList<>(sum / 2);
-
-            for (int i = 0; i < sum; i++) {
-                plainCertList.add(Certificate.getRandomCertificate(CertificateFormatType.ORIGIN));
-                protoCertList.add(Certificate.getRandomCertificate(CertificateFormatType.PROTOCOL_BUFFERS));
-                flatCertList.add(Certificate.getRandomCertificate(CertificateFormatType.FLAT_BUFFERS));
-            }
-            for (int i = 0; i < sum / 2; i++) {
-                invalidPlainCertList.add(Certificate.getRandomCertificate(CertificateFormatType.ORIGIN));
-                invalidProtoCertList.add(Certificate.getRandomCertificate(CertificateFormatType.PROTOCOL_BUFFERS));
-                invalidFlatCertList.add(Certificate.getRandomCertificate(CertificateFormatType.FLAT_BUFFERS));
-            }
-
             for (CertificateValidator validator : validators) {
-                List<Certificate> certificateList;
-                List<Certificate> invalidCertList;
-                if (validator.getType() == CertificateFormatType.FLAT_BUFFERS) {
-                    certificateList = flatCertList;
-                    invalidCertList = invalidFlatCertList;
-                }
-                else if (validator.getType() == CertificateFormatType.ORIGIN) {
-                    certificateList = plainCertList;
-                    invalidCertList = invalidPlainCertList;
-                }
-                else if (validator.getType() == CertificateFormatType.PROTOCOL_BUFFERS) {
-                    certificateList = protoCertList;
-                    invalidCertList = invalidProtoCertList;
-                }
-                else {
-                    return;
+
+                List<Certificate> validList = new ArrayList<>(sum);
+                List<Certificate> compareList = new ArrayList<>(sum / 2);
+                for (int i = 0; i < sum / 2; i++) {
+                    compareList.add(Certificate.getRandomCertificate(validator.getType()));
                 }
 
                 // ========================================================
                 // 证书添加start
                 start = System.currentTimeMillis();
-                for (Certificate cert : certificateList) {
+                for (int i = 0; i < sum; i++) {
+                    Certificate cert = Certificate.getRandomCertificate(validator.getType());
                     validator.addCertificate(cert);
+                    validList.add(cert);
                 }
                 end = System.currentTimeMillis();
-                log.info("{} 个 {} cert add time cost {} ms", sum, validator.getType().getDesc(), end - start);
-                System.gc();
+                log.info("{} 个 {} 证书添加耗时 {} ms", sum, validator.getType().getDesc(), end - start);
                 // 证书添加end
                 // =========================================================
 
@@ -82,33 +53,34 @@ public class CertMainTest {
                 // 证书验证start
                 start = System.currentTimeMillis();
                 // 一半的有效
-                for (int i = 0; i < certificateList.size() / 2; i++) {
-                    validator.verifyCertificate(certificateList.get(i));
+                for (int i = 0; i < validList.size() / 2; i++) {
+                    validator.verifyCertificate(validList.get(i));
                 }
                 // 一半的无效
-                for (Certificate invalid : invalidCertList) {
+                for (Certificate invalid : compareList) {
                     validator.verifyCertificate(invalid);
                 }
                 end = System.currentTimeMillis();
-                log.info("{} 个 {} cert validate time cost {} ms", sum, validator.getType().getDesc(), end - start);
+                log.info("{} 个 {} 证书验证耗时 {} ms", sum, validator.getType().getDesc(), end - start);
                 // 证书验证end
                 // ======================================================
 
                 // ======================================================
                 // 证书撤销start
                 start = System.currentTimeMillis();
-                for (int i = 0; i < certificateList.size() / 2; i++) {
-                    validator.revokeCertificate(certificateList.get(i));
+                for (int i = 0; i < validList.size() / 2; i++) {
+                    validator.revokeCertificate(validList.get(i));
                 }
                 // 一半的无效
-                for (Certificate invalid : invalidCertList) {
+                for (Certificate invalid : compareList) {
                     validator.revokeCertificate(invalid);
                 }
                 end = System.currentTimeMillis();
-                log.info("{} 个 {} cert revoke time cost {} ms", sum, validator.getType().getDesc(), end - start);
+                log.info("{} 个 {} 证书撤销耗时 {} ms", sum, validator.getType().getDesc(), end - start);
                 // 证书撤销end
                 // ========================================================
                 validator.clearBloom();
+                log.info("==================分割线==================");
             }
         }
     }
