@@ -2,10 +2,12 @@ table FlatCertificate {
     version: string;
     serial_number: int;
     signature_algo: string;
+    signature_value: string;
     issuer: string;
-    valid_not_after: int;
+    valid_not_after: int64;
     holder: string;
-    holder_algo: string;
-    block_height: int;
-    block_pre_height: int;
+    public_key: string;
+    history_height: int;
+    op_type: int;
+    contract_url: string;
 }

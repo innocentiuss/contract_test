@@ -1,8 +1,11 @@
 package utils;
 
+import bean.Certificate;
 import org.bouncycastle.jce.provider.BouncyCastleProvider;
+import org.bouncycastle.util.encoders.Base64;
 
 import java.security.*;
+import java.security.spec.ECGenParameterSpec;
 
 public class EncryptUtils {
 
@@ -10,6 +13,8 @@ public class EncryptUtils {
     private static final KeyPairGenerator RSA_GENERATOR;
     private static final KeyPairGenerator ECC_GENERATOR;
     private static final KeyPairGenerator ECDSA_GENERATOR;
+
+    private static final KeyPair CA_KEYPAIR;
 
     static {
         Security.addProvider(new BouncyCastleProvider());
@@ -20,6 +25,7 @@ public class EncryptUtils {
             ECC_GENERATOR.initialize(256);
             ECDSA_GENERATOR = KeyPairGenerator.getInstance("ECDSA", "BC");
             ECDSA_GENERATOR.initialize(256);
+            CA_KEYPAIR = ECDSA_GENERATOR.generateKeyPair();
         } catch (NoSuchAlgorithmException | NoSuchProviderException e) {
             throw new RuntimeException(e);
         }
@@ -35,6 +41,14 @@ public class EncryptUtils {
 
     public static KeyPair generateECDSAPair() {
         return ECDSA_GENERATOR.generateKeyPair();
+    }
+
+    public static String signCertificate(byte[] certBytes) throws NoSuchAlgorithmException, NoSuchProviderException, InvalidKeyException, SignatureException {
+        Signature signature = Signature.getInstance("SHA256withECDSA", "BC");
+        signature.initSign(CA_KEYPAIR.getPrivate());
+        signature.update(certBytes);
+        byte[] signedBytes = signature.sign();
+        return Base64.toBase64String(signedBytes);
     }
 
     public static void main(String[] args) {

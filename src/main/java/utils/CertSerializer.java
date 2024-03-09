@@ -7,26 +7,31 @@ import com.google.flatbuffers.FlatBufferBuilder;
 import com.google.protobuf.InvalidProtocolBufferException;
 
 import java.nio.ByteBuffer;
+import java.util.Date;
 
 public class CertSerializer {
     public static byte[] serializeFlatCert(Certificate certificate) {
         FlatBufferBuilder builder = new FlatBufferBuilder();
         int version = builder.createString(certificate.getVersion());
         int signatureAlgo = builder.createString(certificate.getSignatureAlgo());
+        int signatureValue = builder.createString(certificate.getSignatureValue());
         int issuer = builder.createString(certificate.getIssuer());
         int holder = builder.createString(certificate.getHolder());
-        int holderAlgo = builder.createString(certificate.getHolderAlgo());
+        int publicKey = builder.createString(certificate.getPublicKey());
+        int url = builder.createString(certificate.getContractUrl());
         int cert = FlatCertificate.createFlatCertificate(
                 builder,
                 version,
                 certificate.getSerialNumber(),
                 signatureAlgo,
+                signatureValue,
                 issuer,
-                certificate.getValidNotAfter(),
+                certificate.getValidNotAfter().getTime(),
                 holder,
-                holderAlgo,
-                certificate.getBlockHeight(),
-                certificate.getBlockPreHeight()
+                publicKey,
+                certificate.getHistoryHeight(),
+                certificate.getOpType(),
+                url
         );
         builder.finish(cert);
         return builder.sizedByteArray();
@@ -44,12 +49,14 @@ public class CertSerializer {
                 flatCertificate.version(),
                 flatCertificate.serialNumber(),
                 flatCertificate.signatureAlgo(),
+                flatCertificate.signatureValue(),
                 flatCertificate.issuer(),
-                flatCertificate.validNotAfter(),
+                new Date(flatCertificate.validNotAfter()),
                 flatCertificate.holder(),
-                flatCertificate.holderAlgo(),
-                flatCertificate.blockHeight(),
-                flatCertificate.blockPreHeight()
+                flatCertificate.publicKey(),
+                flatCertificate.historyHeight(),
+                (byte) flatCertificate.opType(),
+                flatCertificate.contractUrl()
         );
     }
 
@@ -58,12 +65,14 @@ public class CertSerializer {
                 .setVersion(certificate.getVersion())
                 .setSerialNumber(certificate.getSerialNumber())
                 .setSignatureAlgo(certificate.getSignatureAlgo())
+                .setSignatureValue(certificate.getSignatureValue())
                 .setIssuer(certificate.getIssuer())
-                .setValidNotAfter(certificate.getValidNotAfter())
+                .setValidNotAfter(certificate.getValidNotAfter().getTime())
                 .setHolder(certificate.getHolder())
-                .setHolderAlgo(certificate.getHolderAlgo())
-                .setBlockHeight(certificate.getBlockHeight())
-                .setBlockPreHeight(certificate.getBlockPreHeight())
+                .setPublicKey(certificate.getPublicKey())
+                .setHistoryHeight(certificate.getHistoryHeight())
+                .setBlockPreHeight(certificate.getOpType())
+                .setContractUrl(certificate.getContractUrl())
                 .build();
         return protoCertificate.toByteArray();
     }
@@ -78,12 +87,14 @@ public class CertSerializer {
                 protoCertificate.getVersion(),
                 protoCertificate.getSerialNumber(),
                 protoCertificate.getSignatureAlgo(),
+                protoCertificate.getSignatureValue(),
                 protoCertificate.getIssuer(),
-                protoCertificate.getValidNotAfter(),
+                new Date(protoCertificate.getValidNotAfter()),
                 protoCertificate.getHolder(),
-                protoCertificate.getHolderAlgo(),
-                protoCertificate.getBlockHeight(),
-                protoCertificate.getBlockPreHeight()
+                protoCertificate.getPublicKey(),
+                protoCertificate.getHistoryHeight(),
+                (byte) protoCertificate.getBlockPreHeight(),
+                protoCertificate.getContractUrl()
         );
     }
 }

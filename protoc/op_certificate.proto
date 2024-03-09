@@ -4,10 +4,12 @@ message ProtoCertificate {
   string version = 1;
   int32 serial_number = 2;
   string signature_algo = 3;
-  string issuer = 4;
-  int32 valid_not_after = 5;
-  string holder = 6;
-  string holder_algo = 7;
-  int32 block_height = 8;
-  int32 block_pre_height = 9;
+  string signature_value = 4;
+  string issuer = 5;
+  int64 valid_not_after = 6;
+  string holder = 7;
+  string public_key = 8;
+  int32 history_height = 9;
+  int32 block_pre_height = 10; // op_type
+  string contract_url = 11;
 }

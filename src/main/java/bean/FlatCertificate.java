@@ -32,52 +32,64 @@ public final class FlatCertificate extends Table {
   public String signatureAlgo() { int o = __offset(8); return o != 0 ? __string(o + bb_pos) : null; }
   public ByteBuffer signatureAlgoAsByteBuffer() { return __vector_as_bytebuffer(8, 1); }
   public ByteBuffer signatureAlgoInByteBuffer(ByteBuffer _bb) { return __vector_in_bytebuffer(_bb, 8, 1); }
-  public String issuer() { int o = __offset(10); return o != 0 ? __string(o + bb_pos) : null; }
-  public ByteBuffer issuerAsByteBuffer() { return __vector_as_bytebuffer(10, 1); }
-  public ByteBuffer issuerInByteBuffer(ByteBuffer _bb) { return __vector_in_bytebuffer(_bb, 10, 1); }
-  public int validNotAfter() { int o = __offset(12); return o != 0 ? bb.getInt(o + bb_pos) : 0; }
-  public String holder() { int o = __offset(14); return o != 0 ? __string(o + bb_pos) : null; }
-  public ByteBuffer holderAsByteBuffer() { return __vector_as_bytebuffer(14, 1); }
-  public ByteBuffer holderInByteBuffer(ByteBuffer _bb) { return __vector_in_bytebuffer(_bb, 14, 1); }
-  public String holderAlgo() { int o = __offset(16); return o != 0 ? __string(o + bb_pos) : null; }
-  public ByteBuffer holderAlgoAsByteBuffer() { return __vector_as_bytebuffer(16, 1); }
-  public ByteBuffer holderAlgoInByteBuffer(ByteBuffer _bb) { return __vector_in_bytebuffer(_bb, 16, 1); }
-  public int blockHeight() { int o = __offset(18); return o != 0 ? bb.getInt(o + bb_pos) : 0; }
-  public int blockPreHeight() { int o = __offset(20); return o != 0 ? bb.getInt(o + bb_pos) : 0; }
+  public String signatureValue() { int o = __offset(10); return o != 0 ? __string(o + bb_pos) : null; }
+  public ByteBuffer signatureValueAsByteBuffer() { return __vector_as_bytebuffer(10, 1); }
+  public ByteBuffer signatureValueInByteBuffer(ByteBuffer _bb) { return __vector_in_bytebuffer(_bb, 10, 1); }
+  public String issuer() { int o = __offset(12); return o != 0 ? __string(o + bb_pos) : null; }
+  public ByteBuffer issuerAsByteBuffer() { return __vector_as_bytebuffer(12, 1); }
+  public ByteBuffer issuerInByteBuffer(ByteBuffer _bb) { return __vector_in_bytebuffer(_bb, 12, 1); }
+  public long validNotAfter() { int o = __offset(14); return o != 0 ? bb.getLong(o + bb_pos) : 0L; }
+  public String holder() { int o = __offset(16); return o != 0 ? __string(o + bb_pos) : null; }
+  public ByteBuffer holderAsByteBuffer() { return __vector_as_bytebuffer(16, 1); }
+  public ByteBuffer holderInByteBuffer(ByteBuffer _bb) { return __vector_in_bytebuffer(_bb, 16, 1); }
+  public String publicKey() { int o = __offset(18); return o != 0 ? __string(o + bb_pos) : null; }
+  public ByteBuffer publicKeyAsByteBuffer() { return __vector_as_bytebuffer(18, 1); }
+  public ByteBuffer publicKeyInByteBuffer(ByteBuffer _bb) { return __vector_in_bytebuffer(_bb, 18, 1); }
+  public int historyHeight() { int o = __offset(20); return o != 0 ? bb.getInt(o + bb_pos) : 0; }
+  public int opType() { int o = __offset(22); return o != 0 ? bb.getInt(o + bb_pos) : 0; }
+  public String contractUrl() { int o = __offset(24); return o != 0 ? __string(o + bb_pos) : null; }
+  public ByteBuffer contractUrlAsByteBuffer() { return __vector_as_bytebuffer(24, 1); }
+  public ByteBuffer contractUrlInByteBuffer(ByteBuffer _bb) { return __vector_in_bytebuffer(_bb, 24, 1); }
 
   public static int createFlatCertificate(FlatBufferBuilder builder,
       int versionOffset,
       int serialNumber,
       int signatureAlgoOffset,
+      int signatureValueOffset,
       int issuerOffset,
-      int validNotAfter,
+      long validNotAfter,
       int holderOffset,
-      int holderAlgoOffset,
-      int blockHeight,
-      int blockPreHeight) {
-    builder.startTable(9);
-    FlatCertificate.addBlockPreHeight(builder, blockPreHeight);
-    FlatCertificate.addBlockHeight(builder, blockHeight);
-    FlatCertificate.addHolderAlgo(builder, holderAlgoOffset);
-    FlatCertificate.addHolder(builder, holderOffset);
+      int publicKeyOffset,
+      int historyHeight,
+      int opType,
+      int contractUrlOffset) {
+    builder.startTable(11);
     FlatCertificate.addValidNotAfter(builder, validNotAfter);
+    FlatCertificate.addContractUrl(builder, contractUrlOffset);
+    FlatCertificate.addOpType(builder, opType);
+    FlatCertificate.addHistoryHeight(builder, historyHeight);
+    FlatCertificate.addPublicKey(builder, publicKeyOffset);
+    FlatCertificate.addHolder(builder, holderOffset);
     FlatCertificate.addIssuer(builder, issuerOffset);
+    FlatCertificate.addSignatureValue(builder, signatureValueOffset);
     FlatCertificate.addSignatureAlgo(builder, signatureAlgoOffset);
     FlatCertificate.addSerialNumber(builder, serialNumber);
     FlatCertificate.addVersion(builder, versionOffset);
     return FlatCertificate.endFlatCertificate(builder);
   }
 
-  public static void startFlatCertificate(FlatBufferBuilder builder) { builder.startTable(9); }
+  public static void startFlatCertificate(FlatBufferBuilder builder) { builder.startTable(11); }
   public static void addVersion(FlatBufferBuilder builder, int versionOffset) { builder.addOffset(0, versionOffset, 0); }
   public static void addSerialNumber(FlatBufferBuilder builder, int serialNumber) { builder.addInt(1, serialNumber, 0); }
   public static void addSignatureAlgo(FlatBufferBuilder builder, int signatureAlgoOffset) { builder.addOffset(2, signatureAlgoOffset, 0); }
-  public static void addIssuer(FlatBufferBuilder builder, int issuerOffset) { builder.addOffset(3, issuerOffset, 0); }
-  public static void addValidNotAfter(FlatBufferBuilder builder, int validNotAfter) { builder.addInt(4, validNotAfter, 0); }
-  public static void addHolder(FlatBufferBuilder builder, int holderOffset) { builder.addOffset(5, holderOffset, 0); }
-  public static void addHolderAlgo(FlatBufferBuilder builder, int holderAlgoOffset) { builder.addOffset(6, holderAlgoOffset, 0); }
-  public static void addBlockHeight(FlatBufferBuilder builder, int blockHeight) { builder.addInt(7, blockHeight, 0); }
-  public static void addBlockPreHeight(FlatBufferBuilder builder, int blockPreHeight) { builder.addInt(8, blockPreHeight, 0); }
+  public static void addSignatureValue(FlatBufferBuilder builder, int signatureValueOffset) { builder.addOffset(3, signatureValueOffset, 0); }
+  public static void addIssuer(FlatBufferBuilder builder, int issuerOffset) { builder.addOffset(4, issuerOffset, 0); }
+  public static void addValidNotAfter(FlatBufferBuilder builder, long validNotAfter) { builder.addLong(5, validNotAfter, 0L); }
+  public static void addHolder(FlatBufferBuilder builder, int holderOffset) { builder.addOffset(6, holderOffset, 0); }
+  public static void addPublicKey(FlatBufferBuilder builder, int publicKeyOffset) { builder.addOffset(7, publicKeyOffset, 0); }
+  public static void addHistoryHeight(FlatBufferBuilder builder, int historyHeight) { builder.addInt(8, historyHeight, 0); }
+  public static void addOpType(FlatBufferBuilder builder, int opType) { builder.addInt(9, opType, 0); }
+  public static void addContractUrl(FlatBufferBuilder builder, int contractUrlOffset) { builder.addOffset(10, contractUrlOffset, 0); }
   public static int endFlatCertificate(FlatBufferBuilder builder) {
     int o = builder.endTable();
     return o;
