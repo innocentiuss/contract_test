@@ -19,6 +19,7 @@ public class EncryptPerformanceTest {
     public static void main(String[] args) throws Exception {
         Security.addProvider(new BouncyCastleProvider());
         EncryptService encryptService = new EncryptService(3072, 256);
+
         for (Integer generatingCountTarget : GENERATING_COUNT_TARGETS) {
             // obj invoke ---------------- ecc
             long start = System.currentTimeMillis();
@@ -43,7 +44,7 @@ public class EncryptPerformanceTest {
                 encryptService.generateRSAKeyPair();
             }
             end = System.currentTimeMillis();
-            log.info("generating {} ecc pair from static method at {} milliseconds", generatingCountTarget, end - start);
+            log.info("generating {} rsa pair from static method at {} milliseconds", generatingCountTarget, end - start);
 
             // static invoke
             start = System.currentTimeMillis();
@@ -51,7 +52,7 @@ public class EncryptPerformanceTest {
                 EncryptUtils.generateRSAKeyPair();
             }
             end = System.currentTimeMillis();
-            log.info("generating {} ecc pair from static method at {} milliseconds", generatingCountTarget, end - start);
+            log.info("generating {} rsa pair from static method at {} milliseconds", generatingCountTarget, end - start);
 
             // obj invoke -------------- ecdsa
             start = System.currentTimeMillis();
@@ -59,7 +60,7 @@ public class EncryptPerformanceTest {
                 encryptService.generateECDSAPair();
             }
             end = System.currentTimeMillis();
-            log.info("generating {} ecc pair from static method at {} milliseconds", generatingCountTarget, end - start);
+            log.info("generating {} ecdsa pair from static method at {} milliseconds", generatingCountTarget, end - start);
 
             // static invoke
             start = System.currentTimeMillis();
@@ -67,7 +68,7 @@ public class EncryptPerformanceTest {
                 EncryptUtils.generateECDSAPair();
             }
             end = System.currentTimeMillis();
-            log.info("generating {} ecc pair from static method at {} milliseconds", generatingCountTarget, end - start);
+            log.info("generating {} ecdsa pair from static method at {} milliseconds", generatingCountTarget, end - start);
         }
     }
 }

@@ -4,6 +4,7 @@ import org.bouncycastle.jce.provider.BouncyCastleProvider;
 
 import java.security.*;
 
+@Deprecated
 public class EncryptService {
     static {
         Security.addProvider(new BouncyCastleProvider());
