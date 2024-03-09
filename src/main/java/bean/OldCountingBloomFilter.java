@@ -1,15 +1,17 @@
 package bean;
 
+import structure.CBF;
+
 import java.util.BitSet;
 
 @Deprecated
-public class OldCountingBloomFilter<T> {
+public class OldCountingBloomFilter<T> implements CBF<T> {
 
     private final int size;
     private final int[] counts;
     //    final 表示值bits一旦分配，就无法更改
 //    bitSet类提供了设置和获取集合中各个位的方法
-    private final BitSet bits;
+    private BitSet bits;
     private final int numHashFunctions;
 
     public OldCountingBloomFilter(int size, int numHashFunctions) {
@@ -21,6 +23,11 @@ public class OldCountingBloomFilter<T> {
         this.counts = new int[size];
 //        设置比特位数组
         this.bits = new BitSet(size);
+    }
+
+    @Override
+    public void clear() {
+        bits = new BitSet(this.size);
     }
 
     public void add(T obj) {
@@ -40,7 +47,7 @@ public class OldCountingBloomFilter<T> {
         }
     }
     //查看元素是否在cbf中
-    public boolean mightContain(T obj) {
+    public boolean contains(T obj) {
         int hash1 = obj.hashCode();
         int hash2 = hash1 >>> 16;
 //        它通过添加 hash1 以及循环迭代索引和 hash2 的乘积来计算组合哈希值

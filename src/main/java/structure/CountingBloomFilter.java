@@ -1,7 +1,7 @@
 package structure;
 
-public class CountingBloomFilter<T> {
-    private final int[] bitSet;
+public class CountingBloomFilter<T> implements CBF<T> {
+    private int[] bitSet;
     private final int bitSetSize;
     private final int numberOfHashFunctions;
 
@@ -9,6 +9,10 @@ public class CountingBloomFilter<T> {
         this.bitSetSize = bitSetSize;
         this.numberOfHashFunctions = numberOfHashFunctions;
         this.bitSet = new int[bitSetSize];
+    }
+
+    public void clear() {
+        bitSet = new int[this.bitSetSize];
     }
 
     public void add(T object) {

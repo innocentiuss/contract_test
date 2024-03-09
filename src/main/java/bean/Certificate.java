@@ -29,7 +29,7 @@ public class Certificate {
     private String contractUrl;
 
     public Certificate(String version, int serialNumber, String signatureAlgo, String issuer, Date validNotAfter, String holder,
-                       String publicKey, int historyHeight, byte opType, String contractUrl) {
+                       String publicKey, int historyHeight, byte opType, String contractUrl, String sign) {
         this.version = version;
         this.serialNumber = serialNumber;
         this.signatureAlgo = signatureAlgo;
@@ -40,6 +40,7 @@ public class Certificate {
         this.historyHeight = historyHeight;
         this.opType = opType;
         this.contractUrl = contractUrl;
+        this.signatureValue = sign;
     }
 
     private static AtomicInteger atomicInteger = new AtomicInteger(0);
@@ -56,7 +57,8 @@ public class Certificate {
                 keyPair.getPublic().toString(),
                 -1,
                 CertificateOpType.REGISTER.getCode(),
-                RandomUtils.generateRandomString(40)
+                RandomUtils.generateRandomString(40),
+                "noSign"
         );
         // 序列化成byte[]
         byte[] certBytes = type.serializeCert(certificate);
