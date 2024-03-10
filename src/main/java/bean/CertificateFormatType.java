@@ -23,6 +23,16 @@ public enum CertificateFormatType {
         public byte[] serializeCert(Certificate certificate) {
             return CertSerializer.serializeProtoCert(certificate);
         }
+    },
+    ASN1("asn.1", "der") {
+        @Override
+        public byte[] serializeCert(Certificate certificate) {
+            try {
+                return CertSerializer.serializeASN(certificate);
+            } catch (Exception e) {
+                return null;
+            }
+        }
     };
     private final String code;
     private final String desc;

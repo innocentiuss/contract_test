@@ -5,8 +5,11 @@ import bean.FlatCertificate;
 import bean.OpCertificate;
 import com.google.flatbuffers.FlatBufferBuilder;
 import com.google.protobuf.InvalidProtocolBufferException;
+import org.bouncycastle.asn1.*;
 
+import java.io.IOException;
 import java.nio.ByteBuffer;
+import java.util.Base64;
 import java.util.Date;
 
 public class CertSerializer {
@@ -14,7 +17,7 @@ public class CertSerializer {
         FlatBufferBuilder builder = new FlatBufferBuilder();
         int version = builder.createString(certificate.getCertificateVersion());
         int signatureAlgo = builder.createString(certificate.getCertificateSignatureAlgorithm());
-        int signatureValue = builder.createString(certificate.getThisCertificateSignatureValueFromSHA256_MURMUR32());
+        int signatureValue = builder.createString(certificate.getSignatureValue());
         int issuer = builder.createString(certificate.getCertificateIssuerName());
         int holder = builder.createString(certificate.getThisCertificateHolderName());
         int publicKey = builder.createString(certificate.getPublicKeyForThisCertificate());
@@ -26,10 +29,10 @@ public class CertSerializer {
                 signatureAlgo,
                 signatureValue,
                 issuer,
-                certificate.getThisCertificateWillBeInvalidAfterTimestamps().getTime(),
+                certificate.getInvalidAfterTimestamps().getTime(),
                 holder,
                 publicKey,
-                certificate.getLastTimeOperationFromBlockChainAndGetThisChainHistoryHeight(),
+                certificate.getLastBlockChainHeight(),
                 certificate.getCertificateOperationType(),
                 url
         );
@@ -60,17 +63,37 @@ public class CertSerializer {
         );
     }
 
+    public static byte[] serializeASN(Certificate certificate) {
+        try {
+            ASN1EncodableVector v = new ASN1EncodableVector();
+            v.add(new DERUTF8String(certificate.getCertificateVersion()));
+            v.add(new ASN1Integer(certificate.getCertificateSerialNumber()));
+            v.add(new DERUTF8String(certificate.getCertificateSignatureAlgorithm()));
+            v.add(new DERUTF8String(certificate.getCertificateIssuerName()));
+            v.add(new ASN1Integer(certificate.getInvalidAfterTimestamps().getTime() / 1000));
+            v.add(new DERUTF8String(certificate.getThisCertificateHolderName()));
+            v.add(new DERUTF8String(certificate.getPublicKeyForThisCertificate()));
+            v.add(new ASN1Integer(certificate.getLastBlockChainHeight()));
+            v.add(new ASN1Integer(certificate.getCertificateOperationType()));
+            v.add(new DERUTF8String(certificate.getSmartContractUrl()));
+            DERSequence derSequence = new DERSequence(v);
+            return Base64.getEncoder().encode(derSequence.getEncoded());
+        } catch (Exception e) {
+            return new byte[0];
+        }
+    }
+
     public static byte[] serializeProtoCert(Certificate certificate) {
         OpCertificate.ProtoCertificate protoCertificate = OpCertificate.ProtoCertificate.newBuilder()
                 .setVersion(certificate.getCertificateVersion())
                 .setSerialNumber(certificate.getCertificateSerialNumber())
                 .setSignatureAlgo(certificate.getCertificateSignatureAlgorithm())
-                .setSignatureValue(certificate.getThisCertificateSignatureValueFromSHA256_MURMUR32())
+                .setSignatureValue(certificate.getSignatureValue())
                 .setIssuer(certificate.getCertificateIssuerName())
-                .setValidNotAfter(certificate.getThisCertificateWillBeInvalidAfterTimestamps().getTime())
+                .setValidNotAfter(certificate.getInvalidAfterTimestamps().getTime())
                 .setHolder(certificate.getThisCertificateHolderName())
                 .setPublicKey(certificate.getPublicKeyForThisCertificate())
-                .setHistoryHeight(certificate.getLastTimeOperationFromBlockChainAndGetThisChainHistoryHeight())
+                .setHistoryHeight(certificate.getLastBlockChainHeight())
                 .setBlockPreHeight(certificate.getCertificateOperationType())
                 .setContractUrl(certificate.getSmartContractUrl())
                 .build();

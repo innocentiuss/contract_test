@@ -1,0 +1,22 @@
+package structure;
+
+import bean.Certificate;
+import bean.CertificateFormatType;
+import utils.CertSerializer;
+import utils.HashUtils;
+
+import java.util.Base64;
+
+public class ASNCertificateValidator extends CertificateValidator{
+    public ASNCertificateValidator(int bitSetSize, int numberOfHashFunctions) {
+        super(bitSetSize, numberOfHashFunctions);
+        super.type = CertificateFormatType.ASN1;
+    }
+
+    @Override
+    String hashingCertificate(Certificate certificate) {
+        byte[] raw = CertSerializer.serializeASN(certificate);
+        byte[] bytes = Base64.getEncoder().encode(raw);
+        return HashUtils.hashingBytes(bytes);
+    }
+}

@@ -17,9 +17,11 @@ public class DiskSpaceTest {
             byte[] proto = CertSerializer.serializeProtoCert(cert);
             byte[] flats = CertSerializer.serializeFlatCert(cert);
             byte[] json = JSON.toJSONBytes(cert);
+            byte[] asn1= CertSerializer.serializeASN(cert);
             IOUtils.writeBytesToFile(json, directory + "/origin/" + i + ".bin");
             IOUtils.writeBytesToFile(flats, directory + "/flat/" + i + ".bin");
             IOUtils.writeBytesToFile(proto, directory + "/proto/" + i + ".bin");
+            IOUtils.writeBytesToFile(asn1, directory + "/proto/" + i + ".der");
         }
     }
 }
