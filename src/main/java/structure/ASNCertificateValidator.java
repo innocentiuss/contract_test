@@ -8,8 +8,8 @@ import utils.HashUtils;
 import java.util.Base64;
 
 public class ASNCertificateValidator extends CertificateValidator{
-    public ASNCertificateValidator(int bitSetSize, int numberOfHashFunctions) {
-        super(bitSetSize, numberOfHashFunctions);
+    public ASNCertificateValidator(int expectedElements, double falsePositiveProbability) {
+        super(expectedElements, falsePositiveProbability);
         super.type = CertificateFormatType.ASN1;
     }
 

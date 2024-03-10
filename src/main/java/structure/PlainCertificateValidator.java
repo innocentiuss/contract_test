@@ -6,8 +6,8 @@ import com.alibaba.fastjson2.JSON;
 import utils.HashUtils;
 
 public class PlainCertificateValidator extends CertificateValidator {
-    public PlainCertificateValidator(int bitSetSize, int numberOfHashFunctions) {
-        super(bitSetSize, numberOfHashFunctions);
+    public PlainCertificateValidator(int expectedElements, double falsePositiveProbability) {
+        super(expectedElements, falsePositiveProbability);
         super.type = CertificateFormatType.ORIGIN;
     }
 

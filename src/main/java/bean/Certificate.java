@@ -46,7 +46,9 @@ public class Certificate {
     private static AtomicInteger atomicInteger = new AtomicInteger(0);
 
     public static Certificate getRandomCertificate(CertificateFormatType type) throws Exception{
-        KeyPair keyPair = EncryptUtils.generateECCKeyPair();
+        return getRandomCertificate(type, CertificateKeyType.ECC);
+    }
+    private static Certificate getRandomCertificate(CertificateFormatType type, CertificateKeyType keyType) throws Exception {
         Certificate certificate = new Certificate(
                 "v3.0",
                 atomicInteger.getAndIncrement(),
@@ -54,7 +56,7 @@ public class Certificate {
                 "CA_FC",
                 RandomUtils.generateRandomDate(),
                 RandomUtils.generateRandomString(20),
-                keyPair.getPublic().toString(),
+                keyType.getKeyPair().getPublic().toString(),
                 -1,
                 CertificateOpType.REGISTER.getCode(),
                 RandomUtils.generateRandomString(40),
@@ -68,4 +70,7 @@ public class Certificate {
         return certificate;
     }
 
+    public static Certificate getRSACertificate(CertificateFormatType type) throws Exception {
+        return getRandomCertificate(type, CertificateKeyType.RSA);
+    }
 }

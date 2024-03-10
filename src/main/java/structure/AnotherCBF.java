@@ -6,8 +6,8 @@ import orestes.bloomfilter.FilterBuilder;
 public class AnotherCBF<T> implements CBF<T>{
     private final CountingBloomFilter<T> countingBloomFilter;
 
-    public AnotherCBF(int a, int b) {
-        this.countingBloomFilter = new FilterBuilder(10000, 0.00001d).countingBits(8).buildCountingBloomFilter();
+    public AnotherCBF(int expectedElements, double falsePositiveProbability) {
+        this.countingBloomFilter = new FilterBuilder(expectedElements, falsePositiveProbability).countingBits(8).buildCountingBloomFilter();
     }
 
     @Override

@@ -17,9 +17,9 @@ public abstract class CertificateValidator {
     @Getter
     protected CertificateFormatType type;
 
-    public CertificateValidator(int bitSetSize, int numberOfHashFunctions) {
-        this.validBloom = new AnotherCBF<>(bitSetSize, numberOfHashFunctions);
-        this.invalidBloom = new AnotherCBF<>(bitSetSize, numberOfHashFunctions);
+    public CertificateValidator(int expectedElements, double falsePositiveProbability) {
+        this.validBloom = new AnotherCBF<>(expectedElements, falsePositiveProbability);
+        this.invalidBloom = new AnotherCBF<>(expectedElements, falsePositiveProbability);
     }
 
     abstract String hashingCertificate(Certificate certificate);

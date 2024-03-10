@@ -7,8 +7,8 @@ import utils.HashUtils;
 
 public class ProtoCertificateValidator extends CertificateValidator {
 
-    public ProtoCertificateValidator(int bitSetSize, int numberOfHashFunctions) {
-        super(bitSetSize, numberOfHashFunctions);
+    public ProtoCertificateValidator(int expectedElements, double falsePositiveProbability) {
+        super(expectedElements, falsePositiveProbability);
         super.type = CertificateFormatType.PROTOCOL_BUFFERS;
     }
 

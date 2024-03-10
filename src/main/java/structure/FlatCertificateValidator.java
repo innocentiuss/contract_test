@@ -6,8 +6,8 @@ import utils.CertSerializer;
 import utils.HashUtils;
 
 public class FlatCertificateValidator extends CertificateValidator{
-    public FlatCertificateValidator(int bitSetSize, int numberOfHashFunctions) {
-        super(bitSetSize, numberOfHashFunctions);
+    public FlatCertificateValidator(int expectedElements, double falsePositiveProbability) {
+        super(expectedElements, falsePositiveProbability);
         super.type = CertificateFormatType.FLAT_BUFFERS;
     }
 

@@ -7,18 +7,22 @@ import structure.*;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Comparator;
 import java.util.List;
 
 @Slf4j
-public class CertMainTest {
+public class CertEncodingTest {
 
     private static List<Integer> CERT_SUM = Arrays.asList(1000, 1500, 2000, 2500, 3000, 3500, 4000, 4500, 5000, 5500, 6000, 6500, 7000, 7500, 8000, 8500, 9000, 9500, 10000);
-    static final int size = 400000000;
-    static final int hashes = 1000;
+    static int expectedElements;
+    static {
+        expectedElements = CERT_SUM.stream().max(Comparator.comparingInt(a -> a)).orElse(-1);
+    }
+    static final double falsePositiveProbability = 0.00001d;
     public static void main(String[] args) throws Exception{
-        CertificateValidator protoValidator = new ProtoCertificateValidator(size, hashes);
-        CertificateValidator plainValidator = new PlainCertificateValidator(size, hashes);
-        ASNCertificateValidator asnCertificateValidator = new ASNCertificateValidator(size, hashes);
+        CertificateValidator protoValidator = new ProtoCertificateValidator(expectedElements, falsePositiveProbability);
+        CertificateValidator plainValidator = new PlainCertificateValidator(expectedElements, falsePositiveProbability);
+        ASNCertificateValidator asnCertificateValidator = new ASNCertificateValidator(expectedElements, falsePositiveProbability);
         CERT_SUM = new ArrayList<>();
         for (int i = 10; i <= 10000; i += 10) {
             CERT_SUM.add(i);
