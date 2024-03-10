@@ -4,6 +4,16 @@ import org.bouncycastle.jce.provider.BouncyCastleProvider;
 import org.bouncycastle.util.encoders.Base64;
 
 import java.security.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
+import java.util.concurrent.CountDownLatch;
+import java.util.concurrent.LinkedBlockingQueue;
+import java.util.concurrent.ThreadPoolExecutor;
+import java.util.concurrent.TimeUnit;
+import java.util.concurrent.atomic.AtomicInteger;
+import java.util.concurrent.locks.ReentrantLock;
 
 public class EncryptUtils {
 
@@ -11,6 +21,8 @@ public class EncryptUtils {
     private static final KeyPairGenerator RSA_GENERATOR;
     private static final KeyPairGenerator ECC_GENERATOR;
     private static final KeyPairGenerator ECDSA_GENERATOR;
+
+    private static ThreadPoolExecutor threadPoolExecutor = new ThreadPoolExecutor(16, 16, 2000, TimeUnit.MICROSECONDS, new LinkedBlockingQueue<>());
 
     private static final KeyPair CA_KEYPAIR;
 
@@ -42,6 +54,40 @@ public class EncryptUtils {
 
     public static KeyPair generateECDSAPair() {
         return ECDSA_GENERATOR.generateKeyPair();
+    }
+
+    public static List<KeyPair> generateECCKeyPairs(int count) {
+        List<KeyPair> keyPairs = new ArrayList<>();
+        for (int i = 0; i < count; i++) {
+            keyPairs.add(generateECCKeyPair());
+        }
+        return keyPairs;
+    }
+
+    public static List<KeyPair> generateRSAKeyPairs(int count) {
+        List<KeyPair> keyPairs = Collections.synchronizedList(new ArrayList<>(count));
+        CountDownLatch countDownLatch = new CountDownLatch(count);
+        for (int i = 0; i < count; i++) {
+            threadPoolExecutor.execute(() -> {
+                KeyPair keyPair = generateRSAKeyPair();
+                keyPairs.add(keyPair);
+                countDownLatch.countDown();
+            });
+        }
+        try {
+            countDownLatch.await();
+            return keyPairs;
+        } catch (Exception e) {
+            return new ArrayList<>();
+        }
+    }
+
+
+    public static void main(String[] args) {
+        KeyPair keyPair = generateRSAKeyPair();
+        System.out.println(keyPair.getPublic().toString());
+        keyPair = generateECCKeyPair();
+        System.out.println(keyPair.getPublic().toString());
     }
 
     public static String signCertificate(byte[] certBytes) throws NoSuchAlgorithmException, NoSuchProviderException, InvalidKeyException, SignatureException {

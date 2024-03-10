@@ -48,7 +48,15 @@ public class Certificate {
     public static Certificate getRandomCertificate(CertificateFormatType type) throws Exception{
         return getRandomCertificate(type, CertificateKeyType.ECC);
     }
-    private static Certificate getRandomCertificate(CertificateFormatType type, CertificateKeyType keyType) throws Exception {
+    public static Certificate getRandomCertificate(CertificateFormatType type, CertificateKeyType keyType) throws Exception {
+        return getRandomCertificate(type, keyType.getKeyPair());
+    }
+
+    public static Certificate getRSACertificate(CertificateFormatType type) throws Exception {
+        return getRandomCertificate(type, CertificateKeyType.RSA);
+    }
+
+    public static Certificate getRandomCertificate(CertificateFormatType type, KeyPair keyPair) throws Exception{
         Certificate certificate = new Certificate(
                 "v3.0",
                 atomicInteger.getAndIncrement(),
@@ -56,7 +64,7 @@ public class Certificate {
                 "CA_FC",
                 RandomUtils.generateRandomDate(),
                 RandomUtils.generateRandomString(20),
-                keyType.getKeyPair().getPublic().toString(),
+                keyPair.getPublic().toString(),
                 -1,
                 CertificateOpType.REGISTER.getCode(),
                 RandomUtils.generateRandomString(40),
@@ -68,9 +76,5 @@ public class Certificate {
         String sign = EncryptUtils.signCertificate(certBytes);
         certificate.setSignatureValue(sign);
         return certificate;
-    }
-
-    public static Certificate getRSACertificate(CertificateFormatType type) throws Exception {
-        return getRandomCertificate(type, CertificateKeyType.RSA);
     }
 }

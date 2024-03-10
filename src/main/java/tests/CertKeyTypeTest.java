@@ -4,7 +4,9 @@ import bean.Certificate;
 import lombok.extern.slf4j.Slf4j;
 import structure.CertificateValidator;
 import structure.ProtoCertificateValidator;
+import utils.EncryptUtils;
 
+import java.security.KeyPair;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -16,10 +18,6 @@ public class CertKeyTypeTest {
     static final double falsePositiveProbability = 0.00001d;
     public static void main(String[] args) throws Exception{
         CertificateValidator protoValidator = new ProtoCertificateValidator(maxElement, falsePositiveProbability);
-        CERT_SUM = new ArrayList<>();
-        for (int i = 10; i <= 10000; i += 10) {
-            CERT_SUM.add(i);
-        }
 
         List<CertificateValidator> validators = Arrays.asList(protoValidator);
         long start;
@@ -30,20 +28,22 @@ public class CertKeyTypeTest {
 
                 List<Certificate> validList = new ArrayList<>(sum);
                 List<Certificate> compareList = new ArrayList<>(sum / 2);
+                List<KeyPair> eccKeyPairs = EncryptUtils.generateECCKeyPairs(sum);
+                List<KeyPair> compareUseEccKeyPairs = EncryptUtils.generateECCKeyPairs(sum / 2);
                 for (int i = 0; i < sum / 2; i++) {
-                    compareList.add(Certificate.getRandomCertificate(validator.getType()));
+                    compareList.add(Certificate.getRandomCertificate(validator.getType(), compareUseEccKeyPairs.get(i)));
                 }
 
                 // ========================================================
                 // 证书添加start
                 start = System.currentTimeMillis();
                 for (int i = 0; i < sum; i++) {
-                    Certificate cert = Certificate.getRandomCertificate(validator.getType());
+                    Certificate cert = Certificate.getRandomCertificate(validator.getType(), eccKeyPairs.get(i));
                     validator.addCertificate(cert);
                     validList.add(cert);
                 }
                 end = System.currentTimeMillis();
-                log.info("{} 个 {} 证书add耗时 {} ms", sum, validator.getType().getDesc(), end - start);
+                log.info("ecc {} 个 {} 证书add耗时 {} ms", sum, validator.getType().getDesc(), end - start);
                 // 证书添加end
                 // =========================================================
 
@@ -59,7 +59,7 @@ public class CertKeyTypeTest {
                     validator.verifyCertificate(invalid);
                 }
                 end = System.currentTimeMillis();
-                log.info("{} 个 {} 证书verify耗时 {} ms", sum, validator.getType().getDesc(), end - start);
+                log.info("ecc {} 个 {} 证书verify耗时 {} ms", sum, validator.getType().getDesc(), end - start);
                 // 证书验证end
                 // ======================================================
 
@@ -74,7 +74,7 @@ public class CertKeyTypeTest {
                     validator.revokeCertificate(invalid);
                 }
                 end = System.currentTimeMillis();
-                log.info("{} 个 {} 证书revoke耗时 {} ms", sum, validator.getType().getDesc(), end - start);
+                log.info("ecc {} 个 {} 证书revoke耗时 {} ms", sum, validator.getType().getDesc(), end - start);
                 // 证书撤销end
                 // ========================================================
                 validator.clearBloom();
@@ -84,23 +84,25 @@ public class CertKeyTypeTest {
 
         for (Integer sum : CERT_SUM) {
             for (CertificateValidator validator : validators) {
-
                 List<Certificate> validList = new ArrayList<>(sum);
                 List<Certificate> compareList = new ArrayList<>(sum / 2);
+                List<KeyPair> rsaKeyPairs = EncryptUtils.generateRSAKeyPairs(sum);
+                List<KeyPair> compareUseRsaKeyPairs = EncryptUtils.generateRSAKeyPairs(sum / 2);
                 for (int i = 0; i < sum / 2; i++) {
-                    compareList.add(Certificate.getRSACertificate(validator.getType()));
+                    Certificate cert = Certificate.getRandomCertificate(validator.getType(), compareUseRsaKeyPairs.get(i));
+                    compareList.add(cert);
                 }
 
                 // ========================================================
                 // 证书添加start
                 start = System.currentTimeMillis();
                 for (int i = 0; i < sum; i++) {
-                    Certificate cert = Certificate.getRSACertificate(validator.getType());
-                    validator.addCertificate(cert);
+                    Certificate cert = Certificate.getRandomCertificate(validator.getType(), rsaKeyPairs.get(i));
                     validList.add(cert);
+                    validator.addCertificate(cert);
                 }
                 end = System.currentTimeMillis();
-                log.info("{} 个 {} 证书add耗时 {} ms", sum, validator.getType().getDesc(), end - start);
+                log.info("rsa {} 个 {} 证书add耗时 {} ms", sum, validator.getType().getDesc(), end - start);
                 // 证书添加end
                 // =========================================================
 
@@ -116,7 +118,7 @@ public class CertKeyTypeTest {
                     validator.verifyCertificate(invalid);
                 }
                 end = System.currentTimeMillis();
-                log.info("{} 个 {} 证书verify耗时 {} ms", sum, validator.getType().getDesc(), end - start);
+                log.info("rsa {} 个 {} 证书verify耗时 {} ms", sum, validator.getType().getDesc(), end - start);
                 // 证书验证end
                 // ======================================================
 
@@ -131,7 +133,7 @@ public class CertKeyTypeTest {
                     validator.revokeCertificate(invalid);
                 }
                 end = System.currentTimeMillis();
-                log.info("{} 个 {} 证书revoke耗时 {} ms", sum, validator.getType().getDesc(), end - start);
+                log.info("rsa {} 个 {} 证书revoke耗时 {} ms", sum, validator.getType().getDesc(), end - start);
                 // 证书撤销end
                 // ========================================================
                 validator.clearBloom();
