@@ -12,7 +12,7 @@ import java.util.Arrays;
 import java.util.List;
 
 @Slf4j
-public class CertKeyTypeTest {
+public class CertEncryptTypeTest {
     private static List<Integer> CERT_SUM = Arrays.asList(100, 150, 200, 250, 300);
     static final int maxElement = 300;
     static final double falsePositiveProbability = 0.00001d;

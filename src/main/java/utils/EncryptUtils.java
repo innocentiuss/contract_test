@@ -22,8 +22,6 @@ public class EncryptUtils {
     private static final KeyPairGenerator ECC_GENERATOR;
     private static final KeyPairGenerator ECDSA_GENERATOR;
 
-    private static ThreadPoolExecutor threadPoolExecutor = new ThreadPoolExecutor(16, 16, 2000, TimeUnit.MICROSECONDS, new LinkedBlockingQueue<>());
-
     private static final KeyPair CA_KEYPAIR;
 
     static {
@@ -65,6 +63,7 @@ public class EncryptUtils {
     }
 
     public static List<KeyPair> generateRSAKeyPairs(int count) {
+        ThreadPoolExecutor threadPoolExecutor = new ThreadPoolExecutor(16, 16, 2000, TimeUnit.MICROSECONDS, new LinkedBlockingQueue<>());
         List<KeyPair> keyPairs = Collections.synchronizedList(new ArrayList<>(count));
         CountDownLatch countDownLatch = new CountDownLatch(count);
         for (int i = 0; i < count; i++) {
@@ -79,6 +78,8 @@ public class EncryptUtils {
             return keyPairs;
         } catch (Exception e) {
             return new ArrayList<>();
+        } finally {
+            threadPoolExecutor.shutdown();
         }
     }
 

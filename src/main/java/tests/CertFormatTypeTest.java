@@ -11,7 +11,7 @@ import java.util.Comparator;
 import java.util.List;
 
 @Slf4j
-public class CertEncodingTest {
+public class CertFormatTypeTest {
 
     private static List<Integer> CERT_SUM = Arrays.asList(1000, 1500, 2000, 2500, 3000, 3500, 4000, 4500, 5000, 5500, 6000, 6500, 7000, 7500, 8000, 8500, 9000, 9500, 10000);
     static int expectedElements;
@@ -22,7 +22,7 @@ public class CertEncodingTest {
     public static void main(String[] args) throws Exception{
         CertificateValidator protoValidator = new ProtoCertificateValidator(expectedElements, falsePositiveProbability);
         CertificateValidator plainValidator = new PlainCertificateValidator(expectedElements, falsePositiveProbability);
-        ASNCertificateValidator asnCertificateValidator = new ASNCertificateValidator(expectedElements, falsePositiveProbability);
+        CertificateValidator asnCertificateValidator = new ASNCertificateValidator(expectedElements, falsePositiveProbability);
         CERT_SUM = new ArrayList<>();
         for (int i = 10; i <= 10000; i += 10) {
             CERT_SUM.add(i);
