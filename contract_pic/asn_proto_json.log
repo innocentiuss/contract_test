@@ -1,0 +1,228 @@
+2024-03-10 21:40:49 [main] INFO  tests.CertMainTest - 1000 个 json 证书add耗时 831 ms
+2024-03-10 21:40:49 [main] INFO  tests.CertMainTest - 1000 个 json 证书verify耗时 5 ms
+2024-03-10 21:40:49 [main] INFO  tests.CertMainTest - 1000 个 json 证书revoke耗时 9 ms
+2024-03-10 21:40:49 [main] INFO  tests.CertMainTest - ==================分割线==================
+2024-03-10 21:40:50 [main] INFO  tests.CertMainTest - 1000 个 protobuf 证书add耗时 623 ms
+2024-03-10 21:40:50 [main] INFO  tests.CertMainTest - 1000 个 protobuf 证书verify耗时 4 ms
+2024-03-10 21:40:50 [main] INFO  tests.CertMainTest - 1000 个 protobuf 证书revoke耗时 6 ms
+2024-03-10 21:40:50 [main] INFO  tests.CertMainTest - ==================分割线==================
+2024-03-10 21:40:51 [main] INFO  tests.CertMainTest - 1000 个 der 证书add耗时 635 ms
+2024-03-10 21:40:51 [main] INFO  tests.CertMainTest - 1000 个 der 证书verify耗时 4 ms
+2024-03-10 21:40:51 [main] INFO  tests.CertMainTest - 1000 个 der 证书revoke耗时 5 ms
+2024-03-10 21:40:51 [main] INFO  tests.CertMainTest - ==================分割线==================
+2024-03-10 21:40:53 [main] INFO  tests.CertMainTest - 1500 个 json 证书add耗时 1233 ms
+2024-03-10 21:40:53 [main] INFO  tests.CertMainTest - 1500 个 json 证书verify耗时 7 ms
+2024-03-10 21:40:53 [main] INFO  tests.CertMainTest - 1500 个 json 证书revoke耗时 11 ms
+2024-03-10 21:40:53 [main] INFO  tests.CertMainTest - ==================分割线==================
+2024-03-10 21:40:55 [main] INFO  tests.CertMainTest - 1500 个 protobuf 证书add耗时 1333 ms
+2024-03-10 21:40:55 [main] INFO  tests.CertMainTest - 1500 个 protobuf 证书verify耗时 5 ms
+2024-03-10 21:40:55 [main] INFO  tests.CertMainTest - 1500 个 protobuf 证书revoke耗时 9 ms
+2024-03-10 21:40:55 [main] INFO  tests.CertMainTest - ==================分割线==================
+2024-03-10 21:40:57 [main] INFO  tests.CertMainTest - 1500 个 der 证书add耗时 1326 ms
+2024-03-10 21:40:57 [main] INFO  tests.CertMainTest - 1500 个 der 证书verify耗时 7 ms
+2024-03-10 21:40:57 [main] INFO  tests.CertMainTest - 1500 个 der 证书revoke耗时 12 ms
+2024-03-10 21:40:57 [main] INFO  tests.CertMainTest - ==================分割线==================
+2024-03-10 21:41:00 [main] INFO  tests.CertMainTest - 2000 个 json 证书add耗时 1747 ms
+2024-03-10 21:41:00 [main] INFO  tests.CertMainTest - 2000 个 json 证书verify耗时 8 ms
+2024-03-10 21:41:00 [main] INFO  tests.CertMainTest - 2000 个 json 证书revoke耗时 13 ms
+2024-03-10 21:41:00 [main] INFO  tests.CertMainTest - ==================分割线==================
+2024-03-10 21:41:02 [main] INFO  tests.CertMainTest - 2000 个 protobuf 证书add耗时 1670 ms
+2024-03-10 21:41:02 [main] INFO  tests.CertMainTest - 2000 个 protobuf 证书verify耗时 5 ms
+2024-03-10 21:41:02 [main] INFO  tests.CertMainTest - 2000 个 protobuf 证书revoke耗时 11 ms
+2024-03-10 21:41:02 [main] INFO  tests.CertMainTest - ==================分割线==================
+2024-03-10 21:41:04 [main] INFO  tests.CertMainTest - 2000 个 der 证书add耗时 1224 ms
+2024-03-10 21:41:04 [main] INFO  tests.CertMainTest - 2000 个 der 证书verify耗时 7 ms
+2024-03-10 21:41:04 [main] INFO  tests.CertMainTest - 2000 个 der 证书revoke耗时 13 ms
+2024-03-10 21:41:04 [main] INFO  tests.CertMainTest - ==================分割线==================
+2024-03-10 21:41:06 [main] INFO  tests.CertMainTest - 2500 个 json 证书add耗时 1517 ms
+2024-03-10 21:41:06 [main] INFO  tests.CertMainTest - 2500 个 json 证书verify耗时 9 ms
+2024-03-10 21:41:06 [main] INFO  tests.CertMainTest - 2500 个 json 证书revoke耗时 14 ms
+2024-03-10 21:41:06 [main] INFO  tests.CertMainTest - ==================分割线==================
+2024-03-10 21:41:09 [main] INFO  tests.CertMainTest - 2500 个 protobuf 证书add耗时 1509 ms
+2024-03-10 21:41:09 [main] INFO  tests.CertMainTest - 2500 个 protobuf 证书verify耗时 7 ms
+2024-03-10 21:41:09 [main] INFO  tests.CertMainTest - 2500 个 protobuf 证书revoke耗时 13 ms
+2024-03-10 21:41:09 [main] INFO  tests.CertMainTest - ==================分割线==================
+2024-03-10 21:41:11 [main] INFO  tests.CertMainTest - 2500 个 der 证书add耗时 1949 ms
+2024-03-10 21:41:11 [main] INFO  tests.CertMainTest - 2500 个 der 证书verify耗时 8 ms
+2024-03-10 21:41:11 [main] INFO  tests.CertMainTest - 2500 个 der 证书revoke耗时 13 ms
+2024-03-10 21:41:11 [main] INFO  tests.CertMainTest - ==================分割线==================
+2024-03-10 21:41:14 [main] INFO  tests.CertMainTest - 3000 个 json 证书add耗时 1839 ms
+2024-03-10 21:41:14 [main] INFO  tests.CertMainTest - 3000 个 json 证书verify耗时 11 ms
+2024-03-10 21:41:14 [main] INFO  tests.CertMainTest - 3000 个 json 证书revoke耗时 17 ms
+2024-03-10 21:41:14 [main] INFO  tests.CertMainTest - ==================分割线==================
+2024-03-10 21:41:17 [main] INFO  tests.CertMainTest - 3000 个 protobuf 证书add耗时 1825 ms
+2024-03-10 21:41:17 [main] INFO  tests.CertMainTest - 3000 个 protobuf 证书verify耗时 9 ms
+2024-03-10 21:41:17 [main] INFO  tests.CertMainTest - 3000 个 protobuf 证书revoke耗时 16 ms
+2024-03-10 21:41:17 [main] INFO  tests.CertMainTest - ==================分割线==================
+2024-03-10 21:41:20 [main] INFO  tests.CertMainTest - 3000 个 der 证书add耗时 1820 ms
+2024-03-10 21:41:20 [main] INFO  tests.CertMainTest - 3000 个 der 证书verify耗时 8 ms
+2024-03-10 21:41:20 [main] INFO  tests.CertMainTest - 3000 个 der 证书revoke耗时 16 ms
+2024-03-10 21:41:20 [main] INFO  tests.CertMainTest - ==================分割线==================
+2024-03-10 21:41:23 [main] INFO  tests.CertMainTest - 3500 个 json 证书add耗时 2137 ms
+2024-03-10 21:41:23 [main] INFO  tests.CertMainTest - 3500 个 json 证书verify耗时 13 ms
+2024-03-10 21:41:23 [main] INFO  tests.CertMainTest - 3500 个 json 证书revoke耗时 20 ms
+2024-03-10 21:41:23 [main] INFO  tests.CertMainTest - ==================分割线==================
+2024-03-10 21:41:26 [main] INFO  tests.CertMainTest - 3500 个 protobuf 证书add耗时 2131 ms
+2024-03-10 21:41:26 [main] INFO  tests.CertMainTest - 3500 个 protobuf 证书verify耗时 11 ms
+2024-03-10 21:41:26 [main] INFO  tests.CertMainTest - 3500 个 protobuf 证书revoke耗时 18 ms
+2024-03-10 21:41:26 [main] INFO  tests.CertMainTest - ==================分割线==================
+2024-03-10 21:41:29 [main] INFO  tests.CertMainTest - 3500 个 der 证书add耗时 2146 ms
+2024-03-10 21:41:29 [main] INFO  tests.CertMainTest - 3500 个 der 证书verify耗时 12 ms
+2024-03-10 21:41:29 [main] INFO  tests.CertMainTest - 3500 个 der 证书revoke耗时 21 ms
+2024-03-10 21:41:29 [main] INFO  tests.CertMainTest - ==================分割线==================
+2024-03-10 21:41:33 [main] INFO  tests.CertMainTest - 4000 个 json 证书add耗时 2491 ms
+2024-03-10 21:41:33 [main] INFO  tests.CertMainTest - 4000 个 json 证书verify耗时 15 ms
+2024-03-10 21:41:33 [main] INFO  tests.CertMainTest - 4000 个 json 证书revoke耗时 24 ms
+2024-03-10 21:41:33 [main] INFO  tests.CertMainTest - ==================分割线==================
+2024-03-10 21:41:37 [main] INFO  tests.CertMainTest - 4000 个 protobuf 证书add耗时 2420 ms
+2024-03-10 21:41:37 [main] INFO  tests.CertMainTest - 4000 个 protobuf 证书verify耗时 10 ms
+2024-03-10 21:41:37 [main] INFO  tests.CertMainTest - 4000 个 protobuf 证书revoke耗时 19 ms
+2024-03-10 21:41:37 [main] INFO  tests.CertMainTest - ==================分割线==================
+2024-03-10 21:41:40 [main] INFO  tests.CertMainTest - 4000 个 der 证书add耗时 2422 ms
+2024-03-10 21:41:40 [main] INFO  tests.CertMainTest - 4000 个 der 证书verify耗时 13 ms
+2024-03-10 21:41:40 [main] INFO  tests.CertMainTest - 4000 个 der 证书revoke耗时 24 ms
+2024-03-10 21:41:40 [main] INFO  tests.CertMainTest - ==================分割线==================
+2024-03-10 21:41:44 [main] INFO  tests.CertMainTest - 4500 个 json 证书add耗时 2743 ms
+2024-03-10 21:41:45 [main] INFO  tests.CertMainTest - 4500 个 json 证书verify耗时 16 ms
+2024-03-10 21:41:45 [main] INFO  tests.CertMainTest - 4500 个 json 证书revoke耗时 27 ms
+2024-03-10 21:41:45 [main] INFO  tests.CertMainTest - ==================分割线==================
+2024-03-10 21:41:49 [main] INFO  tests.CertMainTest - 4500 个 protobuf 证书add耗时 2730 ms
+2024-03-10 21:41:49 [main] INFO  tests.CertMainTest - 4500 个 protobuf 证书verify耗时 14 ms
+2024-03-10 21:41:49 [main] INFO  tests.CertMainTest - 4500 个 protobuf 证书revoke耗时 24 ms
+2024-03-10 21:41:49 [main] INFO  tests.CertMainTest - ==================分割线==================
+2024-03-10 21:41:53 [main] INFO  tests.CertMainTest - 4500 个 der 证书add耗时 2759 ms
+2024-03-10 21:41:53 [main] INFO  tests.CertMainTest - 4500 个 der 证书verify耗时 15 ms
+2024-03-10 21:41:53 [main] INFO  tests.CertMainTest - 4500 个 der 证书revoke耗时 27 ms
+2024-03-10 21:41:53 [main] INFO  tests.CertMainTest - ==================分割线==================
+2024-03-10 21:41:57 [main] INFO  tests.CertMainTest - 5000 个 json 证书add耗时 3052 ms
+2024-03-10 21:41:57 [main] INFO  tests.CertMainTest - 5000 个 json 证书verify耗时 18 ms
+2024-03-10 21:41:58 [main] INFO  tests.CertMainTest - 5000 个 json 证书revoke耗时 30 ms
+2024-03-10 21:41:58 [main] INFO  tests.CertMainTest - ==================分割线==================
+2024-03-10 21:42:02 [main] INFO  tests.CertMainTest - 5000 个 protobuf 证书add耗时 3054 ms
+2024-03-10 21:42:02 [main] INFO  tests.CertMainTest - 5000 个 protobuf 证书verify耗时 13 ms
+2024-03-10 21:42:02 [main] INFO  tests.CertMainTest - 5000 个 protobuf 证书revoke耗时 24 ms
+2024-03-10 21:42:02 [main] INFO  tests.CertMainTest - ==================分割线==================
+2024-03-10 21:42:07 [main] INFO  tests.CertMainTest - 5000 个 der 证书add耗时 3044 ms
+2024-03-10 21:42:07 [main] INFO  tests.CertMainTest - 5000 个 der 证书verify耗时 17 ms
+2024-03-10 21:42:07 [main] INFO  tests.CertMainTest - 5000 个 der 证书revoke耗时 29 ms
+2024-03-10 21:42:07 [main] INFO  tests.CertMainTest - ==================分割线==================
+2024-03-10 21:42:12 [main] INFO  tests.CertMainTest - 5500 个 json 证书add耗时 3360 ms
+2024-03-10 21:42:12 [main] INFO  tests.CertMainTest - 5500 个 json 证书verify耗时 18 ms
+2024-03-10 21:42:12 [main] INFO  tests.CertMainTest - 5500 个 json 证书revoke耗时 30 ms
+2024-03-10 21:42:12 [main] INFO  tests.CertMainTest - ==================分割线==================
+2024-03-10 21:42:17 [main] INFO  tests.CertMainTest - 5500 个 protobuf 证书add耗时 3332 ms
+2024-03-10 21:42:17 [main] INFO  tests.CertMainTest - 5500 个 protobuf 证书verify耗时 16 ms
+2024-03-10 21:42:17 [main] INFO  tests.CertMainTest - 5500 个 protobuf 证书revoke耗时 33 ms
+2024-03-10 21:42:17 [main] INFO  tests.CertMainTest - ==================分割线==================
+2024-03-10 21:42:22 [main] INFO  tests.CertMainTest - 5500 个 der 证书add耗时 3401 ms
+2024-03-10 21:42:22 [main] INFO  tests.CertMainTest - 5500 个 der 证书verify耗时 18 ms
+2024-03-10 21:42:22 [main] INFO  tests.CertMainTest - 5500 个 der 证书revoke耗时 31 ms
+2024-03-10 21:42:22 [main] INFO  tests.CertMainTest - ==================分割线==================
+2024-03-10 21:42:28 [main] INFO  tests.CertMainTest - 6000 个 json 证书add耗时 3711 ms
+2024-03-10 21:42:28 [main] INFO  tests.CertMainTest - 6000 个 json 证书verify耗时 19 ms
+2024-03-10 21:42:28 [main] INFO  tests.CertMainTest - 6000 个 json 证书revoke耗时 33 ms
+2024-03-10 21:42:28 [main] INFO  tests.CertMainTest - ==================分割线==================
+2024-03-10 21:42:33 [main] INFO  tests.CertMainTest - 6000 个 protobuf 证书add耗时 3657 ms
+2024-03-10 21:42:33 [main] INFO  tests.CertMainTest - 6000 个 protobuf 证书verify耗时 18 ms
+2024-03-10 21:42:33 [main] INFO  tests.CertMainTest - 6000 个 protobuf 证书revoke耗时 32 ms
+2024-03-10 21:42:33 [main] INFO  tests.CertMainTest - ==================分割线==================
+2024-03-10 21:42:39 [main] INFO  tests.CertMainTest - 6000 个 der 证书add耗时 3705 ms
+2024-03-10 21:42:39 [main] INFO  tests.CertMainTest - 6000 个 der 证书verify耗时 18 ms
+2024-03-10 21:42:39 [main] INFO  tests.CertMainTest - 6000 个 der 证书revoke耗时 34 ms
+2024-03-10 21:42:39 [main] INFO  tests.CertMainTest - ==================分割线==================
+2024-03-10 21:42:45 [main] INFO  tests.CertMainTest - 6500 个 json 证书add耗时 4051 ms
+2024-03-10 21:42:45 [main] INFO  tests.CertMainTest - 6500 个 json 证书verify耗时 21 ms
+2024-03-10 21:42:45 [main] INFO  tests.CertMainTest - 6500 个 json 证书revoke耗时 35 ms
+2024-03-10 21:42:45 [main] INFO  tests.CertMainTest - ==================分割线==================
+2024-03-10 21:42:51 [main] INFO  tests.CertMainTest - 6500 个 protobuf 证书add耗时 3979 ms
+2024-03-10 21:42:51 [main] INFO  tests.CertMainTest - 6500 个 protobuf 证书verify耗时 20 ms
+2024-03-10 21:42:51 [main] INFO  tests.CertMainTest - 6500 个 protobuf 证书revoke耗时 35 ms
+2024-03-10 21:42:51 [main] INFO  tests.CertMainTest - ==================分割线==================
+2024-03-10 21:42:57 [main] INFO  tests.CertMainTest - 6500 个 der 证书add耗时 3968 ms
+2024-03-10 21:42:57 [main] INFO  tests.CertMainTest - 6500 个 der 证书verify耗时 20 ms
+2024-03-10 21:42:57 [main] INFO  tests.CertMainTest - 6500 个 der 证书revoke耗时 36 ms
+2024-03-10 21:42:57 [main] INFO  tests.CertMainTest - ==================分割线==================
+2024-03-10 21:43:03 [main] INFO  tests.CertMainTest - 7000 个 json 证书add耗时 4324 ms
+2024-03-10 21:43:03 [main] INFO  tests.CertMainTest - 7000 个 json 证书verify耗时 22 ms
+2024-03-10 21:43:03 [main] INFO  tests.CertMainTest - 7000 个 json 证书revoke耗时 41 ms
+2024-03-10 21:43:03 [main] INFO  tests.CertMainTest - ==================分割线==================
+2024-03-10 21:43:10 [main] INFO  tests.CertMainTest - 7000 个 protobuf 证书add耗时 4541 ms
+2024-03-10 21:43:10 [main] INFO  tests.CertMainTest - 7000 个 protobuf 证书verify耗时 18 ms
+2024-03-10 21:43:10 [main] INFO  tests.CertMainTest - 7000 个 protobuf 证书revoke耗时 33 ms
+2024-03-10 21:43:10 [main] INFO  tests.CertMainTest - ==================分割线==================
+2024-03-10 21:43:17 [main] INFO  tests.CertMainTest - 7000 个 der 证书add耗时 4271 ms
+2024-03-10 21:43:17 [main] INFO  tests.CertMainTest - 7000 个 der 证书verify耗时 23 ms
+2024-03-10 21:43:17 [main] INFO  tests.CertMainTest - 7000 个 der 证书revoke耗时 43 ms
+2024-03-10 21:43:17 [main] INFO  tests.CertMainTest - ==================分割线==================
+2024-03-10 21:43:24 [main] INFO  tests.CertMainTest - 7500 个 json 证书add耗时 4603 ms
+2024-03-10 21:43:24 [main] INFO  tests.CertMainTest - 7500 个 json 证书verify耗时 26 ms
+2024-03-10 21:43:24 [main] INFO  tests.CertMainTest - 7500 个 json 证书revoke耗时 44 ms
+2024-03-10 21:43:24 [main] INFO  tests.CertMainTest - ==================分割线==================
+2024-03-10 21:43:31 [main] INFO  tests.CertMainTest - 7500 个 protobuf 证书add耗时 4591 ms
+2024-03-10 21:43:31 [main] INFO  tests.CertMainTest - 7500 个 protobuf 证书verify耗时 20 ms
+2024-03-10 21:43:31 [main] INFO  tests.CertMainTest - 7500 个 protobuf 证书revoke耗时 37 ms
+2024-03-10 21:43:31 [main] INFO  tests.CertMainTest - ==================分割线==================
+2024-03-10 21:43:38 [main] INFO  tests.CertMainTest - 7500 个 der 证书add耗时 4612 ms
+2024-03-10 21:43:38 [main] INFO  tests.CertMainTest - 7500 个 der 证书verify耗时 22 ms
+2024-03-10 21:43:38 [main] INFO  tests.CertMainTest - 7500 个 der 证书revoke耗时 41 ms
+2024-03-10 21:43:38 [main] INFO  tests.CertMainTest - ==================分割线==================
+2024-03-10 21:43:45 [main] INFO  tests.CertMainTest - 8000 个 json 证书add耗时 4954 ms
+2024-03-10 21:43:45 [main] INFO  tests.CertMainTest - 8000 个 json 证书verify耗时 25 ms
+2024-03-10 21:43:45 [main] INFO  tests.CertMainTest - 8000 个 json 证书revoke耗时 46 ms
+2024-03-10 21:43:45 [main] INFO  tests.CertMainTest - ==================分割线==================
+2024-03-10 21:43:52 [main] INFO  tests.CertMainTest - 8000 个 protobuf 证书add耗时 4911 ms
+2024-03-10 21:43:52 [main] INFO  tests.CertMainTest - 8000 个 protobuf 证书verify耗时 24 ms
+2024-03-10 21:43:52 [main] INFO  tests.CertMainTest - 8000 个 protobuf 证书revoke耗时 45 ms
+2024-03-10 21:43:52 [main] INFO  tests.CertMainTest - ==================分割线==================
+2024-03-10 21:44:00 [main] INFO  tests.CertMainTest - 8000 个 der 证书add耗时 4866 ms
+2024-03-10 21:44:00 [main] INFO  tests.CertMainTest - 8000 个 der 证书verify耗时 27 ms
+2024-03-10 21:44:00 [main] INFO  tests.CertMainTest - 8000 个 der 证书revoke耗时 48 ms
+2024-03-10 21:44:00 [main] INFO  tests.CertMainTest - ==================分割线==================
+2024-03-10 21:44:08 [main] INFO  tests.CertMainTest - 8500 个 json 证书add耗时 5185 ms
+2024-03-10 21:44:08 [main] INFO  tests.CertMainTest - 8500 个 json 证书verify耗时 29 ms
+2024-03-10 21:44:08 [main] INFO  tests.CertMainTest - 8500 个 json 证书revoke耗时 49 ms
+2024-03-10 21:44:08 [main] INFO  tests.CertMainTest - ==================分割线==================
+2024-03-10 21:44:15 [main] INFO  tests.CertMainTest - 8500 个 protobuf 证书add耗时 5198 ms
+2024-03-10 21:44:15 [main] INFO  tests.CertMainTest - 8500 个 protobuf 证书verify耗时 24 ms
+2024-03-10 21:44:15 [main] INFO  tests.CertMainTest - 8500 个 protobuf 证书revoke耗时 44 ms
+2024-03-10 21:44:15 [main] INFO  tests.CertMainTest - ==================分割线==================
+2024-03-10 21:44:23 [main] INFO  tests.CertMainTest - 8500 个 der 证书add耗时 5282 ms
+2024-03-10 21:44:23 [main] INFO  tests.CertMainTest - 8500 个 der 证书verify耗时 27 ms
+2024-03-10 21:44:23 [main] INFO  tests.CertMainTest - 8500 个 der 证书revoke耗时 50 ms
+2024-03-10 21:44:23 [main] INFO  tests.CertMainTest - ==================分割线==================
+2024-03-10 21:44:32 [main] INFO  tests.CertMainTest - 9000 个 json 证书add耗时 5557 ms
+2024-03-10 21:44:32 [main] INFO  tests.CertMainTest - 9000 个 json 证书verify耗时 30 ms
+2024-03-10 21:44:32 [main] INFO  tests.CertMainTest - 9000 个 json 证书revoke耗时 52 ms
+2024-03-10 21:44:32 [main] INFO  tests.CertMainTest - ==================分割线==================
+2024-03-10 21:44:40 [main] INFO  tests.CertMainTest - 9000 个 protobuf 证书add耗时 5559 ms
+2024-03-10 21:44:40 [main] INFO  tests.CertMainTest - 9000 个 protobuf 证书verify耗时 25 ms
+2024-03-10 21:44:40 [main] INFO  tests.CertMainTest - 9000 个 protobuf 证书revoke耗时 45 ms
+2024-03-10 21:44:40 [main] INFO  tests.CertMainTest - ==================分割线==================
+2024-03-10 21:44:48 [main] INFO  tests.CertMainTest - 9000 个 der 证书add耗时 5541 ms
+2024-03-10 21:44:49 [main] INFO  tests.CertMainTest - 9000 个 der 证书verify耗时 29 ms
+2024-03-10 21:44:49 [main] INFO  tests.CertMainTest - 9000 个 der 证书revoke耗时 50 ms
+2024-03-10 21:44:49 [main] INFO  tests.CertMainTest - ==================分割线==================
+2024-03-10 21:44:57 [main] INFO  tests.CertMainTest - 9500 个 json 证书add耗时 5894 ms
+2024-03-10 21:44:57 [main] INFO  tests.CertMainTest - 9500 个 json 证书verify耗时 32 ms
+2024-03-10 21:44:57 [main] INFO  tests.CertMainTest - 9500 个 json 证书revoke耗时 54 ms
+2024-03-10 21:44:57 [main] INFO  tests.CertMainTest - ==================分割线==================
+2024-03-10 21:45:06 [main] INFO  tests.CertMainTest - 9500 个 protobuf 证书add耗时 5915 ms
+2024-03-10 21:45:06 [main] INFO  tests.CertMainTest - 9500 个 protobuf 证书verify耗时 26 ms
+2024-03-10 21:45:06 [main] INFO  tests.CertMainTest - 9500 个 protobuf 证书revoke耗时 48 ms
+2024-03-10 21:45:06 [main] INFO  tests.CertMainTest - ==================分割线==================
+2024-03-10 21:45:15 [main] INFO  tests.CertMainTest - 9500 个 der 证书add耗时 5988 ms
+2024-03-10 21:45:15 [main] INFO  tests.CertMainTest - 9500 个 der 证书verify耗时 31 ms
+2024-03-10 21:45:15 [main] INFO  tests.CertMainTest - 9500 个 der 证书revoke耗时 55 ms
+2024-03-10 21:45:15 [main] INFO  tests.CertMainTest - ==================分割线==================
+2024-03-10 21:45:24 [main] INFO  tests.CertMainTest - 10000 个 json 证书add耗时 6123 ms
+2024-03-10 21:45:25 [main] INFO  tests.CertMainTest - 10000 个 json 证书verify耗时 36 ms
+2024-03-10 21:45:25 [main] INFO  tests.CertMainTest - 10000 个 json 证书revoke耗时 58 ms
+2024-03-10 21:45:25 [main] INFO  tests.CertMainTest - ==================分割线==================
+2024-03-10 21:45:34 [main] INFO  tests.CertMainTest - 10000 个 protobuf 证书add耗时 6076 ms
+2024-03-10 21:45:34 [main] INFO  tests.CertMainTest - 10000 个 protobuf 证书verify耗时 28 ms
+2024-03-10 21:45:34 [main] INFO  tests.CertMainTest - 10000 个 protobuf 证书revoke耗时 51 ms
+2024-03-10 21:45:34 [main] INFO  tests.CertMainTest - ==================分割线==================
+2024-03-10 21:45:43 [main] INFO  tests.CertMainTest - 10000 个 der 证书add耗时 6101 ms
+2024-03-10 21:45:43 [main] INFO  tests.CertMainTest - 10000 个 der 证书verify耗时 32 ms
+2024-03-10 21:45:43 [main] INFO  tests.CertMainTest - 10000 个 der 证书revoke耗时 57 ms
+2024-03-10 21:45:43 [main] INFO  tests.CertMainTest - ==================分割线==================

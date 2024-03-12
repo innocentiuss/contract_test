@@ -1,0 +1,228 @@
+00:47:20.552 [main] INFO tests.CertMainTest -- 1000 个 flat buffers 证书add耗时 819 ms
+00:47:20.557 [main] INFO tests.CertMainTest -- 1000 个 flat buffers 证书verify耗时 4 ms
+00:47:20.565 [main] INFO tests.CertMainTest -- 1000 个 flat buffers 证书revoke耗时 7 ms
+00:47:20.565 [main] INFO tests.CertMainTest -- ==================分割线==================
+00:47:21.607 [main] INFO tests.CertMainTest -- 1000 个 json 证书add耗时 628 ms
+00:47:21.612 [main] INFO tests.CertMainTest -- 1000 个 json 证书verify耗时 4 ms
+00:47:21.620 [main] INFO tests.CertMainTest -- 1000 个 json 证书revoke耗时 7 ms
+00:47:21.621 [main] INFO tests.CertMainTest -- ==================分割线==================
+00:47:22.581 [main] INFO tests.CertMainTest -- 1000 个 protobuf 证书add耗时 629 ms
+00:47:22.584 [main] INFO tests.CertMainTest -- 1000 个 protobuf 证书verify耗时 3 ms
+00:47:22.590 [main] INFO tests.CertMainTest -- 1000 个 protobuf 证书revoke耗时 6 ms
+00:47:22.590 [main] INFO tests.CertMainTest -- ==================分割线==================
+00:47:24.280 [main] INFO tests.CertMainTest -- 1500 个 flat buffers 证书add耗时 1230 ms
+00:47:24.286 [main] INFO tests.CertMainTest -- 1500 个 flat buffers 证书verify耗时 6 ms
+00:47:24.297 [main] INFO tests.CertMainTest -- 1500 个 flat buffers 证书revoke耗时 11 ms
+00:47:24.297 [main] INFO tests.CertMainTest -- ==================分割线==================
+00:47:26.301 [main] INFO tests.CertMainTest -- 1500 个 json 证书add耗时 1336 ms
+00:47:26.307 [main] INFO tests.CertMainTest -- 1500 个 json 证书verify耗时 6 ms
+00:47:26.318 [main] INFO tests.CertMainTest -- 1500 个 json 证书revoke耗时 10 ms
+00:47:26.319 [main] INFO tests.CertMainTest -- ==================分割线==================
+00:47:28.299 [main] INFO tests.CertMainTest -- 1500 个 protobuf 证书add耗时 1318 ms
+00:47:28.305 [main] INFO tests.CertMainTest -- 1500 个 protobuf 证书verify耗时 6 ms
+00:47:28.315 [main] INFO tests.CertMainTest -- 1500 个 protobuf 证书revoke耗时 10 ms
+00:47:28.315 [main] INFO tests.CertMainTest -- ==================分割线==================
+00:47:30.892 [main] INFO tests.CertMainTest -- 2000 个 flat buffers 证书add耗时 1710 ms
+00:47:30.900 [main] INFO tests.CertMainTest -- 2000 个 flat buffers 证书verify耗时 8 ms
+00:47:30.913 [main] INFO tests.CertMainTest -- 2000 个 flat buffers 证书revoke耗时 13 ms
+00:47:30.913 [main] INFO tests.CertMainTest -- ==================分割线==================
+00:47:33.473 [main] INFO tests.CertMainTest -- 2000 个 json 证书add耗时 1709 ms
+00:47:33.481 [main] INFO tests.CertMainTest -- 2000 个 json 证书verify耗时 8 ms
+00:47:33.495 [main] INFO tests.CertMainTest -- 2000 个 json 证书revoke耗时 14 ms
+00:47:33.495 [main] INFO tests.CertMainTest -- ==================分割线==================
+00:47:35.343 [main] INFO tests.CertMainTest -- 2000 个 protobuf 证书add耗时 1208 ms
+00:47:35.350 [main] INFO tests.CertMainTest -- 2000 个 protobuf 证书verify耗时 7 ms
+00:47:35.361 [main] INFO tests.CertMainTest -- 2000 个 protobuf 证书revoke耗时 11 ms
+00:47:35.361 [main] INFO tests.CertMainTest -- ==================分割线==================
+00:47:37.695 [main] INFO tests.CertMainTest -- 2500 个 flat buffers 证书add耗时 1565 ms
+00:47:37.703 [main] INFO tests.CertMainTest -- 2500 个 flat buffers 证书verify耗时 8 ms
+00:47:37.716 [main] INFO tests.CertMainTest -- 2500 个 flat buffers 证书revoke耗时 13 ms
+00:47:37.716 [main] INFO tests.CertMainTest -- ==================分割线==================
+00:47:39.994 [main] INFO tests.CertMainTest -- 2500 个 json 证书add耗时 1524 ms
+00:47:40.003 [main] INFO tests.CertMainTest -- 2500 个 json 证书verify耗时 9 ms
+00:47:40.018 [main] INFO tests.CertMainTest -- 2500 个 json 证书revoke耗时 15 ms
+00:47:40.018 [main] INFO tests.CertMainTest -- ==================分割线==================
+00:47:42.495 [main] INFO tests.CertMainTest -- 2500 个 protobuf 证书add耗时 1725 ms
+00:47:42.501 [main] INFO tests.CertMainTest -- 2500 个 protobuf 证书verify耗时 6 ms
+00:47:42.513 [main] INFO tests.CertMainTest -- 2500 个 protobuf 证书revoke耗时 12 ms
+00:47:42.513 [main] INFO tests.CertMainTest -- ==================分割线==================
+00:47:45.274 [main] INFO tests.CertMainTest -- 3000 个 flat buffers 证书add耗时 1836 ms
+00:47:45.283 [main] INFO tests.CertMainTest -- 3000 个 flat buffers 证书verify耗时 9 ms
+00:47:45.299 [main] INFO tests.CertMainTest -- 3000 个 flat buffers 证书revoke耗时 16 ms
+00:47:45.299 [main] INFO tests.CertMainTest -- ==================分割线==================
+00:47:48.029 [main] INFO tests.CertMainTest -- 3000 个 json 证书add耗时 1827 ms
+00:47:48.040 [main] INFO tests.CertMainTest -- 3000 个 json 证书verify耗时 11 ms
+00:47:48.058 [main] INFO tests.CertMainTest -- 3000 个 json 证书revoke耗时 18 ms
+00:47:48.058 [main] INFO tests.CertMainTest -- ==================分割线==================
+00:47:50.790 [main] INFO tests.CertMainTest -- 3000 个 protobuf 证书add耗时 1829 ms
+00:47:50.797 [main] INFO tests.CertMainTest -- 3000 个 protobuf 证书verify耗时 7 ms
+00:47:50.811 [main] INFO tests.CertMainTest -- 3000 个 protobuf 证书revoke耗时 13 ms
+00:47:50.812 [main] INFO tests.CertMainTest -- ==================分割线==================
+00:47:54.005 [main] INFO tests.CertMainTest -- 3500 个 flat buffers 证书add耗时 2141 ms
+00:47:54.015 [main] INFO tests.CertMainTest -- 3500 个 flat buffers 证书verify耗时 10 ms
+00:47:54.034 [main] INFO tests.CertMainTest -- 3500 个 flat buffers 证书revoke耗时 18 ms
+00:47:54.034 [main] INFO tests.CertMainTest -- ==================分割线==================
+00:47:57.227 [main] INFO tests.CertMainTest -- 3500 个 json 证书add耗时 2130 ms
+00:47:57.239 [main] INFO tests.CertMainTest -- 3500 个 json 证书verify耗时 12 ms
+00:47:57.260 [main] INFO tests.CertMainTest -- 3500 个 json 证书revoke耗时 20 ms
+00:47:57.260 [main] INFO tests.CertMainTest -- ==================分割线==================
+00:48:00.440 [main] INFO tests.CertMainTest -- 3500 个 protobuf 证书add耗时 2129 ms
+00:48:00.449 [main] INFO tests.CertMainTest -- 3500 个 protobuf 证书verify耗时 8 ms
+00:48:00.467 [main] INFO tests.CertMainTest -- 3500 个 protobuf 证书revoke耗时 17 ms
+00:48:00.467 [main] INFO tests.CertMainTest -- ==================分割线==================
+00:48:04.123 [main] INFO tests.CertMainTest -- 4000 个 flat buffers 证书add耗时 2424 ms
+00:48:04.136 [main] INFO tests.CertMainTest -- 4000 个 flat buffers 证书verify耗时 13 ms
+00:48:04.158 [main] INFO tests.CertMainTest -- 4000 个 flat buffers 证书revoke耗时 22 ms
+00:48:04.158 [main] INFO tests.CertMainTest -- ==================分割线==================
+00:48:07.793 [main] INFO tests.CertMainTest -- 4000 个 json 证书add耗时 2431 ms
+00:48:07.806 [main] INFO tests.CertMainTest -- 4000 个 json 证书verify耗时 13 ms
+00:48:07.828 [main] INFO tests.CertMainTest -- 4000 个 json 证书revoke耗时 22 ms
+00:48:07.828 [main] INFO tests.CertMainTest -- ==================分割线==================
+00:48:11.459 [main] INFO tests.CertMainTest -- 4000 个 protobuf 证书add耗时 2421 ms
+00:48:11.470 [main] INFO tests.CertMainTest -- 4000 个 protobuf 证书verify耗时 11 ms
+00:48:11.491 [main] INFO tests.CertMainTest -- 4000 个 protobuf 证书revoke耗时 20 ms
+00:48:11.492 [main] INFO tests.CertMainTest -- ==================分割线==================
+00:48:15.563 [main] INFO tests.CertMainTest -- 4500 个 flat buffers 证书add耗时 2716 ms
+00:48:15.576 [main] INFO tests.CertMainTest -- 4500 个 flat buffers 证书verify耗时 13 ms
+00:48:15.600 [main] INFO tests.CertMainTest -- 4500 个 flat buffers 证书revoke耗时 23 ms
+00:48:15.600 [main] INFO tests.CertMainTest -- ==================分割线==================
+00:48:19.710 [main] INFO tests.CertMainTest -- 4500 个 json 证书add耗时 2752 ms
+00:48:19.726 [main] INFO tests.CertMainTest -- 4500 个 json 证书verify耗时 16 ms
+00:48:19.753 [main] INFO tests.CertMainTest -- 4500 个 json 证书revoke耗时 27 ms
+00:48:19.753 [main] INFO tests.CertMainTest -- ==================分割线==================
+00:48:23.826 [main] INFO tests.CertMainTest -- 4500 个 protobuf 证书add耗时 2720 ms
+00:48:23.839 [main] INFO tests.CertMainTest -- 4500 个 protobuf 证书verify耗时 13 ms
+00:48:23.862 [main] INFO tests.CertMainTest -- 4500 个 protobuf 证书revoke耗时 23 ms
+00:48:23.863 [main] INFO tests.CertMainTest -- ==================分割线==================
+00:48:28.407 [main] INFO tests.CertMainTest -- 5000 个 flat buffers 证书add耗时 3033 ms
+00:48:28.422 [main] INFO tests.CertMainTest -- 5000 个 flat buffers 证书verify耗时 15 ms
+00:48:28.449 [main] INFO tests.CertMainTest -- 5000 个 flat buffers 证书revoke耗时 27 ms
+00:48:28.449 [main] INFO tests.CertMainTest -- ==================分割线==================
+00:48:33.000 [main] INFO tests.CertMainTest -- 5000 个 json 证书add耗时 3043 ms
+00:48:33.016 [main] INFO tests.CertMainTest -- 5000 个 json 证书verify耗时 16 ms
+00:48:33.042 [main] INFO tests.CertMainTest -- 5000 个 json 证书revoke耗时 26 ms
+00:48:33.042 [main] INFO tests.CertMainTest -- ==================分割线==================
+00:48:37.571 [main] INFO tests.CertMainTest -- 5000 个 protobuf 证书add耗时 3011 ms
+00:48:37.586 [main] INFO tests.CertMainTest -- 5000 个 protobuf 证书verify耗时 15 ms
+00:48:37.612 [main] INFO tests.CertMainTest -- 5000 个 protobuf 证书revoke耗时 26 ms
+00:48:37.612 [main] INFO tests.CertMainTest -- ==================分割线==================
+00:48:42.616 [main] INFO tests.CertMainTest -- 5500 个 flat buffers 证书add耗时 3349 ms
+00:48:42.630 [main] INFO tests.CertMainTest -- 5500 个 flat buffers 证书verify耗时 14 ms
+00:48:42.657 [main] INFO tests.CertMainTest -- 5500 个 flat buffers 证书revoke耗时 27 ms
+00:48:42.657 [main] INFO tests.CertMainTest -- ==================分割线==================
+00:48:47.662 [main] INFO tests.CertMainTest -- 5500 个 json 证书add耗时 3340 ms
+00:48:47.681 [main] INFO tests.CertMainTest -- 5500 个 json 证书verify耗时 19 ms
+00:48:47.713 [main] INFO tests.CertMainTest -- 5500 个 json 证书revoke耗时 32 ms
+00:48:47.714 [main] INFO tests.CertMainTest -- ==================分割线==================
+00:48:52.715 [main] INFO tests.CertMainTest -- 5500 个 protobuf 证书add耗时 3348 ms
+00:48:52.730 [main] INFO tests.CertMainTest -- 5500 个 protobuf 证书verify耗时 15 ms
+00:48:52.757 [main] INFO tests.CertMainTest -- 5500 个 protobuf 证书revoke耗时 27 ms
+00:48:52.757 [main] INFO tests.CertMainTest -- ==================分割线==================
+00:48:58.200 [main] INFO tests.CertMainTest -- 6000 个 flat buffers 证书add耗时 3640 ms
+00:48:58.217 [main] INFO tests.CertMainTest -- 6000 个 flat buffers 证书verify耗时 17 ms
+00:48:58.246 [main] INFO tests.CertMainTest -- 6000 个 flat buffers 证书revoke耗时 29 ms
+00:48:58.247 [main] INFO tests.CertMainTest -- ==================分割线==================
+00:49:03.707 [main] INFO tests.CertMainTest -- 6000 个 json 证书add耗时 3644 ms
+00:49:03.729 [main] INFO tests.CertMainTest -- 6000 个 json 证书verify耗时 21 ms
+00:49:03.764 [main] INFO tests.CertMainTest -- 6000 个 json 证书revoke耗时 35 ms
+00:49:03.764 [main] INFO tests.CertMainTest -- ==================分割线==================
+00:49:09.204 [main] INFO tests.CertMainTest -- 6000 个 protobuf 证书add耗时 3638 ms
+00:49:09.220 [main] INFO tests.CertMainTest -- 6000 个 protobuf 证书verify耗时 15 ms
+00:49:09.249 [main] INFO tests.CertMainTest -- 6000 个 protobuf 证书revoke耗时 29 ms
+00:49:09.249 [main] INFO tests.CertMainTest -- ==================分割线==================
+00:49:15.158 [main] INFO tests.CertMainTest -- 6500 个 flat buffers 证书add耗时 3957 ms
+00:49:15.175 [main] INFO tests.CertMainTest -- 6500 个 flat buffers 证书verify耗时 17 ms
+00:49:15.207 [main] INFO tests.CertMainTest -- 6500 个 flat buffers 证书revoke耗时 32 ms
+00:49:15.207 [main] INFO tests.CertMainTest -- ==================分割线==================
+00:49:21.088 [main] INFO tests.CertMainTest -- 6500 个 json 证书add耗时 3932 ms
+00:49:21.111 [main] INFO tests.CertMainTest -- 6500 个 json 证书verify耗时 23 ms
+00:49:21.149 [main] INFO tests.CertMainTest -- 6500 个 json 证书revoke耗时 38 ms
+00:49:21.149 [main] INFO tests.CertMainTest -- ==================分割线==================
+00:49:27.026 [main] INFO tests.CertMainTest -- 6500 个 protobuf 证书add耗时 3919 ms
+00:49:27.043 [main] INFO tests.CertMainTest -- 6500 个 protobuf 证书verify耗时 17 ms
+00:49:27.075 [main] INFO tests.CertMainTest -- 6500 个 protobuf 证书revoke耗时 32 ms
+00:49:27.075 [main] INFO tests.CertMainTest -- ==================分割线==================
+00:49:33.432 [main] INFO tests.CertMainTest -- 7000 个 flat buffers 证书add耗时 4255 ms
+00:49:33.451 [main] INFO tests.CertMainTest -- 7000 个 flat buffers 证书verify耗时 19 ms
+00:49:33.485 [main] INFO tests.CertMainTest -- 7000 个 flat buffers 证书revoke耗时 34 ms
+00:49:33.485 [main] INFO tests.CertMainTest -- ==================分割线==================
+00:49:39.880 [main] INFO tests.CertMainTest -- 7000 个 json 证书add耗时 4282 ms
+00:49:39.905 [main] INFO tests.CertMainTest -- 7000 个 json 证书verify耗时 25 ms
+00:49:39.946 [main] INFO tests.CertMainTest -- 7000 个 json 证书revoke耗时 41 ms
+00:49:39.946 [main] INFO tests.CertMainTest -- ==================分割线==================
+00:49:46.275 [main] INFO tests.CertMainTest -- 7000 个 protobuf 证书add耗时 4218 ms
+00:49:46.295 [main] INFO tests.CertMainTest -- 7000 个 protobuf 证书verify耗时 20 ms
+00:49:46.331 [main] INFO tests.CertMainTest -- 7000 个 protobuf 证书revoke耗时 36 ms
+00:49:46.331 [main] INFO tests.CertMainTest -- ==================分割线==================
+00:49:53.135 [main] INFO tests.CertMainTest -- 7500 个 flat buffers 证书add耗时 4527 ms
+00:49:53.157 [main] INFO tests.CertMainTest -- 7500 个 flat buffers 证书verify耗时 22 ms
+00:49:53.196 [main] INFO tests.CertMainTest -- 7500 个 flat buffers 证书revoke耗时 39 ms
+00:49:53.196 [main] INFO tests.CertMainTest -- ==================分割线==================
+00:50:00.029 [main] INFO tests.CertMainTest -- 7500 个 json 证书add耗时 4576 ms
+00:50:00.053 [main] INFO tests.CertMainTest -- 7500 个 json 证书verify耗时 24 ms
+00:50:00.094 [main] INFO tests.CertMainTest -- 7500 个 json 证书revoke耗时 41 ms
+00:50:00.094 [main] INFO tests.CertMainTest -- ==================分割线==================
+00:50:06.893 [main] INFO tests.CertMainTest -- 7500 个 protobuf 证书add耗时 4552 ms
+00:50:06.912 [main] INFO tests.CertMainTest -- 7500 个 protobuf 证书verify耗时 19 ms
+00:50:06.947 [main] INFO tests.CertMainTest -- 7500 个 protobuf 证书revoke耗时 34 ms
+00:50:06.947 [main] INFO tests.CertMainTest -- ==================分割线==================
+00:50:14.200 [main] INFO tests.CertMainTest -- 8000 个 flat buffers 证书add耗时 4849 ms
+00:50:14.221 [main] INFO tests.CertMainTest -- 8000 个 flat buffers 证书verify耗时 21 ms
+00:50:14.262 [main] INFO tests.CertMainTest -- 8000 个 flat buffers 证书revoke耗时 41 ms
+00:50:14.262 [main] INFO tests.CertMainTest -- ==================分割线==================
+00:50:21.536 [main] INFO tests.CertMainTest -- 8000 个 json 证书add耗时 4861 ms
+00:50:21.564 [main] INFO tests.CertMainTest -- 8000 个 json 证书verify耗时 28 ms
+00:50:21.613 [main] INFO tests.CertMainTest -- 8000 个 json 证书revoke耗时 49 ms
+00:50:21.613 [main] INFO tests.CertMainTest -- ==================分割线==================
+00:50:28.852 [main] INFO tests.CertMainTest -- 8000 个 protobuf 证书add耗时 4830 ms
+00:50:28.875 [main] INFO tests.CertMainTest -- 8000 个 protobuf 证书verify耗时 23 ms
+00:50:28.919 [main] INFO tests.CertMainTest -- 8000 个 protobuf 证书revoke耗时 44 ms
+00:50:28.919 [main] INFO tests.CertMainTest -- ==================分割线==================
+00:50:36.675 [main] INFO tests.CertMainTest -- 8500 个 flat buffers 证书add耗时 5201 ms
+00:50:36.702 [main] INFO tests.CertMainTest -- 8500 个 flat buffers 证书verify耗时 27 ms
+00:50:36.749 [main] INFO tests.CertMainTest -- 8500 个 flat buffers 证书revoke耗时 47 ms
+00:50:36.749 [main] INFO tests.CertMainTest -- ==================分割线==================
+00:50:44.469 [main] INFO tests.CertMainTest -- 8500 个 json 证书add耗时 5146 ms
+00:50:44.497 [main] INFO tests.CertMainTest -- 8500 个 json 证书verify耗时 28 ms
+00:50:44.545 [main] INFO tests.CertMainTest -- 8500 个 json 证书revoke耗时 48 ms
+00:50:44.545 [main] INFO tests.CertMainTest -- ==================分割线==================
+00:50:52.233 [main] INFO tests.CertMainTest -- 8500 个 protobuf 证书add耗时 5122 ms
+00:50:52.255 [main] INFO tests.CertMainTest -- 8500 个 protobuf 证书verify耗时 22 ms
+00:50:52.295 [main] INFO tests.CertMainTest -- 8500 个 protobuf 证书revoke耗时 40 ms
+00:50:52.296 [main] INFO tests.CertMainTest -- ==================分割线==================
+00:51:00.461 [main] INFO tests.CertMainTest -- 9000 个 flat buffers 证书add耗时 5454 ms
+00:51:00.486 [main] INFO tests.CertMainTest -- 9000 个 flat buffers 证书verify耗时 25 ms
+00:51:00.532 [main] INFO tests.CertMainTest -- 9000 个 flat buffers 证书revoke耗时 46 ms
+00:51:00.533 [main] INFO tests.CertMainTest -- ==================分割线==================
+00:51:08.735 [main] INFO tests.CertMainTest -- 9000 个 json 证书add耗时 5471 ms
+00:51:08.765 [main] INFO tests.CertMainTest -- 9000 个 json 证书verify耗时 30 ms
+00:51:08.815 [main] INFO tests.CertMainTest -- 9000 个 json 证书revoke耗时 50 ms
+00:51:08.815 [main] INFO tests.CertMainTest -- ==================分割线==================
+00:51:16.984 [main] INFO tests.CertMainTest -- 9000 个 protobuf 证书add耗时 5453 ms
+00:51:17.007 [main] INFO tests.CertMainTest -- 9000 个 protobuf 证书verify耗时 23 ms
+00:51:17.051 [main] INFO tests.CertMainTest -- 9000 个 protobuf 证书revoke耗时 44 ms
+00:51:17.051 [main] INFO tests.CertMainTest -- ==================分割线==================
+00:51:25.754 [main] INFO tests.CertMainTest -- 9500 个 flat buffers 证书add耗时 5764 ms
+00:51:25.782 [main] INFO tests.CertMainTest -- 9500 个 flat buffers 证书verify耗时 28 ms
+00:51:25.831 [main] INFO tests.CertMainTest -- 9500 个 flat buffers 证书revoke耗时 49 ms
+00:51:25.832 [main] INFO tests.CertMainTest -- ==================分割线==================
+00:51:34.553 [main] INFO tests.CertMainTest -- 9500 个 json 证书add耗时 5827 ms
+00:51:34.584 [main] INFO tests.CertMainTest -- 9500 个 json 证书verify耗时 31 ms
+00:51:34.637 [main] INFO tests.CertMainTest -- 9500 个 json 证书revoke耗时 53 ms
+00:51:34.637 [main] INFO tests.CertMainTest -- ==================分割线==================
+00:51:43.273 [main] INFO tests.CertMainTest -- 9500 个 protobuf 证书add耗时 5779 ms
+00:51:43.298 [main] INFO tests.CertMainTest -- 9500 个 protobuf 证书verify耗时 25 ms
+00:51:43.345 [main] INFO tests.CertMainTest -- 9500 个 protobuf 证书revoke耗时 47 ms
+00:51:43.345 [main] INFO tests.CertMainTest -- ==================分割线==================
+00:51:52.461 [main] INFO tests.CertMainTest -- 10000 个 flat buffers 证书add耗时 6088 ms
+00:51:52.490 [main] INFO tests.CertMainTest -- 10000 个 flat buffers 证书verify耗时 29 ms
+00:51:52.542 [main] INFO tests.CertMainTest -- 10000 个 flat buffers 证书revoke耗时 52 ms
+00:51:52.542 [main] INFO tests.CertMainTest -- ==================分割线==================
+00:52:01.682 [main] INFO tests.CertMainTest -- 10000 个 json 证书add耗时 6110 ms
+00:52:01.716 [main] INFO tests.CertMainTest -- 10000 个 json 证书verify耗时 34 ms
+00:52:01.773 [main] INFO tests.CertMainTest -- 10000 个 json 证书revoke耗时 57 ms
+00:52:01.773 [main] INFO tests.CertMainTest -- ==================分割线==================
+00:52:10.867 [main] INFO tests.CertMainTest -- 10000 个 protobuf 证书add耗时 6078 ms
+00:52:10.895 [main] INFO tests.CertMainTest -- 10000 个 protobuf 证书verify耗时 28 ms
+00:52:10.946 [main] INFO tests.CertMainTest -- 10000 个 protobuf 证书revoke耗时 51 ms
+00:52:10.946 [main] INFO tests.CertMainTest -- ==================分割线==================
