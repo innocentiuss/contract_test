@@ -39,3 +39,4 @@ build/
 /.idea/
 /protoc/protoc.exe
 /flatc/flatc.exe
+/contract_pic/.idea/
