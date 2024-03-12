@@ -13,8 +13,8 @@ import java.util.List;
 
 @Slf4j
 public class CertEncryptTypeTest {
-    private static List<Integer> CERT_SUM = Arrays.asList(100, 150, 200, 250, 300);
-    static final int maxElement = 300;
+    private static List<Integer> CERT_SUM = Arrays.asList(1000, 1500, 2000, 2500, 3000);
+    static final int maxElement = 3000;
     static final double falsePositiveProbability = 0.00001d;
     public static void main(String[] args) throws Exception{
         CertificateValidator protoValidator = new ProtoCertificateValidator(maxElement, falsePositiveProbability);

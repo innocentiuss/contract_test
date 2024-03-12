@@ -15,11 +15,14 @@ public class CertFormatTypeTest {
 
     private static List<Integer> CERT_SUM = Arrays.asList(1000, 1500, 2000, 2500, 3000, 3500, 4000, 4500, 5000, 5500, 6000, 6500, 7000, 7500, 8000, 8500, 9000, 9500, 10000);
     static int expectedElements;
+
     static {
         expectedElements = CERT_SUM.stream().max(Comparator.comparingInt(a -> a)).orElse(-1);
     }
+
     static final double falsePositiveProbability = 0.00001d;
-    public static void main(String[] args) throws Exception{
+
+    public static void main(String[] args) throws Exception {
         CertificateValidator protoValidator = new ProtoCertificateValidator(expectedElements, falsePositiveProbability);
         CertificateValidator plainValidator = new PlainCertificateValidator(expectedElements, falsePositiveProbability);
         CertificateValidator asnCertificateValidator = new ASNCertificateValidator(expectedElements, falsePositiveProbability);
@@ -32,9 +35,8 @@ public class CertFormatTypeTest {
         long start;
         long end;
 
-        for (Integer sum : CERT_SUM) {
-            for (CertificateValidator validator : validators) {
-
+        for (CertificateValidator validator : validators) {
+            for (Integer sum : CERT_SUM) {
                 List<Certificate> validList = new ArrayList<>(sum);
                 List<Certificate> compareList = new ArrayList<>(sum / 2);
                 for (int i = 0; i < sum / 2; i++) {
