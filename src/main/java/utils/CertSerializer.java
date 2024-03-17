@@ -67,14 +67,14 @@ public class CertSerializer {
         try {
             ASN1EncodableVector v = new ASN1EncodableVector();
             v.add(new DERUTF8String(certificate.getCertificateVersion()));
-            v.add(new ASN1Integer(certificate.getCertificateSerialNumber()));
+            v.add(new DERUTF8String(String.valueOf(certificate.getCertificateSerialNumber())));
             v.add(new DERUTF8String(certificate.getCertificateSignatureAlgorithm()));
             v.add(new DERUTF8String(certificate.getCertificateIssuerName()));
-            v.add(new ASN1Integer(certificate.getInvalidAfterTimestamps().getTime() / 1000));
+            v.add(new DERUTF8String(certificate.getInvalidAfterTimestamps().toString()));
             v.add(new DERUTF8String(certificate.getThisCertificateHolderName()));
             v.add(new DERUTF8String(certificate.getPublicKeyForThisCertificate()));
-            v.add(new ASN1Integer(certificate.getLastBlockChainHeight()));
-            v.add(new ASN1Integer(certificate.getCertificateOperationType()));
+            v.add(new DERUTF8String(String.valueOf(certificate.getLastBlockChainHeight())));
+            v.add(new DERUTF8String(String.valueOf(certificate.getCertificateOperationType())));
             v.add(new DERUTF8String(certificate.getSmartContractUrl()));
             DERSequence derSequence = new DERSequence(v);
             return Base64.getEncoder().encode(derSequence.getEncoded());

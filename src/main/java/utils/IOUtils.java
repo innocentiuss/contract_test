@@ -22,4 +22,11 @@ public class IOUtils {
         System.arraycopy(array2, 0, result, array1.length, array2.length);
         return result;
     }
+
+    public static void main(String[] args) throws Exception {
+        long start = System.currentTimeMillis();
+        writeBytesToFile(new byte[100], "D:/test.test");
+        long end = System.currentTimeMillis();
+        System.out.println(end - start);
+    }
 }
