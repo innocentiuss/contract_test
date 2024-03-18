@@ -18,12 +18,12 @@ import java.util.concurrent.atomic.AtomicInteger;
 public class Certificate {
     private String certificateVersion; // 版本
     private int certificateSerialNumber; // x序列号
-    private String certificateSignatureAlgorithm; // 签名算法
+    private String certSignatureAlgorithm; // 签名算法
     private String signatureValue; // sign value
-    private String certificateIssuerName; // 颁发者
+    private String certIssuerName; // 颁发者
     private Date invalidAfterTimestamps; // 有效期
-    private String thisCertificateHolderName; // 主体名称
-    private String publicKeyForThisCertificate;
+    private String certHolderName; // 主体名称
+    private String publicKey;
     private int lastBlockChainHeight;
     private byte certificateOperationType;
     private String smartContractUrl;
@@ -32,11 +32,11 @@ public class Certificate {
                        String publicKey, int historyHeight, byte opType, String contractUrl, String sign) {
         this.certificateVersion = version;
         this.certificateSerialNumber = serialNumber;
-        this.certificateSignatureAlgorithm = signatureAlgo;
-        this.certificateIssuerName = issuer;
+        this.certSignatureAlgorithm = signatureAlgo;
+        this.certIssuerName = issuer;
         this.invalidAfterTimestamps = validNotAfter;
-        this.thisCertificateHolderName = holder;
-        this.publicKeyForThisCertificate = publicKey;
+        this.certHolderName = holder;
+        this.publicKey = publicKey;
         this.lastBlockChainHeight = historyHeight;
         this.certificateOperationType = opType;
         this.smartContractUrl = contractUrl;

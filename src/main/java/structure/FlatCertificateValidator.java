@@ -16,4 +16,14 @@ public class FlatCertificateValidator extends CertificateValidator{
         byte[] bytes = CertSerializer.serializeFlatCert(certificate);
         return HashUtils.hashingBytes(bytes);
     }
+
+    @Override
+    public byte[] serializeCert(Certificate certificate) {
+        return CertSerializer.serializeFlatCert(certificate);
+    }
+
+    @Override
+    public Certificate deserializeCert(byte[] bytes) throws Exception {
+        return CertSerializer.deserializeFlatCert(bytes);
+    }
 }

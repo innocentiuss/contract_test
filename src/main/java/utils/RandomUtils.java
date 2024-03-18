@@ -35,7 +35,7 @@ public class RandomUtils {
     public static Date generateRandomDate() {
 
         // 设置年份范围，假设是 1900 到 2024 年
-        int year = 1900 + RANDOM.nextInt(125); // 2024 - 1900 + 1
+        int year = 1972 + RANDOM.nextInt(70); // 2024 - 1900 + 1
 
         // 设置月份范围，1 到 12 月
         int month = 1 + RANDOM.nextInt(12);

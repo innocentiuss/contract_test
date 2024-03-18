@@ -1,19 +1,28 @@
 package utils;
 
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileOutputStream;
 
 public class IOUtils {
 
     public static void writeBytesToFile(byte[] bytes, String fileName) throws Exception {
-        File file = new File(fileName);
-        File parentFile = file.getParentFile();
-        if (!parentFile.exists()) {
-            parentFile.mkdirs();
-        }
+//        File file = new File(fileName);
+//        File parentFile = file.getParentFile();
+//        if (!parentFile.exists()) {
+//            parentFile.mkdirs();
+//        }
         try (FileOutputStream fos = new FileOutputStream(fileName)) {
             fos.write(bytes);
         }
+    }
+    public static byte[] readBytesFromFile(String fileName) throws Exception {
+        File file = new File(fileName);
+        byte[] bytes = new byte[(int) file.length()];
+        try (FileInputStream fis = new FileInputStream(fileName)) {
+            fis.read(bytes);
+        }
+        return bytes;
     }
 
     public static byte[] concatBytes(byte[] array1, byte[] array2) {

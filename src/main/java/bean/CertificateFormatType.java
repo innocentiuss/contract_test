@@ -24,7 +24,7 @@ public enum CertificateFormatType {
             return CertSerializer.serializeProtoCert(certificate);
         }
     },
-    ASN1("asn.1", "der") {
+    ASN1("asn1", "der") {
         @Override
         public byte[] serializeCert(Certificate certificate) {
             try {

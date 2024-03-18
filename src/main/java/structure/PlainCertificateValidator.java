@@ -16,4 +16,14 @@ public class PlainCertificateValidator extends CertificateValidator {
         byte[] jsonBytes = JSON.toJSONBytes(certificate);
         return HashUtils.hashingBytes(jsonBytes);
     }
+
+    @Override
+    public byte[] serializeCert(Certificate certificate) {
+        return JSON.toJSONBytes(certificate);
+    }
+
+    @Override
+    public Certificate deserializeCert(byte[] bytes) throws Exception {
+        return JSON.parseObject(bytes, Certificate.class);
+    }
 }

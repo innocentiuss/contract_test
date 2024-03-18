@@ -19,4 +19,14 @@ public class ASNCertificateValidator extends CertificateValidator{
         byte[] bytes = Base64.getEncoder().encode(raw);
         return HashUtils.hashingBytes(bytes);
     }
+
+    @Override
+    public byte[] serializeCert(Certificate certificate) {
+        return CertSerializer.serializeASN(certificate);
+    }
+
+    @Override
+    public Certificate deserializeCert(byte[] bytes) throws Exception {
+        return CertSerializer.deserializeASN(bytes);
+    }
 }

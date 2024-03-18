@@ -1,6 +1,7 @@
 package structure;
 
 import bean.*;
+import com.google.protobuf.InvalidProtocolBufferException;
 import lombok.Getter;
 import lombok.extern.slf4j.Slf4j;
 import utils.RandomUtils;
@@ -23,6 +24,8 @@ public abstract class CertificateValidator {
     }
 
     abstract String hashingCertificate(Certificate certificate);
+    public abstract byte[] serializeCert(Certificate certificate);
+    public abstract Certificate deserializeCert(byte[] bytes) throws Exception;
 
     /**
      * 撤销证书
