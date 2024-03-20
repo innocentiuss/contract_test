@@ -1,10 +1,12 @@
 package tests;
 
 import bean.Certificate;
+import bean.CertificateKeyType;
 import lombok.extern.slf4j.Slf4j;
 import structure.CertificateValidator;
 import structure.ProtoCertificateValidator;
 import utils.EncryptUtils;
+import utils.IOUtils;
 
 import java.security.KeyPair;
 import java.util.ArrayList;
@@ -13,34 +15,32 @@ import java.util.List;
 
 @Slf4j
 public class CertEncryptTypeTest {
-    private static List<Integer> CERT_SUM = Arrays.asList(1000, 1500, 2000, 2500, 3000);
-    static final int maxElement = 3000;
+    private static List<Integer> CERT_SUM = Arrays.asList(1000, 2000, 3000, 4000, 5000, 6000);
+    static final int maxElement = 6000;
     static final double falsePositiveProbability = 0.00001d;
+    static String directory = "D:/test/certs1/";
     public static void main(String[] args) throws Exception{
         CertificateValidator protoValidator = new ProtoCertificateValidator(maxElement, falsePositiveProbability);
 
         List<CertificateValidator> validators = Arrays.asList(protoValidator);
+
+
         long start;
         long end;
 
         for (Integer sum : CERT_SUM) {
             for (CertificateValidator validator : validators) {
-
-                List<Certificate> validList = new ArrayList<>(sum);
-                List<Certificate> compareList = new ArrayList<>(sum / 2);
-                List<KeyPair> eccKeyPairs = EncryptUtils.generateECCKeyPairs(sum);
-                List<KeyPair> compareUseEccKeyPairs = EncryptUtils.generateECCKeyPairs(sum / 2);
-                for (int i = 0; i < sum / 2; i++) {
-                    compareList.add(Certificate.getRandomCertificate(validator.getType(), compareUseEccKeyPairs.get(i)));
-                }
-
                 // ========================================================
                 // 证书添加start
                 start = System.currentTimeMillis();
                 for (int i = 0; i < sum; i++) {
-                    Certificate cert = Certificate.getRandomCertificate(validator.getType(), eccKeyPairs.get(i));
-                    validator.addCertificate(cert);
-                    validList.add(cert);
+                    Certificate cert = Certificate.getRandomCertificate(validator.getType(), CertificateKeyType.ECC);
+                    String filename = "ecc-" + sum + "-" + i;
+                    IOUtils.writeBytesToFile(validator.serializeCert(cert), directory + filename);
+
+                    byte[] bytes = IOUtils.readBytesFromFile(directory + filename);
+                    Certificate certificate = validator.deserializeCert(bytes);
+                    validator.addCertificate(certificate);
                 }
                 end = System.currentTimeMillis();
                 log.info("ecc {} 个 {} 证书add耗时 {} ms", sum, validator.getType().getDesc(), end - start);
@@ -50,13 +50,11 @@ public class CertEncryptTypeTest {
                 // =========================================================
                 // 证书验证start
                 start = System.currentTimeMillis();
-                // 一半的有效
-                for (int i = 0; i < validList.size() / 2; i++) {
-                    validator.verifyCertificate(validList.get(i));
-                }
-                // 一半的无效
-                for (Certificate invalid : compareList) {
-                    validator.verifyCertificate(invalid);
+                for (int i = 0; i < sum; i++) {
+                    String filename = "ecc-" + sum + "-" + i;
+                    byte[] bytes = IOUtils.readBytesFromFile(directory + filename);
+                    Certificate certificate = validator.deserializeCert(bytes);
+                    validator.verifyCertificate(certificate);
                 }
                 end = System.currentTimeMillis();
                 log.info("ecc {} 个 {} 证书verify耗时 {} ms", sum, validator.getType().getDesc(), end - start);
@@ -66,12 +64,11 @@ public class CertEncryptTypeTest {
                 // ======================================================
                 // 证书撤销start
                 start = System.currentTimeMillis();
-                for (int i = 0; i < validList.size() / 2; i++) {
-                    validator.revokeCertificate(validList.get(i));
-                }
-                // 一半的无效
-                for (Certificate invalid : compareList) {
-                    validator.revokeCertificate(invalid);
+                for (int i = 0; i < sum; i++) {
+                    String filename = "ecc-" + sum + "-" + i;
+                    byte[] bytes = IOUtils.readBytesFromFile(directory + filename);
+                    Certificate certificate = validator.deserializeCert(bytes);
+                    validator.revokeCertificate(certificate);
                 }
                 end = System.currentTimeMillis();
                 log.info("ecc {} 个 {} 证书revoke耗时 {} ms", sum, validator.getType().getDesc(), end - start);
@@ -84,22 +81,18 @@ public class CertEncryptTypeTest {
 
         for (Integer sum : CERT_SUM) {
             for (CertificateValidator validator : validators) {
-                List<Certificate> validList = new ArrayList<>(sum);
-                List<Certificate> compareList = new ArrayList<>(sum / 2);
-                List<KeyPair> rsaKeyPairs = EncryptUtils.generateRSAKeyPairs(sum);
-                List<KeyPair> compareUseRsaKeyPairs = EncryptUtils.generateRSAKeyPairs(sum / 2);
-                for (int i = 0; i < sum / 2; i++) {
-                    Certificate cert = Certificate.getRandomCertificate(validator.getType(), compareUseRsaKeyPairs.get(i));
-                    compareList.add(cert);
-                }
 
                 // ========================================================
                 // 证书添加start
                 start = System.currentTimeMillis();
                 for (int i = 0; i < sum; i++) {
-                    Certificate cert = Certificate.getRandomCertificate(validator.getType(), rsaKeyPairs.get(i));
-                    validList.add(cert);
-                    validator.addCertificate(cert);
+                    Certificate cert = Certificate.getRandomCertificate(validator.getType(), CertificateKeyType.RSA);
+                    String filename = "rsa-" + sum + "-" + i;
+                    IOUtils.writeBytesToFile(validator.serializeCert(cert), directory + filename);
+
+                    byte[] bytes = IOUtils.readBytesFromFile(directory + filename);
+                    Certificate certificate = validator.deserializeCert(bytes);
+                    validator.addCertificate(certificate);
                 }
                 end = System.currentTimeMillis();
                 log.info("rsa {} 个 {} 证书add耗时 {} ms", sum, validator.getType().getDesc(), end - start);
@@ -109,13 +102,11 @@ public class CertEncryptTypeTest {
                 // =========================================================
                 // 证书验证start
                 start = System.currentTimeMillis();
-                // 一半的有效
-                for (int i = 0; i < validList.size() / 2; i++) {
-                    validator.verifyCertificate(validList.get(i));
-                }
-                // 一半的无效
-                for (Certificate invalid : compareList) {
-                    validator.verifyCertificate(invalid);
+                for (int i = 0; i < sum; i++) {
+                    String filename = "rsa-" + sum + "-" + i;
+                    byte[] bytes = IOUtils.readBytesFromFile(directory + filename);
+                    Certificate certificate = validator.deserializeCert(bytes);
+                    validator.verifyCertificate(certificate);
                 }
                 end = System.currentTimeMillis();
                 log.info("rsa {} 个 {} 证书verify耗时 {} ms", sum, validator.getType().getDesc(), end - start);
@@ -125,12 +116,11 @@ public class CertEncryptTypeTest {
                 // ======================================================
                 // 证书撤销start
                 start = System.currentTimeMillis();
-                for (int i = 0; i < validList.size() / 2; i++) {
-                    validator.revokeCertificate(validList.get(i));
-                }
-                // 一半的无效
-                for (Certificate invalid : compareList) {
-                    validator.revokeCertificate(invalid);
+                for (int i = 0; i < sum; i++) {
+                    String filename = "rsa-" + sum + "-" + i;
+                    byte[] bytes = IOUtils.readBytesFromFile(directory + filename);
+                    Certificate certificate = validator.deserializeCert(bytes);
+                    validator.revokeCertificate(certificate);
                 }
                 end = System.currentTimeMillis();
                 log.info("rsa {} 个 {} 证书revoke耗时 {} ms", sum, validator.getType().getDesc(), end - start);

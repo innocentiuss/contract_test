@@ -13,7 +13,7 @@ public enum CertificateFormatType {
         public byte[] serializeCert(Certificate certificate) {
             return JSON.toJSONBytes(certificate);
         }
-    }, FLAT_BUFFERS("flat_buffers", "flat buffers") {
+    }, FLAT_BUFFERS("flat_buffers", "flat") {
         @Override
         public byte[] serializeCert(Certificate certificate) {
             return CertSerializer.serializeFlatCert(certificate);

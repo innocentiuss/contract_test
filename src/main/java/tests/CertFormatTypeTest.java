@@ -23,7 +23,7 @@ public class CertFormatTypeTest {
     }
 
     static final double falsePositiveProbability = 0.00001d;
-    static String directory = "D:/test/certs/";
+    static String directory = "D:/test/certs2/";
 
     public static void main(String[] args) throws Exception {
         CertificateValidator protoValidator = new ProtoCertificateValidator(expectedElements, falsePositiveProbability);
@@ -31,15 +31,15 @@ public class CertFormatTypeTest {
         CertificateValidator asnCertificateValidator = new ASNCertificateValidator(expectedElements, falsePositiveProbability);
         CertificateValidator flatValidator = new FlatCertificateValidator(expectedElements, falsePositiveProbability);
 
-        List<CertificateValidator> validators = Arrays.asList(asnCertificateValidator, protoValidator, flatValidator, plainValidator);
+        List<CertificateValidator> validators = Arrays.asList(asnCertificateValidator, protoValidator,flatValidator, plainValidator);
         long start;
         long end;
 
         for (CertificateValidator validator : validators) {
             for (Integer sum : CERT_SUM) {
                 // ========================================================
-                // 证书添加start
-                start = System.currentTimeMillis();
+//                 证书添加start
+//                start = System.currentTimeMillis();
                 for (int i = 0; i < sum; i++) {
                     Certificate cert = Certificate.getRandomCertificate(CertificateFormatType.ORIGIN);
                     String filename = validator.getType().getCode() + "-" + sum + "-" + i;
@@ -49,10 +49,28 @@ public class CertFormatTypeTest {
                     Certificate certificate = validator.deserializeCert(bytes);
                     validator.addCertificate(certificate);
                 }
-                end = System.currentTimeMillis();
-                log.info("{} 个 {} 证书add耗时 {} ms", sum, validator.getType().getDesc(), end - start);
-                // 证书添加end
+//                end = System.currentTimeMillis();
+//                log.info("{} 个 {} 证书add耗时 {} ms", sum, validator.getType().getDesc(), end - start);
+//                 证书添加end
                 // =========================================================
+                // 只添加无效证书
+//                for (int i = 0; i < sum; i++) {
+//                    validator.addCertificate(Certificate.getRandomCertificate(validator.getType()));
+//                }
+
+                // 只添加数据的95%个证书
+//                for (int i = 0; i < (double) sum * 0.95d; i++) {
+//                    String filename = validator.getType().getCode() + "-" + sum + "-" + i;
+//                    byte[] bytes = IOUtils.readBytesFromFile(directory + filename);
+//                    Certificate certificate = validator.deserializeCert(bytes);
+//                    validator.addCertificate(certificate);
+//                }
+//                 预读取证书 降低OS IO影响
+//                for (int i = 0; i < sum; i++) {
+//                    String filename = validator.getType().getCode() + "-" + sum + "-" + i;
+//                    byte[] bytes = IOUtils.readBytesFromFile(directory + filename);
+//                    Certificate certificate = validator.deserializeCert(bytes);
+//                }
 
                 // =========================================================
                 // 证书验证start
