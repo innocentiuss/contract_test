@@ -1,7 +1,6 @@
 table FlatCertificate {
     version: string;
     serial_number: int;
-    signature_algo: string;
     signature_value: string;
     issuer: string;
     valid_not_after: int64;

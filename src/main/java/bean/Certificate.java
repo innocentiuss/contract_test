@@ -17,24 +17,22 @@ import java.util.concurrent.atomic.AtomicInteger;
 @AllArgsConstructor
 public class Certificate {
     private String certificateVersion; // 版本
-    private int certificateSerialNumber; // x序列号
-    private String certSignatureAlgorithm; // 签名算法
+    private int serialNumber; // x序列号
     private String signatureValue; // sign value
     private String certIssuerName; // 颁发者
-    private Date invalidAfterTimestamps; // 有效期
+    private Date invalidAfter; // 有效期
     private String certHolderName; // 主体名称
     private String publicKey;
     private int lastBlockChainHeight;
     private byte certificateOperationType;
     private String smartContractUrl;
 
-    public Certificate(String version, int serialNumber, String signatureAlgo, String issuer, Date validNotAfter, String holder,
+    public Certificate(String version, int serialNumber, String issuer, Date validNotAfter, String holder,
                        String publicKey, int historyHeight, byte opType, String contractUrl, String sign) {
         this.certificateVersion = version;
-        this.certificateSerialNumber = serialNumber;
-        this.certSignatureAlgorithm = signatureAlgo;
+        this.serialNumber = serialNumber;
         this.certIssuerName = issuer;
-        this.invalidAfterTimestamps = validNotAfter;
+        this.invalidAfter = validNotAfter;
         this.certHolderName = holder;
         this.publicKey = publicKey;
         this.lastBlockChainHeight = historyHeight;
@@ -60,7 +58,6 @@ public class Certificate {
         Certificate certificate = new Certificate(
                 "v3.0",
                 atomicInteger.getAndIncrement(),
-                "ECDSA",
                 "CA_FC",
                 RandomUtils.generateRandomDate(),
                 RandomUtils.generateRandomString(20),

@@ -21,7 +21,7 @@ public final class OpCertificate {
      * <code>string version = 1;</code>
      * @return The version.
      */
-    java.lang.String getVersion();
+    String getVersion();
     /**
      * <code>string version = 1;</code>
      * @return The bytes for version.
@@ -36,90 +36,82 @@ public final class OpCertificate {
     int getSerialNumber();
 
     /**
-     * <code>string signature_algo = 3;</code>
-     * @return The signatureAlgo.
-     */
-    java.lang.String getSignatureAlgo();
-    /**
-     * <code>string signature_algo = 3;</code>
-     * @return The bytes for signatureAlgo.
-     */
-    com.google.protobuf.ByteString
-        getSignatureAlgoBytes();
-
-    /**
-     * <code>string signature_value = 4;</code>
+     * <code>string signature_value = 3;</code>
      * @return The signatureValue.
      */
-    java.lang.String getSignatureValue();
+    String getSignatureValue();
     /**
-     * <code>string signature_value = 4;</code>
+     * <code>string signature_value = 3;</code>
      * @return The bytes for signatureValue.
      */
     com.google.protobuf.ByteString
         getSignatureValueBytes();
 
     /**
-     * <code>string issuer = 5;</code>
+     * <code>string issuer = 4;</code>
      * @return The issuer.
      */
-    java.lang.String getIssuer();
+    String getIssuer();
     /**
-     * <code>string issuer = 5;</code>
+     * <code>string issuer = 4;</code>
      * @return The bytes for issuer.
      */
     com.google.protobuf.ByteString
         getIssuerBytes();
 
     /**
-     * <code>int64 valid_not_after = 6;</code>
+     * <code>int64 valid_not_after = 5;</code>
      * @return The validNotAfter.
      */
     long getValidNotAfter();
 
     /**
-     * <code>string holder = 7;</code>
+     * <code>string holder = 6;</code>
      * @return The holder.
      */
-    java.lang.String getHolder();
+    String getHolder();
     /**
-     * <code>string holder = 7;</code>
+     * <code>string holder = 6;</code>
      * @return The bytes for holder.
      */
     com.google.protobuf.ByteString
         getHolderBytes();
 
     /**
-     * <code>string public_key = 8;</code>
+     * <code>string public_key = 7;</code>
      * @return The publicKey.
      */
-    java.lang.String getPublicKey();
+    String getPublicKey();
     /**
-     * <code>string public_key = 8;</code>
+     * <code>string public_key = 7;</code>
      * @return The bytes for publicKey.
      */
     com.google.protobuf.ByteString
         getPublicKeyBytes();
 
     /**
-     * <code>int32 history_height = 9;</code>
+     * <code>int32 history_height = 8;</code>
      * @return The historyHeight.
      */
     int getHistoryHeight();
 
     /**
-     * <code>int32 block_pre_height = 10;</code>
+     * <pre>
+     * op_type
+     * </pre>
+     *
+     * <code>int32 block_pre_height = 9;</code>
      * @return The blockPreHeight.
      */
     int getBlockPreHeight();
 
     /**
-     * <code>string contract_url = 11;</code>
+     * <code>string contract_url = 10;</code>
      * @return The contractUrl.
      */
-    java.lang.String getContractUrl();
+    String getContractUrl();
     /**
-     * <code>string contract_url = 11;</code>
+     * <code>string contract_url = 10;</code>
      * @return The bytes for contractUrl.
      */
     com.google.protobuf.ByteString
@@ -139,7 +131,6 @@ public final class OpCertificate {
     }
     private ProtoCertificate() {
       version_ = "";
-      signatureAlgo_ = "";
       signatureValue_ = "";
       issuer_ = "";
       holder_ = "";
@@ -147,9 +138,9 @@ public final class OpCertificate {
       contractUrl_ = "";
     }
 
-    @java.lang.Override
+    @Override
     @SuppressWarnings({"unused"})
-    protected java.lang.Object newInstance(
+    protected Object newInstance(
         UnusedPrivateParameter unused) {
       return new ProtoCertificate();
     }
@@ -159,30 +150,30 @@ public final class OpCertificate {
       return OpCertificate.internal_static_ProtoCertificate_descriptor;
     }
 
-    @java.lang.Override
-    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+    @Override
+    protected FieldAccessorTable
         internalGetFieldAccessorTable() {
       return OpCertificate.internal_static_ProtoCertificate_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              OpCertificate.ProtoCertificate.class, OpCertificate.ProtoCertificate.Builder.class);
+              ProtoCertificate.class, Builder.class);
     }
 
     public static final int VERSION_FIELD_NUMBER = 1;
     @SuppressWarnings("serial")
-    private volatile java.lang.Object version_ = "";
+    private volatile Object version_ = "";
     /**
      * <code>string version = 1;</code>
      * @return The version.
      */
-    @java.lang.Override
-    public java.lang.String getVersion() {
-      java.lang.Object ref = version_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
+    @Override
+    public String getVersion() {
+      Object ref = version_;
+      if (ref instanceof String) {
+        return (String) ref;
       } else {
         com.google.protobuf.ByteString bs = 
             (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
+        String s = bs.toStringUtf8();
         version_ = s;
         return s;
       }
@@ -191,14 +182,14 @@ public final class OpCertificate {
      * <code>string version = 1;</code>
      * @return The bytes for version.
      */
-    @java.lang.Override
+    @Override
     public com.google.protobuf.ByteString
         getVersionBytes() {
-      java.lang.Object ref = version_;
-      if (ref instanceof java.lang.String) {
+      Object ref = version_;
+      if (ref instanceof String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
+                (String) ref);
         version_ = b;
         return b;
       } else {
@@ -212,82 +203,43 @@ public final class OpCertificate {
      * <code>int32 serial_number = 2;</code>
      * @return The serialNumber.
      */
-    @java.lang.Override
+    @Override
     public int getSerialNumber() {
       return serialNumber_;
     }
 
-    public static final int SIGNATURE_ALGO_FIELD_NUMBER = 3;
+    public static final int SIGNATURE_VALUE_FIELD_NUMBER = 3;
     @SuppressWarnings("serial")
-    private volatile java.lang.Object signatureAlgo_ = "";
+    private volatile Object signatureValue_ = "";
     /**
-     * <code>string signature_algo = 3;</code>
-     * @return The signatureAlgo.
-     */
-    @java.lang.Override
-    public java.lang.String getSignatureAlgo() {
-      java.lang.Object ref = signatureAlgo_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        signatureAlgo_ = s;
-        return s;
-      }
-    }
-    /**
-     * <code>string signature_algo = 3;</code>
-     * @return The bytes for signatureAlgo.
-     */
-    @java.lang.Override
-    public com.google.protobuf.ByteString
-        getSignatureAlgoBytes() {
-      java.lang.Object ref = signatureAlgo_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        signatureAlgo_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-
-    public static final int SIGNATURE_VALUE_FIELD_NUMBER = 4;
-    @SuppressWarnings("serial")
-    private volatile java.lang.Object signatureValue_ = "";
-    /**
-     * <code>string signature_value = 4;</code>
+     * <code>string signature_value = 3;</code>
      * @return The signatureValue.
      */
-    @java.lang.Override
-    public java.lang.String getSignatureValue() {
-      java.lang.Object ref = signatureValue_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
+    @Override
+    public String getSignatureValue() {
+      Object ref = signatureValue_;
+      if (ref instanceof String) {
+        return (String) ref;
       } else {
         com.google.protobuf.ByteString bs = 
             (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
+        String s = bs.toStringUtf8();
         signatureValue_ = s;
         return s;
       }
     }
     /**
-     * <code>string signature_value = 4;</code>
+     * <code>string signature_value = 3;</code>
      * @return The bytes for signatureValue.
      */
-    @java.lang.Override
+    @Override
     public com.google.protobuf.ByteString
         getSignatureValueBytes() {
-      java.lang.Object ref = signatureValue_;
-      if (ref instanceof java.lang.String) {
+      Object ref = signatureValue_;
+      if (ref instanceof String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
+                (String) ref);
         signatureValue_ = b;
         return b;
       } else {
@@ -295,38 +247,38 @@ public final class OpCertificate {
       }
     }
 
-    public static final int ISSUER_FIELD_NUMBER = 5;
+    public static final int ISSUER_FIELD_NUMBER = 4;
     @SuppressWarnings("serial")
-    private volatile java.lang.Object issuer_ = "";
+    private volatile Object issuer_ = "";
     /**
-     * <code>string issuer = 5;</code>
+     * <code>string issuer = 4;</code>
      * @return The issuer.
      */
-    @java.lang.Override
-    public java.lang.String getIssuer() {
-      java.lang.Object ref = issuer_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
+    @Override
+    public String getIssuer() {
+      Object ref = issuer_;
+      if (ref instanceof String) {
+        return (String) ref;
       } else {
         com.google.protobuf.ByteString bs = 
             (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
+        String s = bs.toStringUtf8();
         issuer_ = s;
         return s;
       }
     }
     /**
-     * <code>string issuer = 5;</code>
+     * <code>string issuer = 4;</code>
      * @return The bytes for issuer.
      */
-    @java.lang.Override
+    @Override
     public com.google.protobuf.ByteString
         getIssuerBytes() {
-      java.lang.Object ref = issuer_;
-      if (ref instanceof java.lang.String) {
+      Object ref = issuer_;
+      if (ref instanceof String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
+                (String) ref);
         issuer_ = b;
         return b;
       } else {
@@ -334,49 +286,49 @@ public final class OpCertificate {
       }
     }
 
-    public static final int VALID_NOT_AFTER_FIELD_NUMBER = 6;
+    public static final int VALID_NOT_AFTER_FIELD_NUMBER = 5;
     private long validNotAfter_ = 0L;
     /**
-     * <code>int64 valid_not_after = 6;</code>
+     * <code>int64 valid_not_after = 5;</code>
      * @return The validNotAfter.
      */
-    @java.lang.Override
+    @Override
     public long getValidNotAfter() {
       return validNotAfter_;
     }
 
-    public static final int HOLDER_FIELD_NUMBER = 7;
+    public static final int HOLDER_FIELD_NUMBER = 6;
     @SuppressWarnings("serial")
-    private volatile java.lang.Object holder_ = "";
+    private volatile Object holder_ = "";
     /**
-     * <code>string holder = 7;</code>
+     * <code>string holder = 6;</code>
      * @return The holder.
      */
-    @java.lang.Override
-    public java.lang.String getHolder() {
-      java.lang.Object ref = holder_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
+    @Override
+    public String getHolder() {
+      Object ref = holder_;
+      if (ref instanceof String) {
+        return (String) ref;
       } else {
         com.google.protobuf.ByteString bs = 
             (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
+        String s = bs.toStringUtf8();
         holder_ = s;
         return s;
       }
     }
     /**
-     * <code>string holder = 7;</code>
+     * <code>string holder = 6;</code>
      * @return The bytes for holder.
      */
-    @java.lang.Override
+    @Override
     public com.google.protobuf.ByteString
         getHolderBytes() {
-      java.lang.Object ref = holder_;
-      if (ref instanceof java.lang.String) {
+      Object ref = holder_;
+      if (ref instanceof String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
+                (String) ref);
         holder_ = b;
         return b;
       } else {
@@ -384,38 +336,38 @@ public final class OpCertificate {
       }
     }
 
-    public static final int PUBLIC_KEY_FIELD_NUMBER = 8;
+    public static final int PUBLIC_KEY_FIELD_NUMBER = 7;
     @SuppressWarnings("serial")
-    private volatile java.lang.Object publicKey_ = "";
+    private volatile Object publicKey_ = "";
     /**
-     * <code>string public_key = 8;</code>
+     * <code>string public_key = 7;</code>
      * @return The publicKey.
      */
-    @java.lang.Override
-    public java.lang.String getPublicKey() {
-      java.lang.Object ref = publicKey_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
+    @Override
+    public String getPublicKey() {
+      Object ref = publicKey_;
+      if (ref instanceof String) {
+        return (String) ref;
       } else {
         com.google.protobuf.ByteString bs = 
             (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
+        String s = bs.toStringUtf8();
         publicKey_ = s;
         return s;
       }
     }
     /**
-     * <code>string public_key = 8;</code>
+     * <code>string public_key = 7;</code>
      * @return The bytes for publicKey.
      */
-    @java.lang.Override
+    @Override
     public com.google.protobuf.ByteString
         getPublicKeyBytes() {
-      java.lang.Object ref = publicKey_;
-      if (ref instanceof java.lang.String) {
+      Object ref = publicKey_;
+      if (ref instanceof String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
+                (String) ref);
         publicKey_ = b;
         return b;
       } else {
@@ -423,60 +375,64 @@ public final class OpCertificate {
       }
     }
 
-    public static final int HISTORY_HEIGHT_FIELD_NUMBER = 9;
+    public static final int HISTORY_HEIGHT_FIELD_NUMBER = 8;
     private int historyHeight_ = 0;
     /**
-     * <code>int32 history_height = 9;</code>
+     * <code>int32 history_height = 8;</code>
      * @return The historyHeight.
      */
-    @java.lang.Override
+    @Override
     public int getHistoryHeight() {
       return historyHeight_;
     }
 
-    public static final int BLOCK_PRE_HEIGHT_FIELD_NUMBER = 10;
+    public static final int BLOCK_PRE_HEIGHT_FIELD_NUMBER = 9;
     private int blockPreHeight_ = 0;
     /**
-     * <code>int32 block_pre_height = 10;</code>
+     * <pre>
+     * op_type
+     * </pre>
+     *
+     * <code>int32 block_pre_height = 9;</code>
      * @return The blockPreHeight.
      */
-    @java.lang.Override
+    @Override
     public int getBlockPreHeight() {
       return blockPreHeight_;
     }
 
-    public static final int CONTRACT_URL_FIELD_NUMBER = 11;
+    public static final int CONTRACT_URL_FIELD_NUMBER = 10;
     @SuppressWarnings("serial")
-    private volatile java.lang.Object contractUrl_ = "";
+    private volatile Object contractUrl_ = "";
     /**
-     * <code>string contract_url = 11;</code>
+     * <code>string contract_url = 10;</code>
      * @return The contractUrl.
      */
-    @java.lang.Override
-    public java.lang.String getContractUrl() {
-      java.lang.Object ref = contractUrl_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
+    @Override
+    public String getContractUrl() {
+      Object ref = contractUrl_;
+      if (ref instanceof String) {
+        return (String) ref;
       } else {
         com.google.protobuf.ByteString bs = 
             (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
+        String s = bs.toStringUtf8();
         contractUrl_ = s;
         return s;
       }
     }
     /**
-     * <code>string contract_url = 11;</code>
+     * <code>string contract_url = 10;</code>
      * @return The bytes for contractUrl.
      */
-    @java.lang.Override
+    @Override
     public com.google.protobuf.ByteString
         getContractUrlBytes() {
-      java.lang.Object ref = contractUrl_;
-      if (ref instanceof java.lang.String) {
+      Object ref = contractUrl_;
+      if (ref instanceof String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
+                (String) ref);
         contractUrl_ = b;
         return b;
       } else {
@@ -485,7 +441,7 @@ public final class OpCertificate {
     }
 
     private byte memoizedIsInitialized = -1;
-    @java.lang.Override
+    @Override
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized == 1) return true;
@@ -495,7 +451,7 @@ public final class OpCertificate {
       return true;
     }
 
-    @java.lang.Override
+    @Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(version_)) {
@@ -504,37 +460,34 @@ public final class OpCertificate {
       if (serialNumber_ != 0) {
         output.writeInt32(2, serialNumber_);
       }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(signatureAlgo_)) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 3, signatureAlgo_);
-      }
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(signatureValue_)) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 4, signatureValue_);
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 3, signatureValue_);
       }
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(issuer_)) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 5, issuer_);
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 4, issuer_);
       }
       if (validNotAfter_ != 0L) {
-        output.writeInt64(6, validNotAfter_);
+        output.writeInt64(5, validNotAfter_);
       }
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(holder_)) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 7, holder_);
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 6, holder_);
       }
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(publicKey_)) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 8, publicKey_);
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 7, publicKey_);
       }
       if (historyHeight_ != 0) {
-        output.writeInt32(9, historyHeight_);
+        output.writeInt32(8, historyHeight_);
       }
       if (blockPreHeight_ != 0) {
-        output.writeInt32(10, blockPreHeight_);
+        output.writeInt32(9, blockPreHeight_);
       }
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(contractUrl_)) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 11, contractUrl_);
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 10, contractUrl_);
       }
       getUnknownFields().writeTo(output);
     }
 
-    @java.lang.Override
+    @Override
     public int getSerializedSize() {
       int size = memoizedSize;
       if (size != -1) return size;
@@ -547,57 +500,52 @@ public final class OpCertificate {
         size += com.google.protobuf.CodedOutputStream
           .computeInt32Size(2, serialNumber_);
       }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(signatureAlgo_)) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, signatureAlgo_);
-      }
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(signatureValue_)) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, signatureValue_);
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, signatureValue_);
       }
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(issuer_)) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, issuer_);
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, issuer_);
       }
       if (validNotAfter_ != 0L) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt64Size(6, validNotAfter_);
+          .computeInt64Size(5, validNotAfter_);
       }
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(holder_)) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(7, holder_);
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(6, holder_);
       }
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(publicKey_)) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(8, publicKey_);
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(7, publicKey_);
       }
       if (historyHeight_ != 0) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(9, historyHeight_);
+          .computeInt32Size(8, historyHeight_);
       }
       if (blockPreHeight_ != 0) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(10, blockPreHeight_);
+          .computeInt32Size(9, blockPreHeight_);
       }
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(contractUrl_)) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(11, contractUrl_);
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(10, contractUrl_);
       }
       size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
 
-    @java.lang.Override
-    public boolean equals(final java.lang.Object obj) {
+    @Override
+    public boolean equals(final Object obj) {
       if (obj == this) {
        return true;
       }
-      if (!(obj instanceof OpCertificate.ProtoCertificate)) {
+      if (!(obj instanceof ProtoCertificate)) {
         return super.equals(obj);
       }
-      OpCertificate.ProtoCertificate other = (OpCertificate.ProtoCertificate) obj;
+      ProtoCertificate other = (ProtoCertificate) obj;
 
       if (!getVersion()
           .equals(other.getVersion())) return false;
       if (getSerialNumber()
           != other.getSerialNumber()) return false;
-      if (!getSignatureAlgo()
-          .equals(other.getSignatureAlgo())) return false;
       if (!getSignatureValue()
           .equals(other.getSignatureValue())) return false;
       if (!getIssuer()
@@ -618,7 +566,7 @@ public final class OpCertificate {
       return true;
     }
 
-    @java.lang.Override
+    @Override
     public int hashCode() {
       if (memoizedHashCode != 0) {
         return memoizedHashCode;
@@ -629,8 +577,6 @@ public final class OpCertificate {
       hash = (53 * hash) + getVersion().hashCode();
       hash = (37 * hash) + SERIAL_NUMBER_FIELD_NUMBER;
       hash = (53 * hash) + getSerialNumber();
-      hash = (37 * hash) + SIGNATURE_ALGO_FIELD_NUMBER;
-      hash = (53 * hash) + getSignatureAlgo().hashCode();
       hash = (37 * hash) + SIGNATURE_VALUE_FIELD_NUMBER;
       hash = (53 * hash) + getSignatureValue().hashCode();
       hash = (37 * hash) + ISSUER_FIELD_NUMBER;
@@ -653,44 +599,44 @@ public final class OpCertificate {
       return hash;
     }
 
-    public static OpCertificate.ProtoCertificate parseFrom(
+    public static ProtoCertificate parseFrom(
         java.nio.ByteBuffer data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static OpCertificate.ProtoCertificate parseFrom(
+    public static ProtoCertificate parseFrom(
         java.nio.ByteBuffer data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static OpCertificate.ProtoCertificate parseFrom(
+    public static ProtoCertificate parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static OpCertificate.ProtoCertificate parseFrom(
+    public static ProtoCertificate parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static OpCertificate.ProtoCertificate parseFrom(byte[] data)
+    public static ProtoCertificate parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static OpCertificate.ProtoCertificate parseFrom(
+    public static ProtoCertificate parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static OpCertificate.ProtoCertificate parseFrom(java.io.InputStream input)
+    public static ProtoCertificate parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static OpCertificate.ProtoCertificate parseFrom(
+    public static ProtoCertificate parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -698,26 +644,26 @@ public final class OpCertificate {
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
 
-    public static OpCertificate.ProtoCertificate parseDelimitedFrom(java.io.InputStream input)
+    public static ProtoCertificate parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input);
     }
 
-    public static OpCertificate.ProtoCertificate parseDelimitedFrom(
+    public static ProtoCertificate parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
-    public static OpCertificate.ProtoCertificate parseFrom(
+    public static ProtoCertificate parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static OpCertificate.ProtoCertificate parseFrom(
+    public static ProtoCertificate parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -725,23 +671,23 @@ public final class OpCertificate {
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
 
-    @java.lang.Override
+    @Override
     public Builder newBuilderForType() { return newBuilder(); }
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
-    public static Builder newBuilder(OpCertificate.ProtoCertificate prototype) {
+    public static Builder newBuilder(ProtoCertificate prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
-    @java.lang.Override
+    @Override
     public Builder toBuilder() {
       return this == DEFAULT_INSTANCE
           ? new Builder() : new Builder().mergeFrom(this);
     }
 
-    @java.lang.Override
+    @Override
     protected Builder newBuilderForType(
-        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        BuilderParent parent) {
       Builder builder = new Builder(parent);
       return builder;
     }
@@ -751,18 +697,18 @@ public final class OpCertificate {
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
         // @@protoc_insertion_point(builder_implements:ProtoCertificate)
-        OpCertificate.ProtoCertificateOrBuilder {
+        ProtoCertificateOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
         return OpCertificate.internal_static_ProtoCertificate_descriptor;
       }
 
-      @java.lang.Override
-      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      @Override
+      protected FieldAccessorTable
           internalGetFieldAccessorTable() {
         return OpCertificate.internal_static_ProtoCertificate_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                OpCertificate.ProtoCertificate.class, OpCertificate.ProtoCertificate.Builder.class);
+                ProtoCertificate.class, Builder.class);
       }
 
       // Construct using OpCertificate.ProtoCertificate.newBuilder()
@@ -771,17 +717,16 @@ public final class OpCertificate {
       }
 
       private Builder(
-          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+          BuilderParent parent) {
         super(parent);
 
       }
-      @java.lang.Override
+      @Override
       public Builder clear() {
         super.clear();
         bitField0_ = 0;
         version_ = "";
         serialNumber_ = 0;
-        signatureAlgo_ = "";
         signatureValue_ = "";
         issuer_ = "";
         validNotAfter_ = 0L;
@@ -793,35 +738,35 @@ public final class OpCertificate {
         return this;
       }
 
-      @java.lang.Override
+      @Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
         return OpCertificate.internal_static_ProtoCertificate_descriptor;
       }
 
-      @java.lang.Override
-      public OpCertificate.ProtoCertificate getDefaultInstanceForType() {
-        return OpCertificate.ProtoCertificate.getDefaultInstance();
+      @Override
+      public ProtoCertificate getDefaultInstanceForType() {
+        return ProtoCertificate.getDefaultInstance();
       }
 
-      @java.lang.Override
-      public OpCertificate.ProtoCertificate build() {
-        OpCertificate.ProtoCertificate result = buildPartial();
+      @Override
+      public ProtoCertificate build() {
+        ProtoCertificate result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
         return result;
       }
 
-      @java.lang.Override
-      public OpCertificate.ProtoCertificate buildPartial() {
-        OpCertificate.ProtoCertificate result = new OpCertificate.ProtoCertificate(this);
+      @Override
+      public ProtoCertificate buildPartial() {
+        ProtoCertificate result = new ProtoCertificate(this);
         if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
       }
 
-      private void buildPartial0(OpCertificate.ProtoCertificate result) {
+      private void buildPartial0(ProtoCertificate result) {
         int from_bitField0_ = bitField0_;
         if (((from_bitField0_ & 0x00000001) != 0)) {
           result.version_ = version_;
@@ -830,78 +775,75 @@ public final class OpCertificate {
           result.serialNumber_ = serialNumber_;
         }
         if (((from_bitField0_ & 0x00000004) != 0)) {
-          result.signatureAlgo_ = signatureAlgo_;
-        }
-        if (((from_bitField0_ & 0x00000008) != 0)) {
           result.signatureValue_ = signatureValue_;
         }
-        if (((from_bitField0_ & 0x00000010) != 0)) {
+        if (((from_bitField0_ & 0x00000008) != 0)) {
           result.issuer_ = issuer_;
         }
-        if (((from_bitField0_ & 0x00000020) != 0)) {
+        if (((from_bitField0_ & 0x00000010) != 0)) {
           result.validNotAfter_ = validNotAfter_;
         }
-        if (((from_bitField0_ & 0x00000040) != 0)) {
+        if (((from_bitField0_ & 0x00000020) != 0)) {
           result.holder_ = holder_;
         }
-        if (((from_bitField0_ & 0x00000080) != 0)) {
+        if (((from_bitField0_ & 0x00000040) != 0)) {
           result.publicKey_ = publicKey_;
         }
-        if (((from_bitField0_ & 0x00000100) != 0)) {
+        if (((from_bitField0_ & 0x00000080) != 0)) {
           result.historyHeight_ = historyHeight_;
         }
-        if (((from_bitField0_ & 0x00000200) != 0)) {
+        if (((from_bitField0_ & 0x00000100) != 0)) {
           result.blockPreHeight_ = blockPreHeight_;
         }
-        if (((from_bitField0_ & 0x00000400) != 0)) {
+        if (((from_bitField0_ & 0x00000200) != 0)) {
           result.contractUrl_ = contractUrl_;
         }
       }
 
-      @java.lang.Override
+      @Override
       public Builder clone() {
         return super.clone();
       }
-      @java.lang.Override
+      @Override
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
+          Object value) {
         return super.setField(field, value);
       }
-      @java.lang.Override
+      @Override
       public Builder clearField(
           com.google.protobuf.Descriptors.FieldDescriptor field) {
         return super.clearField(field);
       }
-      @java.lang.Override
+      @Override
       public Builder clearOneof(
           com.google.protobuf.Descriptors.OneofDescriptor oneof) {
         return super.clearOneof(oneof);
       }
-      @java.lang.Override
+      @Override
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, java.lang.Object value) {
+          int index, Object value) {
         return super.setRepeatedField(field, index, value);
       }
-      @java.lang.Override
+      @Override
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
+          Object value) {
         return super.addRepeatedField(field, value);
       }
-      @java.lang.Override
+      @Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof OpCertificate.ProtoCertificate) {
-          return mergeFrom((OpCertificate.ProtoCertificate)other);
+        if (other instanceof ProtoCertificate) {
+          return mergeFrom((ProtoCertificate)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(OpCertificate.ProtoCertificate other) {
-        if (other == OpCertificate.ProtoCertificate.getDefaultInstance()) return this;
+      public Builder mergeFrom(ProtoCertificate other) {
+        if (other == ProtoCertificate.getDefaultInstance()) return this;
         if (!other.getVersion().isEmpty()) {
           version_ = other.version_;
           bitField0_ |= 0x00000001;
@@ -910,19 +852,14 @@ public final class OpCertificate {
         if (other.getSerialNumber() != 0) {
           setSerialNumber(other.getSerialNumber());
         }
-        if (!other.getSignatureAlgo().isEmpty()) {
-          signatureAlgo_ = other.signatureAlgo_;
-          bitField0_ |= 0x00000004;
-          onChanged();
-        }
         if (!other.getSignatureValue().isEmpty()) {
           signatureValue_ = other.signatureValue_;
-          bitField0_ |= 0x00000008;
+          bitField0_ |= 0x00000004;
           onChanged();
         }
         if (!other.getIssuer().isEmpty()) {
           issuer_ = other.issuer_;
-          bitField0_ |= 0x00000010;
+          bitField0_ |= 0x00000008;
           onChanged();
         }
         if (other.getValidNotAfter() != 0L) {
@@ -930,12 +867,12 @@ public final class OpCertificate {
         }
         if (!other.getHolder().isEmpty()) {
           holder_ = other.holder_;
-          bitField0_ |= 0x00000040;
+          bitField0_ |= 0x00000020;
           onChanged();
         }
         if (!other.getPublicKey().isEmpty()) {
           publicKey_ = other.publicKey_;
-          bitField0_ |= 0x00000080;
+          bitField0_ |= 0x00000040;
           onChanged();
         }
         if (other.getHistoryHeight() != 0) {
@@ -946,7 +883,7 @@ public final class OpCertificate {
         }
         if (!other.getContractUrl().isEmpty()) {
           contractUrl_ = other.contractUrl_;
-          bitField0_ |= 0x00000400;
+          bitField0_ |= 0x00000200;
           onChanged();
         }
         this.mergeUnknownFields(other.getUnknownFields());
@@ -954,18 +891,18 @@ public final class OpCertificate {
         return this;
       }
 
-      @java.lang.Override
+      @Override
       public final boolean isInitialized() {
         return true;
       }
 
-      @java.lang.Override
+      @Override
       public Builder mergeFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
         if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
+          throw new NullPointerException();
         }
         try {
           boolean done = false;
@@ -986,50 +923,45 @@ public final class OpCertificate {
                 break;
               } // case 16
               case 26: {
-                signatureAlgo_ = input.readStringRequireUtf8();
+                signatureValue_ = input.readStringRequireUtf8();
                 bitField0_ |= 0x00000004;
                 break;
               } // case 26
               case 34: {
-                signatureValue_ = input.readStringRequireUtf8();
+                issuer_ = input.readStringRequireUtf8();
                 bitField0_ |= 0x00000008;
                 break;
               } // case 34
-              case 42: {
-                issuer_ = input.readStringRequireUtf8();
+              case 40: {
+                validNotAfter_ = input.readInt64();
                 bitField0_ |= 0x00000010;
                 break;
-              } // case 42
-              case 48: {
-                validNotAfter_ = input.readInt64();
+              } // case 40
+              case 50: {
+                holder_ = input.readStringRequireUtf8();
                 bitField0_ |= 0x00000020;
                 break;
-              } // case 48
+              } // case 50
               case 58: {
-                holder_ = input.readStringRequireUtf8();
+                publicKey_ = input.readStringRequireUtf8();
                 bitField0_ |= 0x00000040;
                 break;
               } // case 58
-              case 66: {
-                publicKey_ = input.readStringRequireUtf8();
+              case 64: {
+                historyHeight_ = input.readInt32();
                 bitField0_ |= 0x00000080;
                 break;
-              } // case 66
+              } // case 64
               case 72: {
-                historyHeight_ = input.readInt32();
+                blockPreHeight_ = input.readInt32();
                 bitField0_ |= 0x00000100;
                 break;
               } // case 72
-              case 80: {
-                blockPreHeight_ = input.readInt32();
+              case 82: {
+                contractUrl_ = input.readStringRequireUtf8();
                 bitField0_ |= 0x00000200;
                 break;
-              } // case 80
-              case 90: {
-                contractUrl_ = input.readStringRequireUtf8();
-                bitField0_ |= 0x00000400;
-                break;
-              } // case 90
+              } // case 82
               default: {
                 if (!super.parseUnknownField(input, extensionRegistry, tag)) {
                   done = true; // was an endgroup tag
@@ -1047,21 +979,21 @@ public final class OpCertificate {
       }
       private int bitField0_;
 
-      private java.lang.Object version_ = "";
+      private Object version_ = "";
       /**
        * <code>string version = 1;</code>
        * @return The version.
        */
-      public java.lang.String getVersion() {
-        java.lang.Object ref = version_;
-        if (!(ref instanceof java.lang.String)) {
+      public String getVersion() {
+        Object ref = version_;
+        if (!(ref instanceof String)) {
           com.google.protobuf.ByteString bs =
               (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
+          String s = bs.toStringUtf8();
           version_ = s;
           return s;
         } else {
-          return (java.lang.String) ref;
+          return (String) ref;
         }
       }
       /**
@@ -1070,11 +1002,11 @@ public final class OpCertificate {
        */
       public com.google.protobuf.ByteString
           getVersionBytes() {
-        java.lang.Object ref = version_;
+        Object ref = version_;
         if (ref instanceof String) {
           com.google.protobuf.ByteString b = 
               com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
+                  (String) ref);
           version_ = b;
           return b;
         } else {
@@ -1087,7 +1019,7 @@ public final class OpCertificate {
        * @return This builder for chaining.
        */
       public Builder setVersion(
-          java.lang.String value) {
+          String value) {
         if (value == null) { throw new NullPointerException(); }
         version_ = value;
         bitField0_ |= 0x00000001;
@@ -1124,7 +1056,7 @@ public final class OpCertificate {
        * <code>int32 serial_number = 2;</code>
        * @return The serialNumber.
        */
-      @java.lang.Override
+      @Override
       public int getSerialNumber() {
         return serialNumber_;
       }
@@ -1151,106 +1083,34 @@ public final class OpCertificate {
         return this;
       }
 
-      private java.lang.Object signatureAlgo_ = "";
+      private Object signatureValue_ = "";
       /**
-       * <code>string signature_algo = 3;</code>
-       * @return The signatureAlgo.
-       */
-      public java.lang.String getSignatureAlgo() {
-        java.lang.Object ref = signatureAlgo_;
-        if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          signatureAlgo_ = s;
-          return s;
-        } else {
-          return (java.lang.String) ref;
-        }
-      }
-      /**
-       * <code>string signature_algo = 3;</code>
-       * @return The bytes for signatureAlgo.
-       */
-      public com.google.protobuf.ByteString
-          getSignatureAlgoBytes() {
-        java.lang.Object ref = signatureAlgo_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          signatureAlgo_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-      /**
-       * <code>string signature_algo = 3;</code>
-       * @param value The signatureAlgo to set.
-       * @return This builder for chaining.
-       */
-      public Builder setSignatureAlgo(
-          java.lang.String value) {
-        if (value == null) { throw new NullPointerException(); }
-        signatureAlgo_ = value;
-        bitField0_ |= 0x00000004;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string signature_algo = 3;</code>
-       * @return This builder for chaining.
-       */
-      public Builder clearSignatureAlgo() {
-        signatureAlgo_ = getDefaultInstance().getSignatureAlgo();
-        bitField0_ = (bitField0_ & ~0x00000004);
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string signature_algo = 3;</code>
-       * @param value The bytes for signatureAlgo to set.
-       * @return This builder for chaining.
-       */
-      public Builder setSignatureAlgoBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) { throw new NullPointerException(); }
-        checkByteStringIsUtf8(value);
-        signatureAlgo_ = value;
-        bitField0_ |= 0x00000004;
-        onChanged();
-        return this;
-      }
-
-      private java.lang.Object signatureValue_ = "";
-      /**
-       * <code>string signature_value = 4;</code>
+       * <code>string signature_value = 3;</code>
        * @return The signatureValue.
        */
-      public java.lang.String getSignatureValue() {
-        java.lang.Object ref = signatureValue_;
-        if (!(ref instanceof java.lang.String)) {
+      public String getSignatureValue() {
+        Object ref = signatureValue_;
+        if (!(ref instanceof String)) {
           com.google.protobuf.ByteString bs =
               (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
+          String s = bs.toStringUtf8();
           signatureValue_ = s;
           return s;
         } else {
-          return (java.lang.String) ref;
+          return (String) ref;
         }
       }
       /**
-       * <code>string signature_value = 4;</code>
+       * <code>string signature_value = 3;</code>
        * @return The bytes for signatureValue.
        */
       public com.google.protobuf.ByteString
           getSignatureValueBytes() {
-        java.lang.Object ref = signatureValue_;
+        Object ref = signatureValue_;
         if (ref instanceof String) {
           com.google.protobuf.ByteString b = 
               com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
+                  (String) ref);
           signatureValue_ = b;
           return b;
         } else {
@@ -1258,30 +1118,30 @@ public final class OpCertificate {
         }
       }
       /**
-       * <code>string signature_value = 4;</code>
+       * <code>string signature_value = 3;</code>
        * @param value The signatureValue to set.
        * @return This builder for chaining.
        */
       public Builder setSignatureValue(
-          java.lang.String value) {
+          String value) {
         if (value == null) { throw new NullPointerException(); }
         signatureValue_ = value;
-        bitField0_ |= 0x00000008;
+        bitField0_ |= 0x00000004;
         onChanged();
         return this;
       }
       /**
-       * <code>string signature_value = 4;</code>
+       * <code>string signature_value = 3;</code>
        * @return This builder for chaining.
        */
       public Builder clearSignatureValue() {
         signatureValue_ = getDefaultInstance().getSignatureValue();
-        bitField0_ = (bitField0_ & ~0x00000008);
+        bitField0_ = (bitField0_ & ~0x00000004);
         onChanged();
         return this;
       }
       /**
-       * <code>string signature_value = 4;</code>
+       * <code>string signature_value = 3;</code>
        * @param value The bytes for signatureValue to set.
        * @return This builder for chaining.
        */
@@ -1290,39 +1150,39 @@ public final class OpCertificate {
         if (value == null) { throw new NullPointerException(); }
         checkByteStringIsUtf8(value);
         signatureValue_ = value;
-        bitField0_ |= 0x00000008;
+        bitField0_ |= 0x00000004;
         onChanged();
         return this;
       }
 
-      private java.lang.Object issuer_ = "";
+      private Object issuer_ = "";
       /**
-       * <code>string issuer = 5;</code>
+       * <code>string issuer = 4;</code>
        * @return The issuer.
        */
-      public java.lang.String getIssuer() {
-        java.lang.Object ref = issuer_;
-        if (!(ref instanceof java.lang.String)) {
+      public String getIssuer() {
+        Object ref = issuer_;
+        if (!(ref instanceof String)) {
           com.google.protobuf.ByteString bs =
               (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
+          String s = bs.toStringUtf8();
           issuer_ = s;
           return s;
         } else {
-          return (java.lang.String) ref;
+          return (String) ref;
         }
       }
       /**
-       * <code>string issuer = 5;</code>
+       * <code>string issuer = 4;</code>
        * @return The bytes for issuer.
        */
       public com.google.protobuf.ByteString
           getIssuerBytes() {
-        java.lang.Object ref = issuer_;
+        Object ref = issuer_;
         if (ref instanceof String) {
           com.google.protobuf.ByteString b = 
               com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
+                  (String) ref);
           issuer_ = b;
           return b;
         } else {
@@ -1330,30 +1190,30 @@ public final class OpCertificate {
         }
       }
       /**
-       * <code>string issuer = 5;</code>
+       * <code>string issuer = 4;</code>
        * @param value The issuer to set.
        * @return This builder for chaining.
        */
       public Builder setIssuer(
-          java.lang.String value) {
+          String value) {
         if (value == null) { throw new NullPointerException(); }
         issuer_ = value;
-        bitField0_ |= 0x00000010;
+        bitField0_ |= 0x00000008;
         onChanged();
         return this;
       }
       /**
-       * <code>string issuer = 5;</code>
+       * <code>string issuer = 4;</code>
        * @return This builder for chaining.
        */
       public Builder clearIssuer() {
         issuer_ = getDefaultInstance().getIssuer();
-        bitField0_ = (bitField0_ & ~0x00000010);
+        bitField0_ = (bitField0_ & ~0x00000008);
         onChanged();
         return this;
       }
       /**
-       * <code>string issuer = 5;</code>
+       * <code>string issuer = 4;</code>
        * @param value The bytes for issuer to set.
        * @return This builder for chaining.
        */
@@ -1362,71 +1222,71 @@ public final class OpCertificate {
         if (value == null) { throw new NullPointerException(); }
         checkByteStringIsUtf8(value);
         issuer_ = value;
-        bitField0_ |= 0x00000010;
+        bitField0_ |= 0x00000008;
         onChanged();
         return this;
       }
 
       private long validNotAfter_ ;
       /**
-       * <code>int64 valid_not_after = 6;</code>
+       * <code>int64 valid_not_after = 5;</code>
        * @return The validNotAfter.
        */
-      @java.lang.Override
+      @Override
       public long getValidNotAfter() {
         return validNotAfter_;
       }
       /**
-       * <code>int64 valid_not_after = 6;</code>
+       * <code>int64 valid_not_after = 5;</code>
        * @param value The validNotAfter to set.
        * @return This builder for chaining.
        */
       public Builder setValidNotAfter(long value) {
 
         validNotAfter_ = value;
-        bitField0_ |= 0x00000020;
+        bitField0_ |= 0x00000010;
         onChanged();
         return this;
       }
       /**
-       * <code>int64 valid_not_after = 6;</code>
+       * <code>int64 valid_not_after = 5;</code>
        * @return This builder for chaining.
        */
       public Builder clearValidNotAfter() {
-        bitField0_ = (bitField0_ & ~0x00000020);
+        bitField0_ = (bitField0_ & ~0x00000010);
         validNotAfter_ = 0L;
         onChanged();
         return this;
       }
 
-      private java.lang.Object holder_ = "";
+      private Object holder_ = "";
       /**
-       * <code>string holder = 7;</code>
+       * <code>string holder = 6;</code>
        * @return The holder.
        */
-      public java.lang.String getHolder() {
-        java.lang.Object ref = holder_;
-        if (!(ref instanceof java.lang.String)) {
+      public String getHolder() {
+        Object ref = holder_;
+        if (!(ref instanceof String)) {
           com.google.protobuf.ByteString bs =
               (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
+          String s = bs.toStringUtf8();
           holder_ = s;
           return s;
         } else {
-          return (java.lang.String) ref;
+          return (String) ref;
         }
       }
       /**
-       * <code>string holder = 7;</code>
+       * <code>string holder = 6;</code>
        * @return The bytes for holder.
        */
       public com.google.protobuf.ByteString
           getHolderBytes() {
-        java.lang.Object ref = holder_;
+        Object ref = holder_;
         if (ref instanceof String) {
           com.google.protobuf.ByteString b = 
               com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
+                  (String) ref);
           holder_ = b;
           return b;
         } else {
@@ -1434,30 +1294,30 @@ public final class OpCertificate {
         }
       }
       /**
-       * <code>string holder = 7;</code>
+       * <code>string holder = 6;</code>
        * @param value The holder to set.
        * @return This builder for chaining.
        */
       public Builder setHolder(
-          java.lang.String value) {
+          String value) {
         if (value == null) { throw new NullPointerException(); }
         holder_ = value;
-        bitField0_ |= 0x00000040;
+        bitField0_ |= 0x00000020;
         onChanged();
         return this;
       }
       /**
-       * <code>string holder = 7;</code>
+       * <code>string holder = 6;</code>
        * @return This builder for chaining.
        */
       public Builder clearHolder() {
         holder_ = getDefaultInstance().getHolder();
-        bitField0_ = (bitField0_ & ~0x00000040);
+        bitField0_ = (bitField0_ & ~0x00000020);
         onChanged();
         return this;
       }
       /**
-       * <code>string holder = 7;</code>
+       * <code>string holder = 6;</code>
        * @param value The bytes for holder to set.
        * @return This builder for chaining.
        */
@@ -1466,39 +1326,39 @@ public final class OpCertificate {
         if (value == null) { throw new NullPointerException(); }
         checkByteStringIsUtf8(value);
         holder_ = value;
-        bitField0_ |= 0x00000040;
+        bitField0_ |= 0x00000020;
         onChanged();
         return this;
       }
 
-      private java.lang.Object publicKey_ = "";
+      private Object publicKey_ = "";
       /**
-       * <code>string public_key = 8;</code>
+       * <code>string public_key = 7;</code>
        * @return The publicKey.
        */
-      public java.lang.String getPublicKey() {
-        java.lang.Object ref = publicKey_;
-        if (!(ref instanceof java.lang.String)) {
+      public String getPublicKey() {
+        Object ref = publicKey_;
+        if (!(ref instanceof String)) {
           com.google.protobuf.ByteString bs =
               (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
+          String s = bs.toStringUtf8();
           publicKey_ = s;
           return s;
         } else {
-          return (java.lang.String) ref;
+          return (String) ref;
         }
       }
       /**
-       * <code>string public_key = 8;</code>
+       * <code>string public_key = 7;</code>
        * @return The bytes for publicKey.
        */
       public com.google.protobuf.ByteString
           getPublicKeyBytes() {
-        java.lang.Object ref = publicKey_;
+        Object ref = publicKey_;
         if (ref instanceof String) {
           com.google.protobuf.ByteString b = 
               com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
+                  (String) ref);
           publicKey_ = b;
           return b;
         } else {
@@ -1506,30 +1366,30 @@ public final class OpCertificate {
         }
       }
       /**
-       * <code>string public_key = 8;</code>
+       * <code>string public_key = 7;</code>
        * @param value The publicKey to set.
        * @return This builder for chaining.
        */
       public Builder setPublicKey(
-          java.lang.String value) {
+          String value) {
         if (value == null) { throw new NullPointerException(); }
         publicKey_ = value;
-        bitField0_ |= 0x00000080;
+        bitField0_ |= 0x00000040;
         onChanged();
         return this;
       }
       /**
-       * <code>string public_key = 8;</code>
+       * <code>string public_key = 7;</code>
        * @return This builder for chaining.
        */
       public Builder clearPublicKey() {
         publicKey_ = getDefaultInstance().getPublicKey();
-        bitField0_ = (bitField0_ & ~0x00000080);
+        bitField0_ = (bitField0_ & ~0x00000040);
         onChanged();
         return this;
       }
       /**
-       * <code>string public_key = 8;</code>
+       * <code>string public_key = 7;</code>
        * @param value The bytes for publicKey to set.
        * @return This builder for chaining.
        */
@@ -1538,38 +1398,38 @@ public final class OpCertificate {
         if (value == null) { throw new NullPointerException(); }
         checkByteStringIsUtf8(value);
         publicKey_ = value;
-        bitField0_ |= 0x00000080;
+        bitField0_ |= 0x00000040;
         onChanged();
         return this;
       }
 
       private int historyHeight_ ;
       /**
-       * <code>int32 history_height = 9;</code>
+       * <code>int32 history_height = 8;</code>
        * @return The historyHeight.
        */
-      @java.lang.Override
+      @Override
       public int getHistoryHeight() {
         return historyHeight_;
       }
       /**
-       * <code>int32 history_height = 9;</code>
+       * <code>int32 history_height = 8;</code>
        * @param value The historyHeight to set.
        * @return This builder for chaining.
        */
       public Builder setHistoryHeight(int value) {
 
         historyHeight_ = value;
-        bitField0_ |= 0x00000100;
+        bitField0_ |= 0x00000080;
         onChanged();
         return this;
       }
       /**
-       * <code>int32 history_height = 9;</code>
+       * <code>int32 history_height = 8;</code>
        * @return This builder for chaining.
        */
       public Builder clearHistoryHeight() {
-        bitField0_ = (bitField0_ & ~0x00000100);
+        bitField0_ = (bitField0_ & ~0x00000080);
         historyHeight_ = 0;
         onChanged();
         return this;
@@ -1577,64 +1437,76 @@ public final class OpCertificate {
 
       private int blockPreHeight_ ;
       /**
-       * <code>int32 block_pre_height = 10;</code>
+       * <pre>
+       * op_type
+       * </pre>
+       *
+       * <code>int32 block_pre_height = 9;</code>
        * @return The blockPreHeight.
        */
-      @java.lang.Override
+      @Override
       public int getBlockPreHeight() {
         return blockPreHeight_;
       }
       /**
-       * <code>int32 block_pre_height = 10;</code>
+       * <pre>
+       * op_type
+       * </pre>
+       *
+       * <code>int32 block_pre_height = 9;</code>
        * @param value The blockPreHeight to set.
        * @return This builder for chaining.
        */
       public Builder setBlockPreHeight(int value) {
 
         blockPreHeight_ = value;
-        bitField0_ |= 0x00000200;
+        bitField0_ |= 0x00000100;
         onChanged();
         return this;
       }
       /**
-       * <code>int32 block_pre_height = 10;</code>
+       * <pre>
+       * op_type
+       * </pre>
+       *
+       * <code>int32 block_pre_height = 9;</code>
        * @return This builder for chaining.
        */
       public Builder clearBlockPreHeight() {
-        bitField0_ = (bitField0_ & ~0x00000200);
+        bitField0_ = (bitField0_ & ~0x00000100);
         blockPreHeight_ = 0;
         onChanged();
         return this;
       }
 
-      private java.lang.Object contractUrl_ = "";
+      private Object contractUrl_ = "";
       /**
-       * <code>string contract_url = 11;</code>
+       * <code>string contract_url = 10;</code>
        * @return The contractUrl.
        */
-      public java.lang.String getContractUrl() {
-        java.lang.Object ref = contractUrl_;
-        if (!(ref instanceof java.lang.String)) {
+      public String getContractUrl() {
+        Object ref = contractUrl_;
+        if (!(ref instanceof String)) {
           com.google.protobuf.ByteString bs =
               (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
+          String s = bs.toStringUtf8();
           contractUrl_ = s;
           return s;
         } else {
-          return (java.lang.String) ref;
+          return (String) ref;
         }
       }
       /**
-       * <code>string contract_url = 11;</code>
+       * <code>string contract_url = 10;</code>
        * @return The bytes for contractUrl.
        */
       public com.google.protobuf.ByteString
           getContractUrlBytes() {
-        java.lang.Object ref = contractUrl_;
+        Object ref = contractUrl_;
         if (ref instanceof String) {
           com.google.protobuf.ByteString b = 
               com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
+                  (String) ref);
           contractUrl_ = b;
           return b;
         } else {
@@ -1642,30 +1514,30 @@ public final class OpCertificate {
         }
       }
       /**
-       * <code>string contract_url = 11;</code>
+       * <code>string contract_url = 10;</code>
        * @param value The contractUrl to set.
        * @return This builder for chaining.
        */
       public Builder setContractUrl(
-          java.lang.String value) {
+          String value) {
         if (value == null) { throw new NullPointerException(); }
         contractUrl_ = value;
-        bitField0_ |= 0x00000400;
+        bitField0_ |= 0x00000200;
         onChanged();
         return this;
       }
       /**
-       * <code>string contract_url = 11;</code>
+       * <code>string contract_url = 10;</code>
        * @return This builder for chaining.
        */
       public Builder clearContractUrl() {
         contractUrl_ = getDefaultInstance().getContractUrl();
-        bitField0_ = (bitField0_ & ~0x00000400);
+        bitField0_ = (bitField0_ & ~0x00000200);
         onChanged();
         return this;
       }
       /**
-       * <code>string contract_url = 11;</code>
+       * <code>string contract_url = 10;</code>
        * @param value The bytes for contractUrl to set.
        * @return This builder for chaining.
        */
@@ -1674,17 +1546,17 @@ public final class OpCertificate {
         if (value == null) { throw new NullPointerException(); }
         checkByteStringIsUtf8(value);
         contractUrl_ = value;
-        bitField0_ |= 0x00000400;
+        bitField0_ |= 0x00000200;
         onChanged();
         return this;
       }
-      @java.lang.Override
+      @Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.setUnknownFields(unknownFields);
       }
 
-      @java.lang.Override
+      @Override
       public final Builder mergeUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.mergeUnknownFields(unknownFields);
@@ -1695,18 +1567,18 @@ public final class OpCertificate {
     }
 
     // @@protoc_insertion_point(class_scope:ProtoCertificate)
-    private static final OpCertificate.ProtoCertificate DEFAULT_INSTANCE;
+    private static final ProtoCertificate DEFAULT_INSTANCE;
     static {
-      DEFAULT_INSTANCE = new OpCertificate.ProtoCertificate();
+      DEFAULT_INSTANCE = new ProtoCertificate();
     }
 
-    public static OpCertificate.ProtoCertificate getDefaultInstance() {
+    public static ProtoCertificate getDefaultInstance() {
       return DEFAULT_INSTANCE;
     }
 
     private static final com.google.protobuf.Parser<ProtoCertificate>
         PARSER = new com.google.protobuf.AbstractParser<ProtoCertificate>() {
-      @java.lang.Override
+      @Override
       public ProtoCertificate parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -1730,13 +1602,13 @@ public final class OpCertificate {
       return PARSER;
     }
 
-    @java.lang.Override
+    @Override
     public com.google.protobuf.Parser<ProtoCertificate> getParserForType() {
       return PARSER;
     }
 
-    @java.lang.Override
-    public OpCertificate.ProtoCertificate getDefaultInstanceForType() {
+    @Override
+    public ProtoCertificate getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
@@ -1755,15 +1627,14 @@ public final class OpCertificate {
   private static  com.google.protobuf.Descriptors.FileDescriptor
       descriptor;
   static {
-    java.lang.String[] descriptorData = {
-      "\n\024op_certificate.proto\"\200\002\n\020ProtoCertific" +
+    String[] descriptorData = {
+      "\n\024op_certificate.proto\"\350\001\n\020ProtoCertific" +
       "ate\022\017\n\007version\030\001 \001(\t\022\025\n\rserial_number\030\002 " +
-      "\001(\005\022\026\n\016signature_algo\030\003 \001(\t\022\027\n\017signature" +
-      "_value\030\004 \001(\t\022\016\n\006issuer\030\005 \001(\t\022\027\n\017valid_no" +
-      "t_after\030\006 \001(\003\022\016\n\006holder\030\007 \001(\t\022\022\n\npublic_" +
-      "key\030\010 \001(\t\022\026\n\016history_height\030\t \001(\005\022\030\n\020blo" +
-      "ck_pre_height\030\n \001(\005\022\024\n\014contract_url\030\013 \001(" +
-      "\tb\006proto3"
+      "\001(\005\022\027\n\017signature_value\030\003 \001(\t\022\016\n\006issuer\030\004" +
+      " \001(\t\022\027\n\017valid_not_after\030\005 \001(\003\022\016\n\006holder\030" +
+      "\006 \001(\t\022\022\n\npublic_key\030\007 \001(\t\022\026\n\016history_hei" +
+      "ght\030\010 \001(\005\022\030\n\020block_pre_height\030\t \001(\005\022\024\n\014c" +
+      "ontract_url\030\n \001(\tb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -1774,7 +1645,7 @@ public final class OpCertificate {
     internal_static_ProtoCertificate_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_ProtoCertificate_descriptor,
-        new java.lang.String[] { "Version", "SerialNumber", "SignatureAlgo", "SignatureValue", "Issuer", "ValidNotAfter", "Holder", "PublicKey", "HistoryHeight", "BlockPreHeight", "ContractUrl", });
+        new String[] { "Version", "SerialNumber", "SignatureValue", "Issuer", "ValidNotAfter", "Holder", "PublicKey", "HistoryHeight", "BlockPreHeight", "ContractUrl", });
   }
 
   // @@protoc_insertion_point(outer_class_scope)
