@@ -16,29 +16,29 @@ import java.util.concurrent.atomic.AtomicInteger;
 @EqualsAndHashCode
 @AllArgsConstructor
 public class Certificate {
-    private String certificateVersion; // 版本
+    private String version; // 版本
     private int serialNumber; // x序列号
-    private String signatureValue; // sign value
-    private String certIssuerName; // 颁发者
+    private String signature; // sign value
+    private String issuerName; // 颁发者
     private Date invalidAfter; // 有效期
-    private String certHolderName; // 主体名称
+    private String holderName; // 主体名称
     private String publicKey;
-    private int lastBlockChainHeight;
-    private byte certificateOperationType;
-    private String smartContractUrl;
+    private int lastHeight;
+    private byte opType;
+    private String contractUrl;
 
     public Certificate(String version, int serialNumber, String issuer, Date validNotAfter, String holder,
                        String publicKey, int historyHeight, byte opType, String contractUrl, String sign) {
-        this.certificateVersion = version;
+        this.version = version;
         this.serialNumber = serialNumber;
-        this.certIssuerName = issuer;
+        this.issuerName = issuer;
         this.invalidAfter = validNotAfter;
-        this.certHolderName = holder;
+        this.holderName = holder;
         this.publicKey = publicKey;
-        this.lastBlockChainHeight = historyHeight;
-        this.certificateOperationType = opType;
-        this.smartContractUrl = contractUrl;
-        this.signatureValue = sign;
+        this.lastHeight = historyHeight;
+        this.opType = opType;
+        this.contractUrl = contractUrl;
+        this.signature = sign;
     }
 
     private static AtomicInteger atomicInteger = new AtomicInteger(0);
@@ -71,7 +71,7 @@ public class Certificate {
         byte[] certBytes = type.serializeCert(certificate);
         // 签名证书
         String sign = EncryptUtils.signCertificate(certBytes);
-        certificate.setSignatureValue(sign);
+        certificate.setSignature(sign);
         return certificate;
     }
 }

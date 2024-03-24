@@ -13,12 +13,12 @@ import java.util.Date;
 public class CertSerializer {
     public static byte[] serializeFlatCert(Certificate certificate) {
         FlatBufferBuilder builder = new FlatBufferBuilder();
-        int version = builder.createString(certificate.getCertificateVersion());
-        int signatureValue = builder.createString(certificate.getSignatureValue());
-        int issuer = builder.createString(certificate.getCertIssuerName());
-        int holder = builder.createString(certificate.getCertHolderName());
+        int version = builder.createString(certificate.getVersion());
+        int signatureValue = builder.createString(certificate.getSignature());
+        int issuer = builder.createString(certificate.getIssuerName());
+        int holder = builder.createString(certificate.getHolderName());
         int publicKey = builder.createString(certificate.getPublicKey());
-        int url = builder.createString(certificate.getSmartContractUrl());
+        int url = builder.createString(certificate.getContractUrl());
         int cert = FlatCertificate.createFlatCertificate(
                 builder,
                 version,
@@ -28,8 +28,8 @@ public class CertSerializer {
                 certificate.getInvalidAfter().getTime(),
                 holder,
                 publicKey,
-                certificate.getLastBlockChainHeight(),
-                certificate.getCertificateOperationType(),
+                certificate.getLastHeight(),
+                certificate.getOpType(),
                 url
         );
         builder.finish(cert);
@@ -60,16 +60,16 @@ public class CertSerializer {
     public static byte[] serializeOriginASN(OriginCertificate certificate) {
         try {
             ASN1EncodableVector v = new ASN1EncodableVector();
-            v.add(new DERUTF8String(certificate.getCertificateVersion()));
+            v.add(new DERUTF8String(certificate.getVersion()));
             v.add(new DERUTF8String(String.valueOf(certificate.getSerialNumber())));
-            v.add(new DERUTF8String(certificate.getCertIssuerName()));
+            v.add(new DERUTF8String(certificate.getIssuerName()));
             v.add(new DERUTF8String(String.valueOf(certificate.getInvalidAfter().getTime())));
-            v.add(new DERUTF8String(certificate.getCertHolderName()));
+            v.add(new DERUTF8String(certificate.getHolderName()));
             v.add(new DERUTF8String(certificate.getPublicKey()));
-            v.add(new DERUTF8String(String.valueOf(certificate.getLastBlockChainHeight())));
-            v.add(new DERUTF8String(String.valueOf(certificate.getCertificateOperationType())));
-            v.add(new DERUTF8String(certificate.getSmartContractUrl()));
-            v.add(new DERUTF8String(certificate.getSignatureValue()));
+            v.add(new DERUTF8String(String.valueOf(certificate.getLastHeight())));
+            v.add(new DERUTF8String(String.valueOf(certificate.getOpType())));
+            v.add(new DERUTF8String(certificate.getContractUrl()));
+            v.add(new DERUTF8String(certificate.getSignature()));
             v.add(new DERUTF8String(certificate.getSubjectId()));
             v.add(new DERUTF8String(certificate.getIssuerId()));
             v.add(new DERUTF8String(certificate.getSignatureAlgo()));
@@ -88,16 +88,16 @@ public class CertSerializer {
             ASN1Encodable[] asn1Array = DERSequence.getInstance(asn1Primitive).toArray();
 
             OriginCertificate certificate = new OriginCertificate();
-            certificate.setCertificateVersion(((DERUTF8String) asn1Array[0]).getString());
+            certificate.setVersion(((DERUTF8String) asn1Array[0]).getString());
             certificate.setSerialNumber((int) Long.parseLong(((DERUTF8String) asn1Array[1]).getString()));
-            certificate.setCertIssuerName(((DERUTF8String) asn1Array[2]).getString());
+            certificate.setIssuerName(((DERUTF8String) asn1Array[2]).getString());
             certificate.setInvalidAfter(new Date(Long.parseLong(((DERUTF8String) asn1Array[3]).getString())));
-            certificate.setCertHolderName(((DERUTF8String) asn1Array[4]).getString());
+            certificate.setHolderName(((DERUTF8String) asn1Array[4]).getString());
             certificate.setPublicKey(((DERUTF8String) asn1Array[5]).getString());
-            certificate.setLastBlockChainHeight(Integer.parseInt(((DERUTF8String) asn1Array[6]).getString()));
-            certificate.setCertificateOperationType((byte) Integer.parseInt(((DERUTF8String) asn1Array[7]).getString()));
-            certificate.setSmartContractUrl(((DERUTF8String) asn1Array[8]).getString());
-            certificate.setSignatureValue(((DERUTF8String) asn1Array[9]).getString());
+            certificate.setLastHeight(Integer.parseInt(((DERUTF8String) asn1Array[6]).getString()));
+            certificate.setOpType((byte) Integer.parseInt(((DERUTF8String) asn1Array[7]).getString()));
+            certificate.setContractUrl(((DERUTF8String) asn1Array[8]).getString());
+            certificate.setSignature(((DERUTF8String) asn1Array[9]).getString());
             certificate.setIssuerId(((DERUTF8String) asn1Array[10]).getString());
             certificate.setSignatureAlgo(((DERUTF8String) asn1Array[11]).getString());
             certificate.setSubjectId(((DERUTF8String) asn1Array[12]).getString());
@@ -110,16 +110,16 @@ public class CertSerializer {
     public static byte[] serializeASN(Certificate certificate) {
         try {
             ASN1EncodableVector v = new ASN1EncodableVector();
-            v.add(new DERUTF8String(certificate.getCertificateVersion()));
+            v.add(new DERUTF8String(certificate.getVersion()));
             v.add(new DERUTF8String(String.valueOf(certificate.getSerialNumber())));
-            v.add(new DERUTF8String(certificate.getCertIssuerName()));
+            v.add(new DERUTF8String(certificate.getIssuerName()));
             v.add(new DERUTF8String(String.valueOf(certificate.getInvalidAfter().getTime())));
-            v.add(new DERUTF8String(certificate.getCertHolderName()));
+            v.add(new DERUTF8String(certificate.getHolderName()));
             v.add(new DERUTF8String(certificate.getPublicKey()));
-            v.add(new DERUTF8String(String.valueOf(certificate.getLastBlockChainHeight())));
-            v.add(new DERUTF8String(String.valueOf(certificate.getCertificateOperationType())));
-            v.add(new DERUTF8String(certificate.getSmartContractUrl()));
-            v.add(new DERUTF8String(certificate.getSignatureValue()));
+            v.add(new DERUTF8String(String.valueOf(certificate.getLastHeight())));
+            v.add(new DERUTF8String(String.valueOf(certificate.getOpType())));
+            v.add(new DERUTF8String(certificate.getContractUrl()));
+            v.add(new DERUTF8String(certificate.getSignature()));
             DERSequence derSequence = new DERSequence(v);
             return Base64.getEncoder().encode(derSequence.getEncoded());
         } catch (Exception e) {
@@ -136,16 +136,16 @@ public class CertSerializer {
             ASN1Encodable[] asn1Array = DERSequence.getInstance(asn1Primitive).toArray();
 
             Certificate certificate = new Certificate();
-            certificate.setCertificateVersion(((DERUTF8String) asn1Array[0]).getString());
+            certificate.setVersion(((DERUTF8String) asn1Array[0]).getString());
             certificate.setSerialNumber((int) Long.parseLong(((DERUTF8String) asn1Array[1]).getString()));
-            certificate.setCertIssuerName(((DERUTF8String) asn1Array[2]).getString());
+            certificate.setIssuerName(((DERUTF8String) asn1Array[2]).getString());
             certificate.setInvalidAfter(new Date(Long.parseLong(((DERUTF8String) asn1Array[3]).getString())));
-            certificate.setCertHolderName(((DERUTF8String) asn1Array[4]).getString());
+            certificate.setHolderName(((DERUTF8String) asn1Array[4]).getString());
             certificate.setPublicKey(((DERUTF8String) asn1Array[5]).getString());
-            certificate.setLastBlockChainHeight(Integer.parseInt(((DERUTF8String) asn1Array[6]).getString()));
-            certificate.setCertificateOperationType((byte) Integer.parseInt(((DERUTF8String) asn1Array[7]).getString()));
-            certificate.setSmartContractUrl(((DERUTF8String) asn1Array[8]).getString());
-            certificate.setSignatureValue(((DERUTF8String) asn1Array[9]).getString());
+            certificate.setLastHeight(Integer.parseInt(((DERUTF8String) asn1Array[6]).getString()));
+            certificate.setOpType((byte) Integer.parseInt(((DERUTF8String) asn1Array[7]).getString()));
+            certificate.setContractUrl(((DERUTF8String) asn1Array[8]).getString());
+            certificate.setSignature(((DERUTF8String) asn1Array[9]).getString());
             return certificate;
         } catch (Exception e) {
             return null;
@@ -162,16 +162,16 @@ public class CertSerializer {
 
     public static byte[] serializeProtoCert(Certificate certificate) {
         OpCertificate.ProtoCertificate protoCertificate = OpCertificate.ProtoCertificate.newBuilder()
-                .setVersion(certificate.getCertificateVersion())
+                .setVersion(certificate.getVersion())
                 .setSerialNumber(certificate.getSerialNumber())
-                .setSignatureValue(certificate.getSignatureValue())
-                .setIssuer(certificate.getCertIssuerName())
+                .setSignatureValue(certificate.getSignature())
+                .setIssuer(certificate.getIssuerName())
                 .setValidNotAfter(certificate.getInvalidAfter().getTime())
-                .setHolder(certificate.getCertHolderName())
+                .setHolder(certificate.getHolderName())
                 .setPublicKey(certificate.getPublicKey())
-                .setHistoryHeight(certificate.getLastBlockChainHeight())
-                .setBlockPreHeight(certificate.getCertificateOperationType())
-                .setContractUrl(certificate.getSmartContractUrl())
+                .setHistoryHeight(certificate.getLastHeight())
+                .setBlockPreHeight(certificate.getOpType())
+                .setContractUrl(certificate.getContractUrl())
                 .build();
         return protoCertificate.toByteArray();
     }

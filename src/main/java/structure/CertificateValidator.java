@@ -1,7 +1,6 @@
 package structure;
 
 import bean.*;
-import com.google.protobuf.InvalidProtocolBufferException;
 import lombok.Getter;
 import lombok.extern.slf4j.Slf4j;
 import utils.RandomUtils;
@@ -42,8 +41,8 @@ public abstract class CertificateValidator {
                 return null;
             }
             Integer oldHeight = certHeight.get(oldHash);
-            certificate.setLastBlockChainHeight(oldHeight);
-            certificate.setCertificateOperationType(CertificateOpType.REVOKE.getCode());
+            certificate.setLastHeight(oldHeight);
+            certificate.setOpType(CertificateOpType.REVOKE.getCode());
 
             String newHash = hashingCertificate(certificate);
             invalidBloom.add(newHash);
